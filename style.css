@@ -1,0 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Lemonada&display=swap');
+
+body {
+    background-color: bisque;
+}
+.hello {
+    text-align: center;
+    margin: 50vh 0;
+    font-family: 'Lemonada', cursive;
+    text-transform: uppercase;
+    color: blue;
+}
