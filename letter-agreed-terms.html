@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nature's Beauty — Agreed Terms and Path Forward</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Cinzel:wght@400;600;700&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { margin: 0; background: #E8E2D9; font-family: 'EB Garamond', Georgia, serif; color: #1A1612; }
+
+  .toolbar {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+    background: #5A1414; color: #fff;
+    padding: 10px 32px;
+    display: flex; align-items: center; justify-content: space-between;
+    font-family: 'Cinzel', serif; font-size: 11.5px; letter-spacing: 0.08em;
+  }
+  .print-btn {
+    background: #B8960C; color: #1A1612; border: none; cursor: pointer;
+    padding: 8px 22px; font-family: 'Cinzel', serif; font-size: 10px;
+    font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
+  }
+  .print-btn:hover { background: #D4AA0E; }
+
+  .page-wrap { padding-top: 56px; min-height: 100vh; display: flex; flex-direction: column; align-items: center; gap: 32px; padding-bottom: 48px; }
+
+  .page {
+    background: #FDFAF5;
+    width: 8.27in;
+    min-height: 11.69in;
+    box-shadow: 0 8px 60px rgba(0,0,0,0.22);
+    display: flex; flex-direction: column;
+    position: relative;
+  }
+
+  /* ══ HEADER ══ */
+  .ltr-header { flex-shrink: 0; }
+
+  .hdr-accent-bar { height: 9px; background: linear-gradient(90deg, #8B2020 60%, #5C6B10 100%); }
+
+  .hdr-main {
+    padding: 24px 0.65in 0;
+    display: flex; align-items: flex-end; justify-content: space-between; gap: 20px;
+  }
+
+  .hdr-logo-block { display: flex; align-items: center; gap: 18px; }
+  .hdr-logo-img { height: 88px; width: auto; object-fit: contain; }
+
+  .hdr-vr { width: 1px; height: 72px; background: linear-gradient(to bottom, transparent, #8B2020 30%, #8B2020 70%, transparent); opacity: 0.35; }
+
+  .hdr-brand { display: flex; flex-direction: column; gap: 2px; }
+  .hdr-script {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 36px; font-weight: 700; font-style: italic;
+    color: #8B2020; line-height: 1; letter-spacing: -0.01em;
+  }
+  .hdr-caps {
+    font-family: 'Cinzel', serif; font-size: 13.5px; font-weight: 700;
+    color: #5C6B10; letter-spacing: 0.28em;
+  }
+  .hdr-division {
+    font-family: 'EB Garamond', serif; font-size: 10.5px;
+    color: #7A6A5A; letter-spacing: 0.06em; margin-top: 4px;
+    font-style: italic;
+  }
+
+  .hdr-rose { flex-shrink: 0; opacity: 0.88; align-self: flex-end; margin-bottom: 4px; }
+
+  .hdr-strip {
+    margin-top: 18px;
+    background: #5C6B10;
+    padding: 9px 0.65in;
+    display: flex; align-items: center; justify-content: flex-end; gap: 36px;
+  }
+  .strip-item {
+    display: flex; align-items: center; gap: 8px;
+    font-family: 'EB Garamond', serif; font-size: 13px;
+    color: #fff; opacity: 0.93; letter-spacing: 0.02em;
+  }
+  .strip-icon { width: 14px; height: 14px; fill: none; stroke: #fff; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; }
+
+  /* ══ BODY ══ */
+  .ltr-body { flex: 1; padding: 36px 0.65in 28px; }
+
+  .meta-row { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 28px; }
+  .date-block { font-size: 15px; color: #5A4A3A; }
+  .date-label { font-family: 'Cinzel', serif; font-size: 8.5px; letter-spacing: 0.16em; color: #8B2020; text-transform: uppercase; margin-bottom: 3px; }
+
+  .ref-block { text-align: right; }
+  .ref-label { font-family: 'Cinzel', serif; font-size: 8.5px; letter-spacing: 0.16em; color: #8B2020; text-transform: uppercase; margin-bottom: 3px; }
+  .ref-val { font-size: 14.5px; color: #5A4A3A; }
+
+  .recipient-block { margin-bottom: 24px; font-size: 15px; line-height: 1.65; color: #1A1612; }
+  .recipient-name { font-family: 'Cormorant Garamond', serif; font-size: 16.5px; font-weight: 600; margin-bottom: 2px; }
+
+  .subject-block {
+    margin: 24px 0;
+    padding: 12px 18px;
+    border-left: 3.5px solid #8B2020;
+    background: #F5EFE6;
+  }
+  .subject-label { font-family: 'Cinzel', serif; font-size: 8.5px; letter-spacing: 0.18em; color: #5C6B10; text-transform: uppercase; margin-bottom: 4px; }
+  .subject-text { font-family: 'Cormorant Garamond', serif; font-size: 17.5px; font-weight: 600; color: #1A1612; }
+
+  .salutation { font-size: 16px; margin-bottom: 18px; }
+
+  .ltr-para { font-size: 15.5px; line-height: 1.8; margin-bottom: 16px; color: #1A1612; text-wrap: pretty; }
+
+  .closing-block { margin-top: 32px; }
+  .closing-word { font-size: 16px; margin-bottom: 56px; }
+  .sig-rule { width: 160px; height: 1px; background: #8B2020; opacity: 0.35; margin-bottom: 10px; }
+  .sig-name { font-family: 'Cormorant Garamond', serif; font-size: 21px; font-weight: 700; font-style: italic; color: #8B2020; line-height: 1.1; margin-bottom: 2px; }
+  .sig-title { font-family: 'Cinzel', serif; font-size: 9px; letter-spacing: 0.15em; color: #7A6A5A; text-transform: uppercase; }
+  .sig-company { font-family: 'EB Garamond', serif; font-size: 13px; color: #5C6B10; margin-top: 3px; font-style: italic; }
+
+  /* ══ FOOTER ══ */
+  .ltr-footer { flex-shrink: 0; }
+
+  .footer-info {
+    padding: 0 0.65in 16px;
+    display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; flex-wrap: wrap;
+    border-top: 1px solid #DDD5C8;
+    padding-top: 14px;
+  }
+  .footer-col { display: flex; flex-direction: column; gap: 3px; }
+  .footer-col-label { font-family: 'Cinzel', serif; font-size: 7.5px; letter-spacing: 0.18em; color: #8B2020; text-transform: uppercase; margin-bottom: 2px; }
+  .footer-col-text { font-family: 'EB Garamond', serif; font-size: 12px; color: #7A6A5A; line-height: 1.6; max-width: 240px; }
+
+  .footer-bottom-bar { height: 7px; background: linear-gradient(90deg, #8B2020 60%, #5C6B10 100%); }
+
+  @page { size: A4; margin: 0; }
+  @media print {
+    html, body { background: #FDFAF5 !important; }
+    .toolbar { display: none !important; }
+    .page-wrap { padding: 0 !important; gap: 0 !important; }
+    .page { width: 100% !important; min-height: 100vh; box-shadow: none !important; }
+    html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Toolbar -->
+<div class="toolbar">
+  <span>JENYO AKARAKIRI GLOBAL ENTERPRISE &middot; Correspondence</span>
+  <button class="print-btn" onclick="window.print()">&#11015; Print / Save PDF</button>
+</div>
+
+<div class="page-wrap">
+<div class="page">
+
+  <!-- ══ HEADER ══ -->
+  <header class="ltr-header">
+    <div class="hdr-accent-bar"></div>
+
+    <div class="hdr-main">
+      <div class="hdr-logo-block">
+        <img class="hdr-logo-img" src="uploads/IMG_5717.jpeg" alt="Nature's Beauty" />
+        <div class="hdr-vr"></div>
+        <div class="hdr-brand">
+          <span class="hdr-script">Nature's Beauty</span>
+          <span class="hdr-caps">Beauty</span>
+          <span class="hdr-division">A Division of Jenyo Akarakiri Global Enterprise</span>
+        </div>
+      </div>
+
+      <!-- Decorative rose -->
+      <svg class="hdr-rose" width="58" height="96" viewBox="0 0 58 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M29 94 C28 78 30 65 29 50 C28 36 30 22 29 8" stroke="#4A5C0E" stroke-width="2.4" fill="none" stroke-linecap="round"/>
+        <path d="M29 64 Q16 60 14 48 Q22 52 29 64Z" fill="#5C6B10" opacity="0.85"/>
+        <path d="M29 54 Q42 50 44 38 Q36 44 29 54Z" fill="#5C6B10" opacity="0.85"/>
+        <ellipse cx="29" cy="16" rx="13" ry="12" fill="#8B2020"/>
+        <ellipse cx="29" cy="14" rx="9" ry="7" fill="#A02828"/>
+        <ellipse cx="24" cy="16" rx="7" ry="5" fill="#8B2020" transform="rotate(-20 24 16)"/>
+        <ellipse cx="34" cy="16" rx="7" ry="5" fill="#8B2020" transform="rotate(20 34 16)"/>
+        <ellipse cx="29" cy="12" rx="7" ry="5" fill="#B03030" transform="rotate(-5 29 12)"/>
+        <ellipse cx="29" cy="13" rx="4.5" ry="3.5" fill="#6B1818"/>
+        <ellipse cx="29" cy="12" rx="2.5" ry="2" fill="#5A1010"/>
+        <path d="M22 24 Q21 30 24 28 Q22 25 22 24Z" fill="#4A5C0E"/>
+        <path d="M36 24 Q37 30 34 28 Q36 25 36 24Z" fill="#4A5C0E"/>
+      </svg>
+    </div>
+
+    <!-- Contact strip -->
+    <div class="hdr-strip">
+      <span class="strip-item">
+        <svg class="strip-icon" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 11.5a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .84h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        08033528772
+      </span>
+      <span class="strip-item">
+        <svg class="strip-icon" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        RB2 Ondo State Industrial Park, Akure, Ondo State
+      </span>
+    </div>
+  </header>
+
+  <!-- ══ LETTER BODY ══ -->
+  <main class="ltr-body">
+
+    <!-- Date + Ref -->
+    <div class="meta-row">
+      <div class="date-block">
+        <div class="date-label">Date</div>
+        <div>29th June, 2026</div>
+      </div>
+      <div class="ref-block">
+        <div class="ref-label">Our Ref.</div>
+        <div class="ref-val">JAGE / &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; / 2026</div>
+      </div>
+    </div>
+
+    <!-- Recipient -->
+    <div class="recipient-block">
+      <div class="recipient-name">________________________</div>
+      <div>________________________</div>
+      <div>________________________</div>
+      <div>________________________</div>
+    </div>
+
+    <!-- Subject -->
+    <div class="subject-block">
+      <div class="subject-label">Subject</div>
+      <div class="subject-text">Agreed Terms and Path Forward &mdash; [Project Name / Site Location]</div>
+    </div>
+
+    <!-- Salutation -->
+    <p class="salutation">Dear Sir / Madam,</p>
+
+    <!-- Body paragraphs -->
+    <p class="ltr-para">
+      Thank you for the opportunity to quote for your project and for the engagement so far. Following our site visit, we reached an agreement at sixteen thousand naira (&#8358;16,000) per square metre, against which an advance of &#8358;2,000,000 was received. You have since reached out to revise that rate to fourteen thousand naira (&#8358;14,000) per square metre, on the basis of an alternative quotation from your quantity surveyor.
+    </p>
+
+    <p class="ltr-para">
+      We would like to propose a clear and fair way forward.
+    </p>
+
+    <p class="ltr-para">
+      First, before any further discussion of figures, we intend to refund the advance of &#8358;2,000,000 to you in full. We feel this is in the best interest of both parties. With a payment already sitting with us, we would prefer not to be in any position where it could appear that the company&rsquo;s interest is simply in holding onto funds. Returning the advance clears the air entirely and lets us approach the matter on a clean footing, with no financial obligation hanging over the conversation.
+    </p>
+
+    <p class="ltr-para">
+      Once the refund is settled, we would be glad to come back to the table and renegotiate the terms openly, so that whatever is agreed is something both sides are genuinely comfortable with.
+    </p>
+
+    <p class="ltr-para">
+      That said, we would be remiss not to raise one point honestly, in the spirit of a good working relationship. Having reached an initial agreement and then returned to renegotiate on the strength of an outside quotation does, candidly, raise a concern on our side. It is the kind of early signal that can point to friction further down the line, regardless of the terms eventually settled. We mention this not as a grievance, but because we believe an honest start is the best foundation for the work&mdash;and we would rather address it now than leave it unspoken.
+    </p>
+
+    <p class="ltr-para">
+      We value the prospect of working with you and look forward to your thoughts.
+    </p>
+
+    <!-- Closing -->
+    <div class="closing-block">
+      <p class="closing-word">Warm regards,</p>
+      <div class="sig-rule"></div>
+      <div class="sig-name">Jenyo Akarakiri</div>
+      <div class="sig-title">Director &amp; Founder</div>
+      <div class="sig-company">Nature&rsquo;s Beauty &middot; Jenyo Akarakiri Global Enterprise</div>
+    </div>
+
+  </main>
+
+  <!-- ══ FOOTER ══ -->
+  <footer class="ltr-footer">
+
+    <div class="footer-info">
+      <div class="footer-col">
+        <div class="footer-col-label">Registered Address</div>
+        <div class="footer-col-text">RB2 Ondo State Industrial Park,<br />Onyearugbulem Market, Akure,<br />Ondo State, Nigeria</div>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-label">Contact</div>
+        <div class="footer-col-text">Tel: 08033528772</div>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-label">Registration</div>
+        <div class="footer-col-text">Business Name Reg. No.<br /><strong style="color:#8B2020;font-family:'Cinzel',serif;font-size:11px;letter-spacing:0.08em;">8219636</strong></div>
+      </div>
+      <div class="footer-col" style="text-align:right;">
+        <div class="footer-col-label">Brand</div>
+        <div class="footer-col-text" style="font-style:italic;color:#8B2020;font-family:'Cormorant Garamond',serif;font-size:15px;font-weight:600;">Nature&rsquo;s Beauty</div>
+        <div class="footer-col-text" style="font-size:10px;letter-spacing:0.04em;">A Division of Jenyo Akarakiri Global Enterprise</div>
+      </div>
+    </div>
+
+    <div class="footer-bottom-bar"></div>
+  </footer>
+
+</div>
+</div>
+
+</body>
+</html>
