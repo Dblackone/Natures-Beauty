@@ -3,14 +3,482 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Natures's Beauty</title>
+    <title>Nature's Beauty — Pure, Natural, Radiant</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lemonada:wght@400;600;700&family=Nunito:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    
-    <h1 class="hello">
-        hello world
-    </h1>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <span class="logo-leaf">&#9752;</span> Nature's Beauty
+            </a>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#benefits">Why Us</a></li>
+                <li><a href="#testimonials">Reviews</a></li>
+                <li><a href="#contact" class="nav-cta">Shop Now</a></li>
+            </ul>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <p class="hero-eyebrow">100% Natural &amp; Organic</p>
+            <h1 class="hero-title">Beauty Born<br>From Nature</h1>
+            <p class="hero-subtitle">
+                Discover skincare crafted with the purest botanicals,
+                handpicked from nature's finest gardens — gentle on your skin,
+                kind to the earth.
+            </p>
+            <div class="hero-actions">
+                <a href="#products" class="btn btn-primary">Explore Products</a>
+                <a href="#about" class="btn btn-outline">Our Story</a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat">
+                    <span class="stat-number">100%</span>
+                    <span class="stat-label">Natural</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat">
+                    <span class="stat-number">50+</span>
+                    <span class="stat-label">Products</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat">
+                    <span class="stat-number">10K+</span>
+                    <span class="stat-label">Happy Customers</span>
+                </div>
+            </div>
+        </div>
+        <div class="hero-scroll-hint">
+            <span>Scroll to explore</span>
+            <div class="scroll-arrow"></div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-visual">
+                    <div class="about-img-main">
+                        <div class="about-img-placeholder main-img">
+                            <span class="img-icon">&#127807;</span>
+                        </div>
+                    </div>
+                    <div class="about-img-accent">
+                        <div class="about-img-placeholder accent-img">
+                            <span class="img-icon">&#127804;</span>
+                        </div>
+                    </div>
+                    <div class="about-badge">
+                        <span class="badge-icon">&#10003;</span>
+                        <span>Cruelty-Free &amp; Vegan</span>
+                    </div>
+                </div>
+                <div class="about-text">
+                    <p class="section-eyebrow">Our Story</p>
+                    <h2 class="section-title">Rooted in Nature,<br>Crafted with Care</h2>
+                    <p class="about-desc">
+                        Nature's Beauty was founded on a single belief: the earth already
+                        holds everything your skin needs. We harness the power of botanicals,
+                        essential oils, and plant-based actives to create formulas that work
+                        in harmony with your body.
+                    </p>
+                    <p class="about-desc">
+                        Every ingredient is ethically sourced, every product is dermatologist-tested,
+                        and our packaging is 100% recyclable. Because beauty shouldn't come at
+                        the cost of the planet we love.
+                    </p>
+                    <div class="about-pillars">
+                        <div class="pillar">
+                            <span class="pillar-icon">&#127807;</span>
+                            <span class="pillar-label">Organic</span>
+                        </div>
+                        <div class="pillar">
+                            <span class="pillar-icon">&#9752;</span>
+                            <span class="pillar-label">Sustainable</span>
+                        </div>
+                        <div class="pillar">
+                            <span class="pillar-icon">&#128149;</span>
+                            <span class="pillar-label">Cruelty-Free</span>
+                        </div>
+                        <div class="pillar">
+                            <span class="pillar-icon">&#127758;</span>
+                            <span class="pillar-label">Eco-Friendly</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products" id="products">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-eyebrow">Our Collection</p>
+                <h2 class="section-title">Pure Beauty, Naturally</h2>
+                <p class="section-subtitle">
+                    Every formula tells a story of nature's wisdom, bottled just for you.
+                </p>
+            </div>
+            <div class="products-grid">
+
+                <div class="product-card">
+                    <div class="product-img">
+                        <span class="product-icon">&#127808;</span>
+                        <span class="product-badge">Bestseller</span>
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">Face Care</span>
+                        <h3 class="product-name">Rose Glow Serum</h3>
+                        <p class="product-desc">Wild rose extract &amp; hyaluronic acid for luminous, hydrated skin.</p>
+                        <div class="product-footer">
+                            <span class="product-price">$38</span>
+                            <button class="btn-add">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-img green-bg">
+                        <span class="product-icon">&#127807;</span>
+                        <span class="product-badge new">New</span>
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">Face Care</span>
+                        <h3 class="product-name">Matcha Detox Mask</h3>
+                        <p class="product-desc">Ceremonial-grade matcha draws out impurities for deeply purified pores.</p>
+                        <div class="product-footer">
+                            <span class="product-price">$42</span>
+                            <button class="btn-add">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-img amber-bg">
+                        <span class="product-icon">&#127819;</span>
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">Body Care</span>
+                        <h3 class="product-name">Honey &amp; Oat Body Butter</h3>
+                        <p class="product-desc">Rich raw honey and colloidal oats melt into skin for all-day softness.</p>
+                        <div class="product-footer">
+                            <span class="product-price">$29</span>
+                            <button class="btn-add">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-img lavender-bg">
+                        <span class="product-icon">&#127826;</span>
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">Hair Care</span>
+                        <h3 class="product-name">Lavender Repair Oil</h3>
+                        <p class="product-desc">Lavender and argan oil restore shine and tame frizz without heaviness.</p>
+                        <div class="product-footer">
+                            <span class="product-price">$35</span>
+                            <button class="btn-add">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-img sage-bg">
+                        <span class="product-icon">&#127810;</span>
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">Face Care</span>
+                        <h3 class="product-name">Aloe Calm Moisturiser</h3>
+                        <p class="product-desc">Soothing aloe vera and chamomile calm redness and lock in moisture.</p>
+                        <div class="product-footer">
+                            <span class="product-price">$32</span>
+                            <button class="btn-add">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-img peach-bg">
+                        <span class="product-icon">&#127825;</span>
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">Body Care</span>
+                        <h3 class="product-name">Citrus Glow Scrub</h3>
+                        <p class="product-desc">Vitamin-C rich citrus peel exfoliates and brightens dull skin.</p>
+                        <div class="product-footer">
+                            <span class="product-price">$26</span>
+                            <button class="btn-add">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="products-cta">
+                <a href="#contact" class="btn btn-primary">View Full Collection</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits" id="benefits">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-eyebrow">Why Nature's Beauty</p>
+                <h2 class="section-title">The Difference is in the Details</h2>
+            </div>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">&#127807;</div>
+                    <h3>Certified Organic</h3>
+                    <p>Every ingredient meets rigorous organic certification standards — no synthetic pesticides, no GMOs, ever.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">&#9881;</div>
+                    <h3>Science-Backed</h3>
+                    <p>Formulated by cosmetic chemists and tested by dermatologists to ensure efficacy you can actually see.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">&#127758;</div>
+                    <h3>Zero Waste Packaging</h3>
+                    <p>100% recyclable or compostable packaging. Our commitment to beauty extends to protecting our planet.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">&#128149;</div>
+                    <h3>Cruelty-Free</h3>
+                    <p>Certified cruelty-free and fully vegan. We believe beauty should never cause suffering.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">&#127968;</div>
+                    <h3>Ethically Sourced</h3>
+                    <p>We partner with fair-trade cooperatives worldwide to ensure farmers are paid fairly and communities thrive.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">&#128205;</div>
+                    <h3>Free Shipping</h3>
+                    <p>Enjoy free shipping on all orders over $50. Fast, reliable delivery straight to your door.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-eyebrow">Customer Love</p>
+                <h2 class="section-title">What Our Community Says</h2>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <p class="testimonial-text">
+                        "The Rose Glow Serum completely transformed my skin. After just two weeks,
+                        friends started asking what I was doing differently. I'm obsessed!"
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">S</div>
+                        <div>
+                            <strong>Sarah M.</strong>
+                            <span>Verified Buyer</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card featured">
+                    <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <p class="testimonial-text">
+                        "I've tried so many 'natural' brands that just don't perform. Nature's Beauty
+                        is different — it actually works, smells incredible, and I feel good knowing
+                        it's genuinely clean. This is now my forever brand."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">J</div>
+                        <div>
+                            <strong>Jessica T.</strong>
+                            <span>Verified Buyer</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <p class="testimonial-text">
+                        "Switched to the Honey &amp; Oat Body Butter after my dermatologist suggested
+                        going fragrance-free. My eczema has calmed significantly. Can't recommend enough."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">A</div>
+                        <div>
+                            <strong>Amara K.</strong>
+                            <span>Verified Buyer</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter / Contact CTA -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="contact-inner">
+                <span class="contact-leaf">&#9752;</span>
+                <h2>Join the Nature's Beauty Family</h2>
+                <p>
+                    Subscribe for exclusive offers, skincare tips, and early access to new launches.
+                    Plus, get <strong>15% off</strong> your first order.
+                </p>
+                <form class="newsletter-form" id="newsletterForm">
+                    <input type="email" placeholder="Enter your email address" class="email-input" required>
+                    <button type="submit" class="btn btn-primary">Claim 15% Off</button>
+                </form>
+                <p class="form-note">No spam, ever. Unsubscribe anytime. &#9752;</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#" class="logo">
+                        <span class="logo-leaf">&#9752;</span> Nature's Beauty
+                    </a>
+                    <p>Harnessing the power of nature for radiant, healthy skin — ethically, sustainably, beautifully.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="Instagram">&#127757;</a>
+                        <a href="#" class="social-link" aria-label="Facebook">&#128100;</a>
+                        <a href="#" class="social-link" aria-label="Pinterest">&#128204;</a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Shop</h4>
+                    <ul>
+                        <li><a href="#">Face Care</a></li>
+                        <li><a href="#">Body Care</a></li>
+                        <li><a href="#">Hair Care</a></li>
+                        <li><a href="#">Gift Sets</a></li>
+                        <li><a href="#">Bestsellers</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Sustainability</a></li>
+                        <li><a href="#">Ingredients</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Press</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Shipping &amp; Returns</a></li>
+                        <li><a href="#">Track Order</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Nature's Beauty. All rights reserved.</p>
+                <p>Made with &#10084; for the earth</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            navbar.classList.toggle('scrolled', window.scrollY > 50);
+        });
+
+        // Mobile nav toggle
+        const navToggle = document.getElementById('navToggle');
+        const navLinks = document.querySelector('.nav-links');
+        navToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('open');
+            navToggle.classList.toggle('active');
+        });
+
+        // Close mobile nav on link click
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('open');
+                navToggle.classList.remove('active');
+            });
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    e.preventDefault();
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Add to cart feedback
+        document.querySelectorAll('.btn-add').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const original = this.textContent;
+                this.textContent = 'Added! ✓';
+                this.classList.add('added');
+                setTimeout(() => {
+                    this.textContent = original;
+                    this.classList.remove('added');
+                }, 1800);
+            });
+        });
+
+        // Newsletter form
+        document.getElementById('newsletterForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const btn = this.querySelector('button');
+            const input = this.querySelector('input');
+            btn.textContent = 'You\'re In! ✓';
+            btn.style.background = '#4a7c59';
+            input.value = '';
+            setTimeout(() => {
+                btn.textContent = 'Claim 15% Off';
+                btn.style.background = '';
+            }, 3000);
+        });
+
+        // Scroll reveal animation
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.product-card, .benefit-card, .testimonial-card, .about-grid, .pillar').forEach(el => {
+            el.classList.add('reveal');
+            observer.observe(el);
+        });
+    </script>
 
 </body>
 </html>
