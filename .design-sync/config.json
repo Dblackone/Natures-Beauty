@@ -1,0 +1,8 @@
+{
+  "projectId": "816494b1-5551-4041-b908-51c2b852af3c",
+  "pkg": "@natures-beauty/ui",
+  "shape": "package",
+  "buildCmd": "npm run build",
+  "cssEntry": "dist/ds-entry.css",
+  "runtimeFontPrefixes": ["Lemonada", "Nunito"]
+}
