@@ -1,0 +1,1776 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NBC Design System — Nature's Beauty Construction</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lemonada:wght@400;600;700&family=Nunito:wght@300;400;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="tokens.css">
+    <style>
+
+/* =========================================================
+   DESIGN SYSTEM PAGE LAYOUT
+   ========================================================= */
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: var(--font-body);
+    background: var(--color-surface-raised);
+    color: var(--color-text-primary);
+    line-height: var(--leading-relaxed);
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    grid-template-rows: auto 1fr;
+    min-height: 100vh;
+}
+
+/* =========================================================
+   TOP BAR
+   ========================================================= */
+.top-bar {
+    grid-column: 1 / -1;
+    background: var(--brown-900);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 var(--space-6);
+    height: 60px;
+    position: sticky;
+    top: 0;
+    z-index: var(--z-sticky);
+    box-shadow: 0 2px 12px rgba(0,0,0,0.3);
+}
+
+.top-bar-brand {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+}
+
+.ds-logo {
+    width: 36px;
+    height: 36px;
+    background: var(--gold-500);
+    color: var(--brown-900);
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-display);
+    font-weight: var(--weight-bold);
+    font-size: var(--text-sm);
+}
+
+.top-bar-title {
+    color: var(--color-text-inverse);
+    font-family: var(--font-display);
+    font-size: var(--text-base);
+    font-weight: var(--weight-bold);
+}
+.top-bar-title span {
+    font-family: var(--font-body);
+    font-size: var(--text-xs);
+    color: rgba(255,255,255,0.45);
+    font-weight: var(--weight-regular);
+    margin-left: var(--space-2);
+}
+
+.top-bar-meta {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+}
+
+.version-badge {
+    background: rgba(201,145,42,0.15);
+    border: 1px solid rgba(201,145,42,0.30);
+    color: var(--gold-400);
+    font-size: var(--text-2xs);
+    font-weight: var(--weight-bold);
+    letter-spacing: var(--tracking-wide);
+    padding: 3px 10px;
+    border-radius: var(--radius-full);
+    text-transform: uppercase;
+}
+
+.top-bar-link {
+    font-size: var(--text-xs);
+    color: rgba(255,255,255,0.55);
+    text-decoration: none;
+    transition: color var(--transition-base);
+}
+.top-bar-link:hover { color: var(--gold-400); }
+
+/* =========================================================
+   SIDEBAR
+   ========================================================= */
+.sidebar {
+    background: var(--color-surface);
+    border-right: 1px solid var(--color-border);
+    position: sticky;
+    top: 60px;
+    height: calc(100vh - 60px);
+    overflow-y: auto;
+    padding: var(--space-6) 0 var(--space-8);
+    scrollbar-width: thin;
+    scrollbar-color: var(--brown-200) transparent;
+}
+
+.sidebar-section { margin-bottom: var(--space-5); }
+
+.sidebar-group {
+    padding: var(--space-3) var(--space-5) var(--space-1);
+    font-size: var(--text-2xs);
+    font-weight: var(--weight-bold);
+    color: var(--color-text-tertiary);
+    letter-spacing: var(--tracking-widest);
+    text-transform: uppercase;
+}
+
+.sidebar a {
+    display: block;
+    padding: var(--space-1-5) var(--space-5);
+    font-size: var(--text-sm);
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    border-left: 3px solid transparent;
+    transition: all var(--transition-fast);
+    line-height: var(--leading-snug);
+}
+.sidebar a:hover {
+    color: var(--color-text-primary);
+    background: var(--color-surface-raised);
+    border-left-color: var(--gold-300);
+}
+.sidebar a.active {
+    color: var(--gold-600);
+    background: var(--gold-100);
+    border-left-color: var(--gold-500);
+    font-weight: var(--weight-semibold);
+}
+
+/* =========================================================
+   MAIN CONTENT
+   ========================================================= */
+.content {
+    padding: var(--space-10) var(--space-12) var(--space-32);
+    max-width: 900px;
+}
+
+.ds-section {
+    margin-bottom: var(--space-32);
+    scroll-margin-top: 80px;
+}
+
+.ds-section-title {
+    font-family: var(--font-display);
+    font-size: var(--text-3xl);
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-2);
+    padding-bottom: var(--space-4);
+    border-bottom: 2px solid var(--color-border);
+}
+
+.ds-section-intro {
+    font-size: var(--text-base);
+    color: var(--color-text-secondary);
+    max-width: 600px;
+    margin-bottom: var(--space-8);
+    line-height: var(--leading-relaxed);
+}
+
+.ds-subsection { margin-bottom: var(--space-10); }
+.ds-subsection-title {
+    font-family: var(--font-display);
+    font-size: var(--text-xl);
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-2);
+}
+.ds-subsection-desc {
+    font-size: var(--text-sm);
+    color: var(--color-text-tertiary);
+    margin-bottom: var(--space-5);
+}
+
+/* =========================================================
+   INTRO / WELCOME
+   ========================================================= */
+.welcome-hero {
+    background: var(--brown-900);
+    border-radius: var(--radius-xl);
+    padding: var(--space-12) var(--space-10);
+    margin-bottom: var(--space-10);
+    position: relative;
+    overflow: hidden;
+}
+.welcome-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 80% 20%, rgba(201,145,42,0.12) 0%, transparent 60%);
+}
+.welcome-hero h1 {
+    font-family: var(--font-display);
+    font-size: var(--text-4xl);
+    color: var(--color-text-inverse);
+    margin-bottom: var(--space-3);
+    position: relative;
+}
+.welcome-hero p {
+    font-size: var(--text-base);
+    color: rgba(255,255,255,0.65);
+    max-width: 500px;
+    position: relative;
+}
+.welcome-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-4);
+    margin-top: var(--space-8);
+    position: relative;
+}
+.welcome-stat {
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.10);
+    border-radius: var(--radius-lg);
+    padding: var(--space-5) var(--space-6);
+}
+.welcome-stat-val {
+    font-family: var(--font-display);
+    font-size: var(--text-2xl);
+    color: var(--gold-400);
+    display: block;
+    margin-bottom: var(--space-1);
+}
+.welcome-stat-label {
+    font-size: var(--text-xs);
+    color: rgba(255,255,255,0.5);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wider);
+}
+
+/* Pill tag */
+.pill {
+    display: inline-block;
+    background: rgba(201,145,42,0.12);
+    border: 1px solid rgba(201,145,42,0.25);
+    color: var(--gold-600);
+    font-size: var(--text-2xs);
+    font-weight: var(--weight-bold);
+    letter-spacing: var(--tracking-wide);
+    padding: 3px 10px;
+    border-radius: var(--radius-full);
+    text-transform: uppercase;
+    margin-bottom: var(--space-4);
+    display: inline-flex;
+}
+
+/* Code snippet */
+.code-block {
+    background: var(--brown-900);
+    color: #e2d9c5;
+    border-radius: var(--radius-md);
+    padding: var(--space-4) var(--space-5);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: var(--text-xs);
+    overflow-x: auto;
+    margin: var(--space-4) 0;
+    line-height: var(--leading-loose);
+}
+.code-block .comment { color: #7a6f60; }
+.code-block .prop    { color: var(--gold-400); }
+.code-block .value   { color: var(--green-300); }
+.code-block .string  { color: #c8a97a; }
+
+/* Canvas (preview area) */
+.canvas {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-8) var(--space-8);
+    margin-bottom: var(--space-3);
+}
+.canvas.dark {
+    background: var(--brown-900);
+    border-color: transparent;
+}
+.canvas.checkered {
+    background-image:
+        linear-gradient(45deg, var(--brown-200) 25%, transparent 25%),
+        linear-gradient(-45deg, var(--brown-200) 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, var(--brown-200) 75%),
+        linear-gradient(-45deg, transparent 75%, var(--brown-200) 75%);
+    background-size: 16px 16px;
+    background-position: 0 0, 0 8px, 8px -8px, -8px 0;
+    background-color: var(--color-surface);
+}
+
+/* =========================================================
+   COLORS
+   ========================================================= */
+.palette-group {
+    margin-bottom: var(--space-8);
+}
+.palette-group-name {
+    font-size: var(--text-xs);
+    font-weight: var(--weight-bold);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-widest);
+    color: var(--color-text-tertiary);
+    margin-bottom: var(--space-3);
+}
+
+.palette-row {
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+}
+
+.swatch {
+    padding: var(--space-8) var(--space-2) var(--space-3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-1-5);
+    transition: transform var(--transition-fast);
+}
+.swatch:hover { transform: scaleY(1.04); z-index: 1; }
+.swatch-label {
+    font-size: 9px;
+    font-weight: var(--weight-bold);
+    letter-spacing: 0.04em;
+    text-align: center;
+}
+.swatch-hex {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    opacity: 0.7;
+    text-align: center;
+}
+
+/* Gold swatches */
+.sw-g100 { background: #fdf6e3; } .sw-g100 .swatch-label, .sw-g100 .swatch-hex { color: #4a2c08; }
+.sw-g200 { background: #f9e8ad; } .sw-g200 .swatch-label, .sw-g200 .swatch-hex { color: #4a2c08; }
+.sw-g300 { background: #f2d278; } .sw-g300 .swatch-label, .sw-g300 .swatch-hex { color: #4a2c08; }
+.sw-g400 { background: #e8b96a; } .sw-g400 .swatch-label, .sw-g400 .swatch-hex { color: #4a2c08; }
+.sw-g500 { background: #c9912a; } .sw-g500 .swatch-label, .sw-g500 .swatch-hex { color: #fff; }
+.sw-g600 { background: #a87020; } .sw-g600 .swatch-label, .sw-g600 .swatch-hex { color: #fff; }
+.sw-g700 { background: #8b5a16; } .sw-g700 .swatch-label, .sw-g700 .swatch-hex { color: #fff; }
+.sw-g800 { background: #6e440f; } .sw-g800 .swatch-label, .sw-g800 .swatch-hex { color: #fff; }
+.sw-g900 { background: #4a2c08; } .sw-g900 .swatch-label, .sw-g900 .swatch-hex { color: #fff; }
+
+/* Green swatches */
+.sw-gr100 { background: #e8f2ec; } .sw-gr100 .swatch-label, .sw-gr100 .swatch-hex { color: #0e2016; }
+.sw-gr200 { background: #c0dcca; } .sw-gr200 .swatch-label, .sw-gr200 .swatch-hex { color: #0e2016; }
+.sw-gr300 { background: #90c4a8; } .sw-gr300 .swatch-label, .sw-gr300 .swatch-hex { color: #0e2016; }
+.sw-gr400 { background: #7aab8a; } .sw-gr400 .swatch-label, .sw-gr400 .swatch-hex { color: #0e2016; }
+.sw-gr500 { background: #4a7c5a; } .sw-gr500 .swatch-label, .sw-gr500 .swatch-hex { color: #fff; }
+.sw-gr600 { background: #2d5c40; } .sw-gr600 .swatch-label, .sw-gr600 .swatch-hex { color: #fff; }
+.sw-gr700 { background: #1e3d2c; } .sw-gr700 .swatch-label, .sw-gr700 .swatch-hex { color: #fff; }
+.sw-gr800 { background: #163020; } .sw-gr800 .swatch-label, .sw-gr800 .swatch-hex { color: #fff; }
+.sw-gr900 { background: #0e2016; } .sw-gr900 .swatch-label, .sw-gr900 .swatch-hex { color: #fff; }
+
+/* Brown swatches */
+.sw-br100 { background: #faf7f0; } .sw-br100 .swatch-label, .sw-br100 .swatch-hex { color: #1a1208; }
+.sw-br200 { background: #f0e8d8; } .sw-br200 .swatch-label, .sw-br200 .swatch-hex { color: #1a1208; }
+.sw-br300 { background: #dfd0b4; } .sw-br300 .swatch-label, .sw-br300 .swatch-hex { color: #1a1208; }
+.sw-br400 { background: #c9a96e; } .sw-br400 .swatch-label, .sw-br400 .swatch-hex { color: #1a1208; }
+.sw-br500 { background: #8b5e2e; } .sw-br500 .swatch-label, .sw-br500 .swatch-hex { color: #fff; }
+.sw-br600 { background: #5c3d1e; } .sw-br600 .swatch-label, .sw-br600 .swatch-hex { color: #fff; }
+.sw-br700 { background: #3d2810; } .sw-br700 .swatch-label, .sw-br700 .swatch-hex { color: #fff; }
+.sw-br800 { background: #2c1f0e; } .sw-br800 .swatch-label, .sw-br800 .swatch-hex { color: #fff; }
+.sw-br900 { background: #1a1208; } .sw-br900 .swatch-label, .sw-br900 .swatch-hex { color: #fff; }
+
+/* Semantic colors */
+.semantic-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-3);
+}
+.semantic-swatch {
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    border: 1px solid var(--color-border);
+}
+.semantic-color {
+    height: 60px;
+}
+.semantic-info {
+    padding: var(--space-2) var(--space-3);
+    background: var(--color-surface);
+}
+.semantic-name {
+    font-size: var(--text-xs);
+    font-weight: var(--weight-bold);
+    color: var(--color-text-primary);
+    display: block;
+}
+.semantic-token {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    color: var(--color-text-tertiary);
+    display: block;
+    margin-top: 2px;
+}
+
+/* Status colors */
+.status-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-3);
+}
+.status-card {
+    padding: var(--space-4);
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+}
+.status-card .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+.status-card .status-name { font-size: var(--text-sm); font-weight: var(--weight-semibold); }
+.status-card .status-hex  { font-family: 'JetBrains Mono', monospace; font-size: 10px; }
+
+/* =========================================================
+   TYPOGRAPHY
+   ========================================================= */
+.type-specimen-group { margin-bottom: var(--space-8); }
+.type-row {
+    display: flex;
+    align-items: baseline;
+    gap: var(--space-6);
+    padding: var(--space-4) 0;
+    border-bottom: 1px solid var(--color-border);
+}
+.type-row:last-child { border-bottom: none; }
+.type-meta {
+    width: 120px;
+    flex-shrink: 0;
+}
+.type-meta-size {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: var(--text-xs);
+    color: var(--gold-600);
+    display: block;
+}
+.type-meta-label {
+    font-size: 10px;
+    color: var(--color-text-tertiary);
+    display: block;
+    margin-top: 2px;
+}
+.type-specimen {
+    flex: 1;
+    font-family: var(--font-body);
+    color: var(--color-text-primary);
+    line-height: var(--leading-snug);
+}
+.type-specimen.display { font-family: var(--font-display); }
+
+.font-card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-6) var(--space-7);
+    margin-bottom: var(--space-4);
+}
+.font-name   { font-size: var(--text-sm); font-weight: var(--weight-bold); color: var(--color-text-secondary); }
+.font-role   { font-size: var(--text-2xs); color: var(--color-text-tertiary); text-transform: uppercase; letter-spacing: var(--tracking-wider); }
+.font-sample { margin-top: var(--space-3); }
+
+/* =========================================================
+   SPACING
+   ========================================================= */
+.spacing-row {
+    display: flex;
+    align-items: center;
+    gap: var(--space-5);
+    padding: var(--space-2) 0;
+    border-bottom: 1px solid var(--color-border);
+}
+.spacing-bar-wrap { flex: 1; }
+.spacing-bar {
+    background: linear-gradient(135deg, var(--gold-500), var(--gold-400));
+    height: 12px;
+    border-radius: var(--radius-sm);
+}
+.spacing-token {
+    width: 100px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: var(--text-xs);
+    color: var(--gold-600);
+    flex-shrink: 0;
+}
+.spacing-value {
+    width: 48px;
+    font-size: var(--text-xs);
+    color: var(--color-text-tertiary);
+    flex-shrink: 0;
+    text-align: right;
+}
+
+/* =========================================================
+   SHADOWS
+   ========================================================= */
+.shadow-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-6);
+}
+.shadow-card {
+    background: var(--color-surface);
+    border-radius: var(--radius-lg);
+    padding: var(--space-7) var(--space-6);
+    text-align: center;
+}
+.shadow-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: var(--text-xs);
+    color: var(--gold-600);
+    display: block;
+    margin-top: var(--space-4);
+    margin-bottom: 2px;
+}
+.shadow-desc { font-size: var(--text-xs); color: var(--color-text-tertiary); }
+
+/* =========================================================
+   BORDER RADIUS
+   ========================================================= */
+.radius-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-5);
+}
+.radius-demo {
+    text-align: center;
+}
+.radius-box {
+    background: linear-gradient(135deg, var(--green-200), var(--green-100));
+    border: 2px solid var(--green-300);
+    width: 80px;
+    height: 80px;
+    margin: 0 auto var(--space-3);
+}
+.radius-token {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: var(--text-xs);
+    color: var(--gold-600);
+    display: block;
+}
+.radius-val { font-size: var(--text-xs); color: var(--color-text-tertiary); }
+
+/* =========================================================
+   COMPONENTS
+   ========================================================= */
+
+/* --- Buttons --- */
+.btn-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-4);
+    margin-bottom: var(--space-4);
+}
+
+/* NBC Button System */
+.nbc-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    padding: 13px var(--space-8);
+    border-radius: var(--radius-sm);
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    font-weight: var(--weight-bold);
+    cursor: pointer;
+    border: 2px solid transparent;
+    letter-spacing: 0.02em;
+    transition: all var(--transition-base);
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+/* Primary */
+.nbc-btn-primary {
+    background: var(--gold-500);
+    color: var(--brown-900);
+    border-color: var(--gold-500);
+}
+.nbc-btn-primary:hover {
+    background: var(--gold-400);
+    border-color: var(--gold-400);
+    box-shadow: var(--shadow-gold);
+    transform: translateY(-2px);
+}
+.nbc-btn-primary:active { background: var(--gold-600); border-color: var(--gold-600); transform: none; }
+.nbc-btn-primary:disabled { background: var(--gold-200); border-color: var(--gold-200); color: var(--gold-500); cursor: not-allowed; transform: none; box-shadow: none; }
+
+/* Secondary */
+.nbc-btn-secondary {
+    background: var(--green-600);
+    color: #ffffff;
+    border-color: var(--green-600);
+}
+.nbc-btn-secondary:hover {
+    background: var(--green-500);
+    border-color: var(--green-500);
+    box-shadow: var(--shadow-green);
+    transform: translateY(-2px);
+}
+
+/* Outline */
+.nbc-btn-outline {
+    background: transparent;
+    color: var(--gold-600);
+    border-color: var(--gold-500);
+}
+.nbc-btn-outline:hover {
+    background: var(--gold-100);
+    transform: translateY(-2px);
+}
+
+/* Ghost */
+.nbc-btn-ghost {
+    background: transparent;
+    color: var(--color-text-secondary);
+    border-color: transparent;
+}
+.nbc-btn-ghost:hover {
+    background: var(--color-surface-sunken);
+    color: var(--color-text-primary);
+}
+
+/* Danger */
+.nbc-btn-danger {
+    background: var(--color-error);
+    color: #ffffff;
+    border-color: var(--color-error);
+}
+.nbc-btn-danger:hover { background: #b71c1c; border-color: #b71c1c; transform: translateY(-2px); }
+
+/* Sizes */
+.nbc-btn-sm  { padding: 8px 18px; font-size: var(--text-xs); }
+.nbc-btn-lg  { padding: 16px 40px; font-size: var(--text-base); }
+.nbc-btn-xl  { padding: 18px 48px; font-size: var(--text-lg); }
+.nbc-btn-icon-only { padding: 12px; width: 44px; height: 44px; justify-content: center; }
+
+/* --- Badges / Tags --- */
+.badge-row { display: flex; flex-wrap: wrap; gap: var(--space-3); margin-bottom: var(--space-4); }
+
+.nbc-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-1);
+    padding: 3px 10px;
+    border-radius: var(--radius-full);
+    font-size: var(--text-2xs);
+    font-weight: var(--weight-bold);
+    letter-spacing: var(--tracking-wide);
+    text-transform: uppercase;
+}
+.nbc-badge-gold     { background: var(--gold-100);   color: var(--gold-700);   border: 1px solid var(--gold-200); }
+.nbc-badge-green    { background: var(--green-100);  color: var(--green-700);  border: 1px solid var(--green-200); }
+.nbc-badge-brown    { background: var(--brown-200);  color: var(--brown-700);  border: 1px solid var(--brown-300); }
+.nbc-badge-dark     { background: var(--brown-900);  color: var(--gold-400);   border: 1px solid rgba(255,255,255,0.1); }
+.nbc-badge-success  { background: var(--color-success-subtle); color: var(--color-success); border: 1px solid #c8e6c9; }
+.nbc-badge-warning  { background: var(--color-warning-subtle); color: #92400e;  border: 1px solid #fde68a; }
+.nbc-badge-error    { background: var(--color-error-subtle);   color: var(--color-error);   border: 1px solid #ffcdd2; }
+.nbc-badge-info     { background: var(--color-info-subtle);    color: var(--color-info);    border: 1px solid #b3e5fc; }
+
+/* --- Cards --- */
+.nbc-card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    transition: all var(--transition-base);
+    box-shadow: var(--shadow-md);
+}
+.nbc-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-xl); }
+
+.nbc-card-img {
+    height: 160px;
+    background: linear-gradient(135deg, var(--green-700), var(--green-600));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+}
+
+.nbc-card-body { padding: var(--space-5) var(--space-6); }
+.nbc-card-tag {
+    font-size: var(--text-2xs);
+    font-weight: var(--weight-bold);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-widest);
+    color: var(--gold-600);
+    display: block;
+    margin-bottom: var(--space-1);
+}
+.nbc-card-title { font-family: var(--font-display); font-size: var(--text-lg); margin-bottom: var(--space-2); color: var(--color-text-primary); }
+.nbc-card-desc  { font-size: var(--text-sm); color: var(--color-text-secondary); line-height: var(--leading-relaxed); }
+.nbc-card-footer {
+    padding: var(--space-4) var(--space-6);
+    border-top: 1px solid var(--color-border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Stat card */
+.nbc-stat-card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-6) var(--space-7);
+    box-shadow: var(--shadow-sm);
+}
+.nbc-stat-number {
+    font-family: var(--font-display);
+    font-size: var(--text-4xl);
+    font-weight: var(--weight-bold);
+    color: var(--gold-500);
+    line-height: 1;
+    display: block;
+    margin-bottom: var(--space-1);
+}
+.nbc-stat-label { font-size: var(--text-sm); color: var(--color-text-tertiary); font-weight: var(--weight-semibold); }
+.nbc-stat-change { font-size: var(--text-xs); color: var(--color-success); font-weight: var(--weight-semibold); margin-top: var(--space-2); display: block; }
+
+/* Testimonial card */
+.nbc-testimonial {
+    background: var(--color-surface);
+    border-radius: var(--radius-xl);
+    padding: var(--space-8) var(--space-7);
+    box-shadow: var(--shadow-md);
+    position: relative;
+}
+.nbc-testimonial-quote {
+    font-size: 3rem;
+    line-height: 1;
+    color: var(--gold-500);
+    opacity: 0.35;
+    font-family: Georgia, serif;
+    margin-bottom: var(--space-2);
+}
+.nbc-testimonial-text { font-style: italic; color: var(--color-text-secondary); font-size: var(--text-sm); line-height: var(--leading-loose); margin-bottom: var(--space-5); }
+.nbc-testimonial-author { display: flex; align-items: center; gap: var(--space-3); }
+.nbc-avatar { width: 40px; height: 40px; border-radius: var(--radius-full); background: var(--brown-200); color: var(--brown-600); display: flex; align-items: center; justify-content: center; font-weight: var(--weight-bold); font-size: var(--text-sm); flex-shrink: 0; }
+.nbc-avatar-sm { width: 30px; height: 30px; font-size: var(--text-xs); }
+.nbc-avatar-lg { width: 56px; height: 56px; font-size: var(--text-lg); }
+.nbc-avatar-dark { background: var(--green-700); color: #fff; }
+.nbc-avatar-gold { background: var(--gold-500); color: var(--brown-900); }
+.nbc-author-name  { font-size: var(--text-sm); font-weight: var(--weight-bold); color: var(--color-text-primary); display: block; }
+.nbc-author-title { font-size: var(--text-xs); color: var(--color-text-tertiary); display: block; }
+
+/* --- Forms --- */
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-5); }
+
+.nbc-form-group { margin-bottom: var(--space-5); }
+.nbc-label {
+    display: block;
+    font-size: var(--text-xs);
+    font-weight: var(--weight-bold);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wider);
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-2);
+}
+.nbc-label-required::after { content: ' *'; color: var(--color-error); }
+
+.nbc-input,
+.nbc-select,
+.nbc-textarea {
+    width: 100%;
+    padding: 12px 16px;
+    border: 2px solid var(--color-border);
+    border-radius: var(--radius-md);
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    background: var(--color-surface);
+    color: var(--color-text-primary);
+    outline: none;
+    transition: border-color var(--transition-base), box-shadow var(--transition-base);
+    resize: vertical;
+}
+.nbc-input::placeholder,
+.nbc-textarea::placeholder { color: var(--color-text-tertiary); }
+.nbc-input:focus,
+.nbc-select:focus,
+.nbc-textarea:focus {
+    border-color: var(--gold-500);
+    box-shadow: 0 0 0 3px rgba(201,145,42,0.15);
+}
+.nbc-input-error  { border-color: var(--color-error); }
+.nbc-input-error:focus { box-shadow: 0 0 0 3px rgba(211,47,47,0.12); }
+.nbc-input-success { border-color: var(--color-success); }
+
+.nbc-helper { font-size: var(--text-xs); color: var(--color-text-tertiary); margin-top: var(--space-1); }
+.nbc-helper-error   { color: var(--color-error); }
+.nbc-helper-success { color: var(--color-success); }
+
+/* Checkbox & Radio */
+.nbc-check-label {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    cursor: pointer;
+    font-size: var(--text-sm);
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-2);
+}
+.nbc-check-label input[type="checkbox"],
+.nbc-check-label input[type="radio"] {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--gold-500);
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+/* --- Alerts --- */
+.nbc-alert {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-4);
+    padding: var(--space-4) var(--space-5);
+    border-radius: var(--radius-md);
+    border-left: 4px solid;
+    margin-bottom: var(--space-3);
+}
+.nbc-alert-icon  { font-size: 1.2rem; flex-shrink: 0; margin-top: 1px; }
+.nbc-alert-title { font-size: var(--text-sm); font-weight: var(--weight-bold); display: block; margin-bottom: 3px; }
+.nbc-alert-body  { font-size: var(--text-sm); line-height: var(--leading-relaxed); }
+
+.nbc-alert-success { background: var(--color-success-subtle); border-color: var(--color-success); }
+.nbc-alert-success .nbc-alert-title { color: var(--color-success); }
+.nbc-alert-success .nbc-alert-body  { color: #2e5e30; }
+
+.nbc-alert-warning { background: var(--color-warning-subtle); border-color: var(--color-warning); }
+.nbc-alert-warning .nbc-alert-title { color: #92400e; }
+.nbc-alert-warning .nbc-alert-body  { color: #78350f; }
+
+.nbc-alert-error { background: var(--color-error-subtle); border-color: var(--color-error); }
+.nbc-alert-error .nbc-alert-title { color: var(--color-error); }
+.nbc-alert-error .nbc-alert-body  { color: #7f1d1d; }
+
+.nbc-alert-info { background: var(--color-info-subtle); border-color: var(--color-info); }
+.nbc-alert-info .nbc-alert-title { color: var(--color-info); }
+.nbc-alert-info .nbc-alert-body  { color: #0c4a6e; }
+
+/* --- Dividers --- */
+.nbc-divider { border: none; border-top: 1px solid var(--color-border); margin: var(--space-6) 0; }
+.nbc-divider-strong { border-top-color: var(--color-border-strong); border-top-width: 2px; }
+.nbc-divider-label {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    margin: var(--space-6) 0;
+    color: var(--color-text-tertiary);
+    font-size: var(--text-xs);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wider);
+}
+.nbc-divider-label::before,
+.nbc-divider-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--color-border);
+}
+
+/* --- Breadcrumb --- */
+.nbc-breadcrumb { display: flex; align-items: center; gap: var(--space-2); flex-wrap: wrap; }
+.nbc-breadcrumb a { font-size: var(--text-sm); color: var(--color-text-link); text-decoration: none; }
+.nbc-breadcrumb a:hover { color: var(--color-text-link-hover); text-decoration: underline; }
+.nbc-breadcrumb-sep { font-size: var(--text-xs); color: var(--color-text-tertiary); }
+.nbc-breadcrumb-current { font-size: var(--text-sm); color: var(--color-text-tertiary); }
+
+/* --- Pillar / Icon feature --- */
+.nbc-pillar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-2);
+    background: var(--color-surface-raised);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-5) var(--space-6);
+    text-align: center;
+    transition: all var(--transition-base);
+    cursor: default;
+}
+.nbc-pillar:hover {
+    background: var(--green-700);
+    border-color: var(--green-700);
+    color: #fff;
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-green);
+}
+.nbc-pillar-icon { font-size: 1.8rem; }
+.nbc-pillar-label { font-size: var(--text-xs); font-weight: var(--weight-bold); letter-spacing: var(--tracking-wide); }
+
+/* --- Section header pattern --- */
+.nbc-section-eyebrow {
+    font-size: var(--text-2xs);
+    font-weight: var(--weight-bold);
+    letter-spacing: var(--tracking-widest);
+    text-transform: uppercase;
+    color: var(--gold-500);
+    display: block;
+    margin-bottom: var(--space-2);
+}
+.nbc-section-title {
+    font-family: var(--font-display);
+    font-size: var(--text-4xl);
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-3);
+}
+.nbc-section-sub {
+    font-size: var(--text-base);
+    color: var(--color-text-secondary);
+    max-width: 520px;
+}
+
+/* Grids for components */
+.card-grid   { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-5); }
+.stat-grid   { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-4); }
+.pillar-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-3); }
+.avatar-row  { display: flex; align-items: center; gap: var(--space-4); flex-wrap: wrap; }
+
+/* =========================================================
+   TABLE
+   ========================================================= */
+.ds-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: var(--text-sm);
+    margin-bottom: var(--space-6);
+}
+.ds-table th {
+    text-align: left;
+    padding: var(--space-3) var(--space-4);
+    background: var(--color-surface-raised);
+    border-bottom: 2px solid var(--color-border);
+    font-size: var(--text-xs);
+    font-weight: var(--weight-bold);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wider);
+    color: var(--color-text-tertiary);
+}
+.ds-table td {
+    padding: var(--space-3) var(--space-4);
+    border-bottom: 1px solid var(--color-border);
+    color: var(--color-text-secondary);
+    vertical-align: top;
+}
+.ds-table tr:last-child td { border-bottom: none; }
+.ds-table td code {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    background: var(--color-surface-sunken);
+    padding: 1px 6px;
+    border-radius: 3px;
+    color: var(--gold-600);
+}
+
+    </style>
+</head>
+<body>
+
+    <!-- TOP BAR -->
+    <header class="top-bar">
+        <div class="top-bar-brand">
+            <div class="ds-logo">NBC</div>
+            <span class="top-bar-title">Design System <span>v1.0</span></span>
+        </div>
+        <div class="top-bar-meta">
+            <span class="version-badge">Nature's Beauty Construction</span>
+            <a href="index.html" class="top-bar-link">&#8592; Back to Site</a>
+        </div>
+    </header>
+
+    <!-- SIDEBAR -->
+    <nav class="sidebar">
+        <div class="sidebar-section">
+            <div class="sidebar-group">Introduction</div>
+            <a href="#intro">Overview</a>
+        </div>
+        <div class="sidebar-section">
+            <div class="sidebar-group">Foundations</div>
+            <a href="#colors">Colors</a>
+            <a href="#typography">Typography</a>
+            <a href="#spacing">Spacing</a>
+            <a href="#shadows">Shadows & Elevation</a>
+            <a href="#radius">Border Radius</a>
+        </div>
+        <div class="sidebar-section">
+            <div class="sidebar-group">Components</div>
+            <a href="#buttons">Buttons</a>
+            <a href="#badges">Badges & Tags</a>
+            <a href="#cards">Cards</a>
+            <a href="#avatars">Avatars</a>
+            <a href="#stats">Stats</a>
+            <a href="#forms">Forms</a>
+            <a href="#alerts">Alerts</a>
+            <a href="#dividers">Dividers</a>
+            <a href="#pillars">Pillars</a>
+            <a href="#navigation">Navigation Patterns</a>
+            <a href="#section-header">Section Headers</a>
+        </div>
+        <div class="sidebar-section">
+            <div class="sidebar-group">Tokens Reference</div>
+            <a href="#token-ref">CSS Variables</a>
+        </div>
+    </nav>
+
+    <!-- MAIN CONTENT -->
+    <main class="content">
+
+        <!-- ===================================================
+             INTRO
+             =================================================== -->
+        <section class="ds-section" id="intro">
+            <div class="welcome-hero">
+                <div class="pill">Design System v1.0</div>
+                <h1>Nature's Beauty Construction</h1>
+                <p>
+                    The complete visual language and component library for
+                    Jenyo. Akarakiri Global Enterprise — ensuring every digital
+                    touchpoint is consistent, professional, and on-brand.
+                </p>
+                <div class="welcome-grid">
+                    <div class="welcome-stat">
+                        <span class="welcome-stat-val">27</span>
+                        <span class="welcome-stat-label">Design Tokens</span>
+                    </div>
+                    <div class="welcome-stat">
+                        <span class="welcome-stat-val">12+</span>
+                        <span class="welcome-stat-label">Components</span>
+                    </div>
+                    <div class="welcome-stat">
+                        <span class="welcome-stat-val">3</span>
+                        <span class="welcome-stat-label">Brand Palettes</span>
+                    </div>
+                </div>
+            </div>
+            <p class="ds-section-intro">
+                This design system is the single source of truth for all visual
+                decisions made for Nature's Beauty Construction's digital presence.
+                All tokens are defined in <code style="font-family:monospace;background:var(--brown-200);padding:2px 6px;border-radius:3px;font-size:0.85em">tokens.css</code>
+                and should be consumed via CSS custom properties — never hardcode colour
+                hex values or spacing pixels directly in component styles.
+            </p>
+        </section>
+
+        <!-- ===================================================
+             COLORS
+             =================================================== -->
+        <section class="ds-section" id="colors">
+            <h2 class="ds-section-title">Colors</h2>
+            <p class="ds-section-intro">
+                The palette is built on three brand colour families — Gold (primary),
+                Forest Green (secondary), and Earth Brown (neutral) — each with a full
+                100–900 scale. Semantic tokens map these scales to roles like
+                surface, text, and status.
+            </p>
+
+            <!-- Gold -->
+            <div class="ds-subsection">
+                <h3 class="ds-subsection-title">Gold — Primary</h3>
+                <p class="ds-subsection-desc">Used for primary actions, highlights, and brand accents. Gold-500 is the brand's signature colour.</p>
+                <div class="palette-group">
+                    <div class="palette-row">
+                        <div class="swatch sw-g100"><span class="swatch-label">100</span><span class="swatch-hex">#fdf6e3</span></div>
+                        <div class="swatch sw-g200"><span class="swatch-label">200</span><span class="swatch-hex">#f9e8ad</span></div>
+                        <div class="swatch sw-g300"><span class="swatch-label">300</span><span class="swatch-hex">#f2d278</span></div>
+                        <div class="swatch sw-g400"><span class="swatch-label">400</span><span class="swatch-hex">#e8b96a</span></div>
+                        <div class="swatch sw-g500"><span class="swatch-label">500 ★</span><span class="swatch-hex">#c9912a</span></div>
+                        <div class="swatch sw-g600"><span class="swatch-label">600</span><span class="swatch-hex">#a87020</span></div>
+                        <div class="swatch sw-g700"><span class="swatch-label">700</span><span class="swatch-hex">#8b5a16</span></div>
+                        <div class="swatch sw-g800"><span class="swatch-label">800</span><span class="swatch-hex">#6e440f</span></div>
+                        <div class="swatch sw-g900"><span class="swatch-label">900</span><span class="swatch-hex">#4a2c08</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Green -->
+            <div class="ds-subsection">
+                <h3 class="ds-subsection-title">Forest Green — Secondary</h3>
+                <p class="ds-subsection-desc">Used for secondary actions, the landscape division, and supporting visual elements.</p>
+                <div class="palette-group">
+                    <div class="palette-row">
+                        <div class="swatch sw-gr100"><span class="swatch-label">100</span><span class="swatch-hex">#e8f2ec</span></div>
+                        <div class="swatch sw-gr200"><span class="swatch-label">200</span><span class="swatch-hex">#c0dcca</span></div>
+                        <div class="swatch sw-gr300"><span class="swatch-label">300</span><span class="swatch-hex">#90c4a8</span></div>
+                        <div class="swatch sw-gr400"><span class="swatch-label">400</span><span class="swatch-hex">#7aab8a</span></div>
+                        <div class="swatch sw-gr500"><span class="swatch-label">500 ★</span><span class="swatch-hex">#4a7c5a</span></div>
+                        <div class="swatch sw-gr600"><span class="swatch-label">600</span><span class="swatch-hex">#2d5c40</span></div>
+                        <div class="swatch sw-gr700"><span class="swatch-label">700</span><span class="swatch-hex">#1e3d2c</span></div>
+                        <div class="swatch sw-gr800"><span class="swatch-label">800</span><span class="swatch-hex">#163020</span></div>
+                        <div class="swatch sw-gr900"><span class="swatch-label">900</span><span class="swatch-hex">#0e2016</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Brown -->
+            <div class="ds-subsection">
+                <h3 class="ds-subsection-title">Earth Brown — Neutral</h3>
+                <p class="ds-subsection-desc">Backgrounds, surfaces, text, borders. The backbone of all layouts.</p>
+                <div class="palette-group">
+                    <div class="palette-row">
+                        <div class="swatch sw-br100"><span class="swatch-label">100</span><span class="swatch-hex">#faf7f0</span></div>
+                        <div class="swatch sw-br200"><span class="swatch-label">200</span><span class="swatch-hex">#f0e8d8</span></div>
+                        <div class="swatch sw-br300"><span class="swatch-label">300</span><span class="swatch-hex">#dfd0b4</span></div>
+                        <div class="swatch sw-br400"><span class="swatch-label">400</span><span class="swatch-hex">#c9a96e</span></div>
+                        <div class="swatch sw-br500"><span class="swatch-label">500 ★</span><span class="swatch-hex">#8b5e2e</span></div>
+                        <div class="swatch sw-br600"><span class="swatch-label">600</span><span class="swatch-hex">#5c3d1e</span></div>
+                        <div class="swatch sw-br700"><span class="swatch-label">700</span><span class="swatch-hex">#3d2810</span></div>
+                        <div class="swatch sw-br800"><span class="swatch-label">800</span><span class="swatch-hex">#2c1f0e</span></div>
+                        <div class="swatch sw-br900"><span class="swatch-label">900</span><span class="swatch-hex">#1a1208</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Semantic -->
+            <div class="ds-subsection">
+                <h3 class="ds-subsection-title">Semantic Colors</h3>
+                <p class="ds-subsection-desc">Use semantic tokens — not palette values — in components. This decouples intent from implementation.</p>
+                <div class="semantic-grid">
+                    <div class="semantic-swatch">
+                        <div class="semantic-color" style="background:#c9912a"></div>
+                        <div class="semantic-info"><span class="semantic-name">Primary</span><span class="semantic-token">--color-primary</span></div>
+                    </div>
+                    <div class="semantic-swatch">
+                        <div class="semantic-color" style="background:#2d5c40"></div>
+                        <div class="semantic-info"><span class="semantic-name">Secondary</span><span class="semantic-token">--color-secondary</span></div>
+                    </div>
+                    <div class="semantic-swatch">
+                        <div class="semantic-color" style="background:#ffffff;border:1px solid #dfd0b4"></div>
+                        <div class="semantic-info"><span class="semantic-name">Surface</span><span class="semantic-token">--color-surface</span></div>
+                    </div>
+                    <div class="semantic-swatch">
+                        <div class="semantic-color" style="background:#faf7f0"></div>
+                        <div class="semantic-info"><span class="semantic-name">Surface Raised</span><span class="semantic-token">--color-surface-raised</span></div>
+                    </div>
+                    <div class="semantic-swatch">
+                        <div class="semantic-color" style="background:#1a1208"></div>
+                        <div class="semantic-info"><span class="semantic-name">Text Primary</span><span class="semantic-token">--color-text-primary</span></div>
+                    </div>
+                    <div class="semantic-swatch">
+                        <div class="semantic-color" style="background:#3d2810"></div>
+                        <div class="semantic-info"><span class="semantic-name">Text Secondary</span><span class="semantic-token">--color-text-secondary</span></div>
+                    </div>
+                    <div class="semantic-swatch">
+                        <div class="semantic-color" style="background:#f0e8d8"></div>
+                        <div class="semantic-info"><span class="semantic-name">Border</span><span class="semantic-token">--color-border</span></div>
+                    </div>
+                    <div class="semantic-swatch">
+                        <div class="semantic-color" style="background:#c9912a"></div>
+                        <div class="semantic-info"><span class="semantic-name">Border Focus</span><span class="semantic-token">--color-border-focus</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Status -->
+            <div class="ds-subsection">
+                <h3 class="ds-subsection-title">Status Colors</h3>
+                <div class="status-grid">
+                    <div class="status-card" style="background:#e8f5e9">
+                        <div class="dot" style="background:#2e7d32"></div>
+                        <div><div class="status-name" style="color:#2e7d32">Success</div><div class="status-hex">#2e7d32</div></div>
+                    </div>
+                    <div class="status-card" style="background:#fffbeb">
+                        <div class="dot" style="background:#f59e0b"></div>
+                        <div><div class="status-name" style="color:#92400e">Warning</div><div class="status-hex">#f59e0b</div></div>
+                    </div>
+                    <div class="status-card" style="background:#ffebee">
+                        <div class="dot" style="background:#d32f2f"></div>
+                        <div><div class="status-name" style="color:#d32f2f">Error</div><div class="status-hex">#d32f2f</div></div>
+                    </div>
+                    <div class="status-card" style="background:#e3f2fd">
+                        <div class="dot" style="background:#0288d1"></div>
+                        <div><div class="status-name" style="color:#0288d1">Info</div><div class="status-hex">#0288d1</div></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================================================
+             TYPOGRAPHY
+             =================================================== -->
+        <section class="ds-section" id="typography">
+            <h2 class="ds-section-title">Typography</h2>
+            <p class="ds-section-intro">
+                Two typefaces form the brand voice: Lemonada for display and headings
+                (warm, distinctive, crafted), and Nunito for body and UI text
+                (readable, friendly, versatile).
+            </p>
+
+            <div class="ds-subsection">
+                <h3 class="ds-subsection-title">Font Families</h3>
+                <div class="font-card">
+                    <div class="font-name">Lemonada</div>
+                    <div class="font-role">Display / Headings — <code style="font-family:monospace;font-size:0.85em">--font-display</code></div>
+                    <div class="font-sample" style="font-family:'Lemonada',cursive">
+                        <div style="font-size:2rem;font-weight:700;color:var(--color-text-primary);line-height:1.2">Nature's Beauty Construction</div>
+                        <div style="font-size:1rem;font-weight:400;color:var(--color-text-secondary);margin-top:8px">Building Akure's Future Since Day One</div>
+                    </div>
+                </div>
+                <div class="font-card">
+                    <div class="font-name">Nunito</div>
+                    <div class="font-role">Body / UI — <code style="font-family:monospace;font-size:0.85em">--font-body</code></div>
+                    <div class="font-sample" style="font-family:'Nunito',sans-serif">
+                        <div style="font-size:1rem;font-weight:400;color:var(--color-text-secondary);line-height:1.65">
+                            Nature's Beauty Construction is a proud division of Jenyo. Akarakiri
+                            Global Enterprise — delivering excellence in structural contracting and
+                            landscape design across Ondo State and beyond.
+                        </div>
+                        <div style="font-size:0.875rem;font-weight:600;color:var(--gold-600);margin-top:10px;letter-spacing:0.12em;text-transform:uppercase">
+                            Section Label · Button Text · Navigation
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ds-subsection">
+                <h3 class="ds-subsection-title">Type Scale</h3>
+                <p class="ds-subsection-desc">All sizes defined as CSS custom properties. Always use these — never hardcode pixel values.</p>
+                <div class="type-specimen-group">
+                    <div class="type-row">
+                        <div class="type-meta"><span class="type-meta-size">--text-7xl</span><span class="type-meta-label">72px</span></div>
+                        <div class="type-specimen display" style="font-size:var(--text-7xl)">Aa</div>
+                    </div>
+                    <div class="type-row">
+                        <div class="type-meta"><span class="type-meta-size">--text-6xl</span><span class="type-meta-label">60px · Hero</span></div>
+                        <div class="type-specimen display" style="font-size:var(--text-6xl)">Heading</div>
+                    </div>
+                    <div class="type-row">
+                        <div class="type-meta"><span class="type-meta-size">--text-5xl</span><span class="type-meta-label">48px</span></div>
+                        <div class="type-specimen display" style="font-size:var(--text-5xl)">Section Title</div>
+                    </div>
+                    <div class="type-row">
+                        <div class="type-meta"><span class="type-meta-size">--text-4xl</span><span class="type-meta-label">36px · H1</span></div>
+                        <div class="type-specimen display" style="font-size:var(--text-4xl)">Page Heading</div>
+                    </div>
+                    <div class="type-row">
+                        <div class="type-meta"><span class="type-meta-size">--text-3xl</span><span class="type-meta-label">30px · H2</span></div>
+                        <div class="type-specimen display" style="font-size:var(--text-3xl)">Section Heading</div>
+                    </div>
+                    <div class="type-row">
+                        <div class="type-meta"><span class="type-meta-size">--text-2xl</span><span class="type-meta-label">24px · H3</span></div>
+                        <div class="type-specimen display" style="font-size:var(--text-2xl)">Sub-heading</div>
+                    </div>
+                    <div class="type-row">
+                        <div class="type-meta"><span class="type-meta-size">--text-xl</span><span class="type-meta-label">20px · H4</span></div>
+                        <div class="type-specimen" style="font-size:var(--text-xl);font-weight:700">Card Title</div>
+                    </div>
+                    <div class="type-row">
+                        <div class="type-meta"><span class="type-meta-size">--text-lg</span><span class="type-meta-label">18px · Lead</span></div>
+                        <div class="type-specimen" style="font-size:var(--text-lg)">Lead paragraph text</div>
+                    </div>
+                    <div class="type-row">
+                        <div class="type-meta"><span class="type-meta-size">--text-base</span><span class="type-meta-label">16px · Body</span></div>
+                        <div class="type-specimen" style="font-size:var(--text-base)">Body text — default reading size</div>
+                    </div>
+                    <div class="type-row">
+                        <div class="type-meta"><span class="type-meta-size">--text-sm</span><span class="type-meta-label">14px · Small</span></div>
+                        <div class="type-specimen" style="font-size:var(--text-sm)">Supporting text, card descriptions</div>
+                    </div>
+                    <div class="type-row">
+                        <div class="type-meta"><span class="type-meta-size">--text-xs</span><span class="type-meta-label">12px · Label</span></div>
+                        <div class="type-specimen" style="font-size:var(--text-xs);font-weight:700;letter-spacing:0.08em;text-transform:uppercase">Label / Tag / Caption</div>
+                    </div>
+                    <div class="type-row">
+                        <div class="type-meta"><span class="type-meta-size">--text-2xs</span><span class="type-meta-label">10px · Tiny</span></div>
+                        <div class="type-specimen" style="font-size:var(--text-2xs);letter-spacing:0.18em;text-transform:uppercase;font-weight:700">EYEBROW TEXT</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================================================
+             SPACING
+             =================================================== -->
+        <section class="ds-section" id="spacing">
+            <h2 class="ds-section-title">Spacing</h2>
+            <p class="ds-section-intro">
+                A 4px base unit scale. Use only these tokens — no arbitrary margins or paddings.
+                Consistent spacing creates visual rhythm across every layout.
+            </p>
+            <div class="canvas">
+                <div class="spacing-row"><span class="spacing-token">--space-1</span><div class="spacing-bar-wrap"><div class="spacing-bar" style="width:4px"></div></div><span class="spacing-value">4px</span></div>
+                <div class="spacing-row"><span class="spacing-token">--space-2</span><div class="spacing-bar-wrap"><div class="spacing-bar" style="width:8px"></div></div><span class="spacing-value">8px</span></div>
+                <div class="spacing-row"><span class="spacing-token">--space-3</span><div class="spacing-bar-wrap"><div class="spacing-bar" style="width:12px"></div></div><span class="spacing-value">12px</span></div>
+                <div class="spacing-row"><span class="spacing-token">--space-4</span><div class="spacing-bar-wrap"><div class="spacing-bar" style="width:16px"></div></div><span class="spacing-value">16px</span></div>
+                <div class="spacing-row"><span class="spacing-token">--space-5</span><div class="spacing-bar-wrap"><div class="spacing-bar" style="width:20px"></div></div><span class="spacing-value">20px</span></div>
+                <div class="spacing-row"><span class="spacing-token">--space-6</span><div class="spacing-bar-wrap"><div class="spacing-bar" style="width:24px"></div></div><span class="spacing-value">24px</span></div>
+                <div class="spacing-row"><span class="spacing-token">--space-8</span><div class="spacing-bar-wrap"><div class="spacing-bar" style="width:32px"></div></div><span class="spacing-value">32px</span></div>
+                <div class="spacing-row"><span class="spacing-token">--space-10</span><div class="spacing-bar-wrap"><div class="spacing-bar" style="width:40px"></div></div><span class="spacing-value">40px</span></div>
+                <div class="spacing-row"><span class="spacing-token">--space-12</span><div class="spacing-bar-wrap"><div class="spacing-bar" style="width:48px"></div></div><span class="spacing-value">48px</span></div>
+                <div class="spacing-row"><span class="spacing-token">--space-14</span><div class="spacing-bar-wrap"><div class="spacing-bar" style="width:56px"></div></div><span class="spacing-value">56px</span></div>
+                <div class="spacing-row"><span class="spacing-token">--space-16</span><div class="spacing-bar-wrap"><div class="spacing-bar" style="width:64px"></div></div><span class="spacing-value">64px</span></div>
+                <div class="spacing-row"><span class="spacing-token">--space-20</span><div class="spacing-bar-wrap"><div class="spacing-bar" style="width:80px"></div></div><span class="spacing-value">80px</span></div>
+                <div class="spacing-row"><span class="spacing-token">--space-24</span><div class="spacing-bar-wrap"><div class="spacing-bar" style="width:96px"></div></div><span class="spacing-value">96px</span></div>
+                <div class="spacing-row"><span class="spacing-token">--space-32</span><div class="spacing-bar-wrap"><div class="spacing-bar" style="width:128px"></div></div><span class="spacing-value">128px</span></div>
+            </div>
+        </section>
+
+        <!-- ===================================================
+             SHADOWS
+             =================================================== -->
+        <section class="ds-section" id="shadows">
+            <h2 class="ds-section-title">Shadows & Elevation</h2>
+            <p class="ds-section-intro">
+                Six elevation levels plus two brand-coloured glows. Use elevation to communicate
+                hierarchy — higher shadow = more prominence.
+            </p>
+            <div class="shadow-grid">
+                <div class="shadow-card" style="box-shadow:var(--shadow-sm)">
+                    <span class="shadow-label">--shadow-sm</span>
+                    <span class="shadow-desc">Subtle lift. Dividers, inline elements.</span>
+                </div>
+                <div class="shadow-card" style="box-shadow:var(--shadow-md)">
+                    <span class="shadow-label">--shadow-md</span>
+                    <span class="shadow-desc">Default card shadow.</span>
+                </div>
+                <div class="shadow-card" style="box-shadow:var(--shadow-lg)">
+                    <span class="shadow-label">--shadow-lg</span>
+                    <span class="shadow-desc">Hover state, dropdowns.</span>
+                </div>
+                <div class="shadow-card" style="box-shadow:var(--shadow-xl)">
+                    <span class="shadow-label">--shadow-xl</span>
+                    <span class="shadow-desc">Modals, featured cards.</span>
+                </div>
+                <div class="shadow-card" style="box-shadow:var(--shadow-gold)">
+                    <span class="shadow-label">--shadow-gold</span>
+                    <span class="shadow-desc">Primary button hover, gold CTA.</span>
+                </div>
+                <div class="shadow-card" style="box-shadow:var(--shadow-green)">
+                    <span class="shadow-label">--shadow-green</span>
+                    <span class="shadow-desc">Secondary button hover, landscape accents.</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================================================
+             BORDER RADIUS
+             =================================================== -->
+        <section class="ds-section" id="radius">
+            <h2 class="ds-section-title">Border Radius</h2>
+            <p class="ds-section-intro">
+                Sharp corners (sm/md) for structural elements, larger radii for cards
+                and containers, and full-pill for buttons and badges.
+            </p>
+            <div class="canvas">
+                <div class="radius-grid">
+                    <div class="radius-demo"><div class="radius-box" style="border-radius:var(--radius-none)"></div><span class="radius-token">--radius-none</span><span class="radius-val">0</span></div>
+                    <div class="radius-demo"><div class="radius-box" style="border-radius:var(--radius-sm)"></div><span class="radius-token">--radius-sm</span><span class="radius-val">4px</span></div>
+                    <div class="radius-demo"><div class="radius-box" style="border-radius:var(--radius-md)"></div><span class="radius-token">--radius-md</span><span class="radius-val">8px</span></div>
+                    <div class="radius-demo"><div class="radius-box" style="border-radius:var(--radius-lg)"></div><span class="radius-token">--radius-lg</span><span class="radius-val">12px</span></div>
+                    <div class="radius-demo"><div class="radius-box" style="border-radius:var(--radius-xl)"></div><span class="radius-token">--radius-xl</span><span class="radius-val">20px</span></div>
+                    <div class="radius-demo"><div class="radius-box" style="border-radius:var(--radius-2xl)"></div><span class="radius-token">--radius-2xl</span><span class="radius-val">28px</span></div>
+                    <div class="radius-demo"><div class="radius-box" style="border-radius:var(--radius-3xl)"></div><span class="radius-token">--radius-3xl</span><span class="radius-val">40px</span></div>
+                    <div class="radius-demo"><div class="radius-box" style="border-radius:var(--radius-full)"></div><span class="radius-token">--radius-full</span><span class="radius-val">9999px</span></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================================================
+             BUTTONS
+             =================================================== -->
+        <section class="ds-section" id="buttons">
+            <h2 class="ds-section-title">Buttons</h2>
+            <p class="ds-section-intro">
+                Five variants covering all interaction intents. Never create ad-hoc button styles
+                — use these variants with size modifiers as needed.
+            </p>
+
+            <div class="ds-subsection">
+                <h3 class="ds-subsection-title">Variants</h3>
+                <div class="canvas">
+                    <div class="btn-row">
+                        <a class="nbc-btn nbc-btn-primary">Primary</a>
+                        <a class="nbc-btn nbc-btn-secondary">Secondary</a>
+                        <a class="nbc-btn nbc-btn-outline">Outline</a>
+                        <a class="nbc-btn nbc-btn-ghost">Ghost</a>
+                        <a class="nbc-btn nbc-btn-danger">Danger</a>
+                    </div>
+                    <div class="btn-row">
+                        <a class="nbc-btn nbc-btn-primary" disabled style="opacity:0.5;cursor:not-allowed">Disabled</a>
+                        <a class="nbc-btn nbc-btn-secondary" style="opacity:0.5;cursor:not-allowed">Disabled</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ds-subsection">
+                <h3 class="ds-subsection-title">Sizes</h3>
+                <div class="canvas">
+                    <div class="btn-row" style="align-items:flex-end">
+                        <a class="nbc-btn nbc-btn-primary nbc-btn-sm">Small</a>
+                        <a class="nbc-btn nbc-btn-primary">Default</a>
+                        <a class="nbc-btn nbc-btn-primary nbc-btn-lg">Large</a>
+                        <a class="nbc-btn nbc-btn-primary nbc-btn-xl">X-Large</a>
+                    </div>
+                </div>
+            </div>
+
+            <table class="ds-table">
+                <thead><tr><th>Variant</th><th>Class</th><th>Use case</th></tr></thead>
+                <tbody>
+                    <tr><td>Primary</td><td><code>.nbc-btn-primary</code></td><td>Main CTA — "Request a Quote", "Get Started"</td></tr>
+                    <tr><td>Secondary</td><td><code>.nbc-btn-secondary</code></td><td>Second action — landscape-specific CTAs</td></tr>
+                    <tr><td>Outline</td><td><code>.nbc-btn-outline</code></td><td>Tertiary action alongside a primary button</td></tr>
+                    <tr><td>Ghost</td><td><code>.nbc-btn-ghost</code></td><td>Low-prominence actions, toolbar buttons</td></tr>
+                    <tr><td>Danger</td><td><code>.nbc-btn-danger</code></td><td>Destructive / irreversible actions only</td></tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- ===================================================
+             BADGES
+             =================================================== -->
+        <section class="ds-section" id="badges">
+            <h2 class="ds-section-title">Badges & Tags</h2>
+            <p class="ds-section-intro">Use badges to label project types, status, and categories. Always uppercase with letter-spacing.</p>
+            <div class="canvas">
+                <div class="badge-row">
+                    <span class="nbc-badge nbc-badge-gold">Structural</span>
+                    <span class="nbc-badge nbc-badge-green">Landscape</span>
+                    <span class="nbc-badge nbc-badge-brown">Renovation</span>
+                    <span class="nbc-badge nbc-badge-dark">Bestseller</span>
+                </div>
+                <div class="badge-row">
+                    <span class="nbc-badge nbc-badge-success">Completed</span>
+                    <span class="nbc-badge nbc-badge-warning">In Progress</span>
+                    <span class="nbc-badge nbc-badge-error">Delayed</span>
+                    <span class="nbc-badge nbc-badge-info">Planned</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================================================
+             CARDS
+             =================================================== -->
+        <section class="ds-section" id="cards">
+            <h2 class="ds-section-title">Cards</h2>
+            <p class="ds-section-intro">Cards group related content. Three types: Project card, Testimonial card, and Stat card.</p>
+
+            <div class="ds-subsection">
+                <h3 class="ds-subsection-title">Project Cards</h3>
+                <div class="canvas">
+                    <div class="card-grid">
+                        <div class="nbc-card">
+                            <div class="nbc-card-img">&#127959;</div>
+                            <div class="nbc-card-body">
+                                <span class="nbc-card-tag">Structural</span>
+                                <h3 class="nbc-card-title">Residential Build</h3>
+                                <p class="nbc-card-desc">Bespoke family homes built with precision from foundation to finishing.</p>
+                            </div>
+                            <div class="nbc-card-footer">
+                                <span class="nbc-badge nbc-badge-success">Completed</span>
+                                <a class="nbc-btn nbc-btn-ghost nbc-btn-sm">View &#8594;</a>
+                            </div>
+                        </div>
+                        <div class="nbc-card">
+                            <div class="nbc-card-img" style="background:linear-gradient(135deg,#163020,#2d5c40)">&#127795;</div>
+                            <div class="nbc-card-body">
+                                <span class="nbc-card-tag">Landscape</span>
+                                <h3 class="nbc-card-title">Estate Landscaping</h3>
+                                <p class="nbc-card-desc">Green, well-structured outdoor environments for residential estates.</p>
+                            </div>
+                            <div class="nbc-card-footer">
+                                <span class="nbc-badge nbc-badge-warning">In Progress</span>
+                                <a class="nbc-btn nbc-btn-ghost nbc-btn-sm">View &#8594;</a>
+                            </div>
+                        </div>
+                        <div class="nbc-card">
+                            <div class="nbc-card-img" style="background:linear-gradient(135deg,#2c1f0e,#5c3d1e)">&#127970;</div>
+                            <div class="nbc-card-body">
+                                <span class="nbc-card-tag">Structural</span>
+                                <h3 class="nbc-card-title">Commercial Block</h3>
+                                <p class="nbc-card-desc">Office and retail spaces engineered for durability and function.</p>
+                            </div>
+                            <div class="nbc-card-footer">
+                                <span class="nbc-badge nbc-badge-info">Planned</span>
+                                <a class="nbc-btn nbc-btn-ghost nbc-btn-sm">View &#8594;</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ds-subsection">
+                <h3 class="ds-subsection-title">Testimonial Card</h3>
+                <div class="canvas">
+                    <div style="max-width:420px">
+                        <div class="nbc-testimonial">
+                            <div class="nbc-testimonial-quote">&#8220;</div>
+                            <p class="nbc-testimonial-text">Nature's Beauty Construction built our family home in Akure from scratch. The quality and attention to detail was outstanding. Delivered exactly on schedule.</p>
+                            <div class="nbc-testimonial-author">
+                                <div class="nbc-avatar nbc-avatar-dark">OA</div>
+                                <div><span class="nbc-author-name">Ola Adeyemi</span><span class="nbc-author-title">Residential Client, Akure</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================================================
+             AVATARS
+             =================================================== -->
+        <section class="ds-section" id="avatars">
+            <h2 class="ds-section-title">Avatars</h2>
+            <p class="ds-section-intro">Used for client testimonials, team members, and contact cards.</p>
+            <div class="canvas">
+                <div class="avatar-row">
+                    <div class="nbc-avatar nbc-avatar-sm">JA</div>
+                    <div class="nbc-avatar">JA</div>
+                    <div class="nbc-avatar nbc-avatar-lg">JA</div>
+                    <div style="width:1px;height:40px;background:var(--color-border)"></div>
+                    <div class="nbc-avatar">OA</div>
+                    <div class="nbc-avatar nbc-avatar-dark">BI</div>
+                    <div class="nbc-avatar nbc-avatar-gold">FK</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================================================
+             STATS
+             =================================================== -->
+        <section class="ds-section" id="stats">
+            <h2 class="ds-section-title">Stats</h2>
+            <p class="ds-section-intro">Used in hero sections and about pages to communicate credibility at a glance.</p>
+            <div class="canvas">
+                <div class="stat-grid">
+                    <div class="nbc-stat-card">
+                        <span class="nbc-stat-number">30+</span>
+                        <span class="nbc-stat-label">Years of Excellence</span>
+                    </div>
+                    <div class="nbc-stat-card">
+                        <span class="nbc-stat-number">500+</span>
+                        <span class="nbc-stat-label">Projects Delivered</span>
+                    </div>
+                    <div class="nbc-stat-card">
+                        <span class="nbc-stat-number">2</span>
+                        <span class="nbc-stat-label">Core Divisions</span>
+                    </div>
+                    <div class="nbc-stat-card">
+                        <span class="nbc-stat-number">100%</span>
+                        <span class="nbc-stat-label">Client Satisfaction</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================================================
+             FORMS
+             =================================================== -->
+        <section class="ds-section" id="forms">
+            <h2 class="ds-section-title">Forms</h2>
+            <p class="ds-section-intro">All form inputs use 2px focus ring with gold accent. Labels are always uppercase. Error and success states are explicit.</p>
+            <div class="canvas">
+                <div class="form-grid">
+                    <div class="nbc-form-group">
+                        <label class="nbc-label nbc-label-required">Full Name</label>
+                        <input class="nbc-input" type="text" placeholder="Jenyo Akarakiri">
+                        <span class="nbc-helper">First and last name</span>
+                    </div>
+                    <div class="nbc-form-group">
+                        <label class="nbc-label nbc-label-required">Phone Number</label>
+                        <input class="nbc-input" type="tel" placeholder="+234 800 000 0000">
+                    </div>
+                    <div class="nbc-form-group">
+                        <label class="nbc-label">Email Address</label>
+                        <input class="nbc-input nbc-input-success" type="email" value="jenyo@example.com">
+                        <span class="nbc-helper nbc-helper-success">&#10003; Valid email address</span>
+                    </div>
+                    <div class="nbc-form-group">
+                        <label class="nbc-label nbc-label-required">Phone</label>
+                        <input class="nbc-input nbc-input-error" type="tel" value="123">
+                        <span class="nbc-helper nbc-helper-error">&#9888; Enter a valid phone number</span>
+                    </div>
+                    <div class="nbc-form-group" style="grid-column:1/-1">
+                        <label class="nbc-label nbc-label-required">Service Required</label>
+                        <select class="nbc-select">
+                            <option>Select a service</option>
+                            <option>Structural Construction</option>
+                            <option>Landscape Design</option>
+                            <option>Both — Structure &amp; Landscape</option>
+                        </select>
+                    </div>
+                    <div class="nbc-form-group" style="grid-column:1/-1">
+                        <label class="nbc-label">Project Description</label>
+                        <textarea class="nbc-textarea" rows="3" placeholder="Describe your project..."></textarea>
+                    </div>
+                    <div class="nbc-form-group" style="grid-column:1/-1">
+                        <label class="nbc-check-label"><input type="checkbox" checked> I agree to be contacted by Nature's Beauty Construction</label>
+                        <label class="nbc-check-label"><input type="radio" name="type" checked> Residential Project</label>
+                        <label class="nbc-check-label"><input type="radio" name="type"> Commercial Project</label>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================================================
+             ALERTS
+             =================================================== -->
+        <section class="ds-section" id="alerts">
+            <h2 class="ds-section-title">Alerts</h2>
+            <p class="ds-section-intro">Contextual feedback messages for system states, form submission results, and notifications.</p>
+            <div class="canvas">
+                <div class="nbc-alert nbc-alert-success"><span class="nbc-alert-icon">&#10003;</span><div><span class="nbc-alert-title">Quote Submitted</span><span class="nbc-alert-body">Your request has been received. Our team will contact you within 24 hours.</span></div></div>
+                <div class="nbc-alert nbc-alert-warning"><span class="nbc-alert-icon">&#9888;</span><div><span class="nbc-alert-title">Incomplete Information</span><span class="nbc-alert-body">Please fill in all required fields before submitting your quote request.</span></div></div>
+                <div class="nbc-alert nbc-alert-error"><span class="nbc-alert-icon">&#10007;</span><div><span class="nbc-alert-title">Submission Failed</span><span class="nbc-alert-body">Something went wrong. Please try again or call us directly.</span></div></div>
+                <div class="nbc-alert nbc-alert-info"><span class="nbc-alert-icon">&#8505;</span><div><span class="nbc-alert-title">Office Hours</span><span class="nbc-alert-body">We respond to enquiries Monday–Saturday, 8am–6pm (WAT).</span></div></div>
+            </div>
+        </section>
+
+        <!-- ===================================================
+             DIVIDERS
+             =================================================== -->
+        <section class="ds-section" id="dividers">
+            <h2 class="ds-section-title">Dividers</h2>
+            <div class="canvas">
+                <p style="font-size:var(--text-sm);color:var(--color-text-secondary)">Standard divider (--color-border)</p>
+                <hr class="nbc-divider">
+                <p style="font-size:var(--text-sm);color:var(--color-text-secondary)">Strong divider</p>
+                <hr class="nbc-divider nbc-divider-strong">
+                <div class="nbc-divider-label">or</div>
+            </div>
+        </section>
+
+        <!-- ===================================================
+             PILLARS
+             =================================================== -->
+        <section class="ds-section" id="pillars">
+            <h2 class="ds-section-title">Pillars</h2>
+            <p class="ds-section-intro">Icon + label blocks used in About and Benefits sections to summarise key brand attributes.</p>
+            <div class="canvas">
+                <div class="pillar-grid">
+                    <div class="nbc-pillar"><span class="nbc-pillar-icon">&#127979;</span><span class="nbc-pillar-label">Structure</span></div>
+                    <div class="nbc-pillar"><span class="nbc-pillar-icon">&#127795;</span><span class="nbc-pillar-label">Landscape</span></div>
+                    <div class="nbc-pillar"><span class="nbc-pillar-icon">&#128205;</span><span class="nbc-pillar-label">Akure-Based</span></div>
+                    <div class="nbc-pillar"><span class="nbc-pillar-icon">&#127942;</span><span class="nbc-pillar-label">30+ Years</span></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================================================
+             NAVIGATION PATTERNS
+             =================================================== -->
+        <section class="ds-section" id="navigation">
+            <h2 class="ds-section-title">Navigation Patterns</h2>
+
+            <div class="ds-subsection">
+                <h3 class="ds-subsection-title">Breadcrumb</h3>
+                <div class="canvas">
+                    <nav class="nbc-breadcrumb">
+                        <a href="#">Home</a>
+                        <span class="nbc-breadcrumb-sep">&#8250;</span>
+                        <a href="#">Services</a>
+                        <span class="nbc-breadcrumb-sep">&#8250;</span>
+                        <span class="nbc-breadcrumb-current">Structural Construction</span>
+                    </nav>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================================================
+             SECTION HEADERS
+             =================================================== -->
+        <section class="ds-section" id="section-header">
+            <h2 class="ds-section-title">Section Headers</h2>
+            <p class="ds-section-intro">Consistent pattern for page section openings — eyebrow label, heading, and optional subtitle.</p>
+            <div class="canvas">
+                <div style="text-align:center">
+                    <span class="nbc-section-eyebrow">What We Do</span>
+                    <h2 class="nbc-section-title">Our Core Services</h2>
+                    <p class="nbc-section-sub">Two specialised divisions. One unwavering standard of excellence.</p>
+                </div>
+            </div>
+            <div class="canvas dark" style="margin-top:16px">
+                <div style="text-align:center">
+                    <span class="nbc-section-eyebrow">Why Choose Us</span>
+                    <h2 class="nbc-section-title" style="color:#fff">The Nature's Beauty Difference</h2>
+                    <p class="nbc-section-sub" style="color:rgba(255,255,255,0.65)">Three decades of consistent delivery in Akure.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================================================
+             TOKEN REFERENCE
+             =================================================== -->
+        <section class="ds-section" id="token-ref">
+            <h2 class="ds-section-title">CSS Variables Reference</h2>
+            <p class="ds-section-intro">
+                All tokens are defined in <code style="font-family:monospace;background:var(--brown-200);padding:2px 8px;border-radius:3px">tokens.css</code>.
+                Import it at the top of any stylesheet.
+            </p>
+            <div class="code-block"><span class="comment">/* Import design tokens */</span>
+<span class="prop">@import</span> <span class="string">'./tokens.css'</span>;
+
+<span class="comment">/* Use tokens in your components */</span>
+<span class="value">.my-component</span> {
+  <span class="prop">background</span>: <span class="value">var(--color-surface)</span>;
+  <span class="prop">color</span>: <span class="value">var(--color-text-primary)</span>;
+  <span class="prop">padding</span>: <span class="value">var(--space-5) var(--space-6)</span>;
+  <span class="prop">border-radius</span>: <span class="value">var(--radius-lg)</span>;
+  <span class="prop">box-shadow</span>: <span class="value">var(--shadow-md)</span>;
+  <span class="prop">font-family</span>: <span class="value">var(--font-body)</span>;
+  <span class="prop">font-size</span>: <span class="value">var(--text-base)</span>;
+  <span class="prop">transition</span>: <span class="value">all var(--transition-base)</span>;
+}</div>
+
+            <table class="ds-table">
+                <thead><tr><th>Category</th><th>Count</th><th>Token pattern</th></tr></thead>
+                <tbody>
+                    <tr><td>Gold palette</td><td>9</td><td><code>--gold-100</code> … <code>--gold-900</code></td></tr>
+                    <tr><td>Green palette</td><td>9</td><td><code>--green-100</code> … <code>--green-900</code></td></tr>
+                    <tr><td>Brown palette</td><td>9</td><td><code>--brown-100</code> … <code>--brown-900</code></td></tr>
+                    <tr><td>Semantic colors</td><td>18</td><td><code>--color-primary</code>, <code>--color-text-*</code>, <code>--color-border-*</code></td></tr>
+                    <tr><td>Status colors</td><td>8</td><td><code>--color-success</code>, <code>--color-warning</code>, <code>--color-error</code>, <code>--color-info</code></td></tr>
+                    <tr><td>Typography</td><td>12</td><td><code>--text-2xs</code> … <code>--text-7xl</code></td></tr>
+                    <tr><td>Spacing</td><td>16</td><td><code>--space-0</code> … <code>--space-32</code></td></tr>
+                    <tr><td>Border radius</td><td>8</td><td><code>--radius-none</code> … <code>--radius-full</code></td></tr>
+                    <tr><td>Shadows</td><td>8</td><td><code>--shadow-sm</code> … <code>--shadow-2xl</code>, gold &amp; green glows</td></tr>
+                    <tr><td>Transitions</td><td>6</td><td><code>--transition-fast</code>, <code>--transition-base</code>, <code>--transition-slow</code></td></tr>
+                    <tr><td>Z-index</td><td>7</td><td><code>--z-below</code> … <code>--z-toast</code></td></tr>
+                </tbody>
+            </table>
+        </section>
+
+    </main>
+
+    <script>
+        // Sidebar active link on scroll
+        const sections = document.querySelectorAll('.ds-section');
+        const links = document.querySelectorAll('.sidebar a');
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    links.forEach(l => l.classList.remove('active'));
+                    const link = document.querySelector(`.sidebar a[href="#${entry.target.id}"]`);
+                    if (link) link.classList.add('active');
+                }
+            });
+        }, { rootMargin: '-20% 0px -70% 0px' });
+
+        sections.forEach(s => observer.observe(s));
+    </script>
+
+</body>
+</html>
