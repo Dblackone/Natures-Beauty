@@ -1,0 +1,529 @@
+/**
+ * Nature's Beauty Construction — Document Letterhead Styles
+ * Shared across all official templates.
+ *
+ * Print: File → Print → Save as PDF (A4, Portrait)
+ * Or open in Microsoft Word and File → Save As → .docx
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Lemonada:wght@400;600;700&family=Nunito:wght@300;400;600;700&display=swap');
+
+/* =========================================================
+   Page Setup
+   ========================================================= */
+:root {
+    --gold:        #c9912a;
+    --gold-light:  #e8b96a;
+    --gold-pale:   #fdf6e3;
+    --green-dark:  #1e3d2c;
+    --brown-dark:  #2c1f0e;
+    --brown:       #5c3d1e;
+    --text:        #1a1208;
+    --text-mid:    #4a3c2a;
+    --text-light:  #8a7a6a;
+    --border:      #e8d8bc;
+    --page-margin: 20mm;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: 'Nunito', sans-serif;
+    font-size: 10.5pt;
+    color: var(--text);
+    background: #fff;
+    line-height: 1.55;
+}
+
+@page {
+    size: A4 portrait;
+    margin: var(--page-margin);
+}
+
+@media print {
+    body { margin: 0; }
+    .no-print { display: none !important; }
+    .page-break { page-break-before: always; }
+    .avoid-break { page-break-inside: avoid; }
+}
+
+/* =========================================================
+   Letterhead Header
+   ========================================================= */
+.letterhead {
+    margin-bottom: 16pt;
+}
+
+.lh-brand {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 8pt;
+}
+
+.lh-name {
+    font-family: 'Lemonada', cursive;
+    font-size: 26pt;
+    font-weight: 700;
+    color: var(--brown-dark);
+    font-style: italic;
+    line-height: 1;
+}
+
+.lh-tagline {
+    font-size: 8pt;
+    font-weight: 700;
+    letter-spacing: 0.35em;
+    color: var(--text-mid);
+    text-transform: uppercase;
+    margin-top: 3pt;
+}
+
+.lh-division {
+    font-size: 8pt;
+    font-style: italic;
+    color: var(--text-light);
+    margin-top: 2pt;
+}
+
+.lh-logo-right {
+    text-align: right;
+}
+
+.lh-reg {
+    font-size: 7.5pt;
+    color: var(--text-light);
+    line-height: 1.6;
+}
+
+/* Gold contact bar */
+.lh-bar {
+    background: var(--gold);
+    padding: 5pt 12pt;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24pt;
+    margin-bottom: 14pt;
+}
+
+.lh-bar-item {
+    display: flex;
+    align-items: center;
+    gap: 5pt;
+    font-size: 8.5pt;
+    font-weight: 600;
+    color: var(--brown-dark);
+}
+
+.lh-bar-icon { font-size: 9pt; }
+
+/* =========================================================
+   Document Meta (Date, Ref, Recipient)
+   ========================================================= */
+.doc-meta {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6pt;
+    margin-bottom: 12pt;
+    font-size: 8.5pt;
+}
+
+.doc-meta-label {
+    font-size: 7pt;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-light);
+    display: block;
+    margin-bottom: 2pt;
+}
+
+.doc-meta-val {
+    font-size: 9.5pt;
+    color: var(--text);
+}
+
+.doc-meta-right {
+    text-align: right;
+}
+
+/* Recipient block */
+.recipient {
+    margin-bottom: 12pt;
+}
+
+.recipient strong {
+    font-size: 10.5pt;
+    display: block;
+    margin-bottom: 1pt;
+}
+
+.recipient span {
+    display: block;
+    font-size: 9.5pt;
+    color: var(--text-mid);
+    line-height: 1.45;
+}
+
+/* Subject block */
+.subject-block {
+    background: var(--gold-pale);
+    border-left: 3pt solid var(--gold);
+    padding: 8pt 12pt;
+    margin-bottom: 14pt;
+}
+
+.subject-label {
+    font-size: 7pt;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    display: block;
+    margin-bottom: 3pt;
+}
+
+.subject-text {
+    font-size: 11pt;
+    font-weight: 700;
+    color: var(--text);
+}
+
+/* =========================================================
+   Body Text
+   ========================================================= */
+.doc-body {
+    font-size: 10.5pt;
+    line-height: 1.65;
+    color: var(--text);
+}
+
+.doc-body p {
+    margin-bottom: 9pt;
+}
+
+.salutation { margin-bottom: 10pt; }
+
+/* =========================================================
+   Signature Block
+   ========================================================= */
+.signature-block {
+    margin-top: 18pt;
+}
+
+.sig-close { margin-bottom: 28pt; }
+
+.sig-line {
+    width: 120pt;
+    border-top: 1pt solid var(--text);
+    margin-bottom: 4pt;
+}
+
+.sig-name {
+    font-family: 'Lemonada', cursive;
+    font-size: 12pt;
+    font-weight: 700;
+    font-style: italic;
+    color: var(--brown-dark);
+}
+
+.sig-title {
+    font-size: 8pt;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-light);
+    margin-top: 1pt;
+}
+
+.sig-company {
+    font-size: 8pt;
+    font-style: italic;
+    color: var(--text-mid);
+}
+
+/* =========================================================
+   Footer
+   ========================================================= */
+.lh-footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: var(--page-margin);
+    padding-top: 0;
+    padding-bottom: 8pt;
+}
+
+.lh-footer-bar {
+    border-top: 1pt solid var(--gold);
+    padding-top: 8pt;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+    gap: 10pt;
+    font-size: 7pt;
+}
+
+.lh-footer-col-title {
+    font-size: 6.5pt;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    display: block;
+    margin-bottom: 3pt;
+}
+
+.lh-footer-col span {
+    display: block;
+    color: var(--text-mid);
+    line-height: 1.55;
+}
+
+.lh-footer-brand-name {
+    font-family: 'Lemonada', cursive;
+    font-size: 8pt;
+    font-weight: 700;
+    font-style: italic;
+    color: var(--brown-dark);
+}
+
+/* =========================================================
+   Tables (for invoices, quotes, etc.)
+   ========================================================= */
+.doc-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 9.5pt;
+    margin: 10pt 0;
+}
+
+.doc-table th {
+    background: var(--brown-dark);
+    color: #fff;
+    padding: 6pt 8pt;
+    text-align: left;
+    font-size: 8pt;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+.doc-table th.right,
+.doc-table td.right { text-align: right; }
+.doc-table th.center,
+.doc-table td.center { text-align: center; }
+
+.doc-table td {
+    padding: 6pt 8pt;
+    border-bottom: 0.5pt solid var(--border);
+    vertical-align: top;
+    color: var(--text);
+}
+
+.doc-table tr:nth-child(even) td { background: #faf8f4; }
+
+.doc-table tfoot td {
+    border-top: 1.5pt solid var(--brown-dark);
+    border-bottom: none;
+    font-weight: 700;
+}
+
+.doc-table .subtotal-row td { background: var(--gold-pale); }
+.doc-table .total-row td { background: var(--gold); color: var(--brown-dark); font-size: 10pt; }
+
+/* Totals summary box */
+.totals-box {
+    margin-left: auto;
+    width: 200pt;
+    border: 1pt solid var(--border);
+    border-radius: 4pt;
+    overflow: hidden;
+    margin-top: 6pt;
+}
+
+.totals-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 5pt 10pt;
+    border-bottom: 0.5pt solid var(--border);
+    font-size: 9.5pt;
+}
+.totals-row:last-child { border-bottom: none; }
+.totals-row.grand {
+    background: var(--gold);
+    font-weight: 700;
+    font-size: 10.5pt;
+    color: var(--brown-dark);
+}
+.totals-label { color: var(--text-mid); }
+
+/* =========================================================
+   Info Boxes / Highlights
+   ========================================================= */
+.info-box {
+    background: var(--gold-pale);
+    border: 0.5pt solid var(--gold);
+    border-radius: 4pt;
+    padding: 8pt 10pt;
+    font-size: 9pt;
+    margin: 8pt 0;
+}
+.info-box-title {
+    font-weight: 700;
+    color: var(--gold);
+    font-size: 8pt;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    display: block;
+    margin-bottom: 4pt;
+}
+
+.green-box {
+    background: #e8f2ec;
+    border: 0.5pt solid #4a7c5a;
+    border-radius: 4pt;
+    padding: 8pt 10pt;
+    font-size: 9pt;
+    margin: 8pt 0;
+}
+
+/* Two-column layout helper */
+.two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12pt;
+}
+
+.three-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10pt;
+}
+
+/* Field pairs */
+.field-row {
+    display: flex;
+    gap: 6pt;
+    margin-bottom: 6pt;
+    align-items: baseline;
+    font-size: 9.5pt;
+}
+.field-label {
+    font-size: 8pt;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-light);
+    flex-shrink: 0;
+    width: 90pt;
+}
+.field-val { color: var(--text); flex: 1; }
+.field-line {
+    flex: 1;
+    border-bottom: 0.5pt solid var(--border);
+    min-width: 80pt;
+}
+
+/* Signature row for multi-party sign-off */
+.sig-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20pt;
+    margin-top: 16pt;
+}
+.sig-col { }
+.sig-col-line {
+    border-top: 1pt solid var(--text);
+    margin-top: 22pt;
+    margin-bottom: 4pt;
+}
+.sig-col-name { font-size: 9pt; font-weight: 700; }
+.sig-col-title { font-size: 7.5pt; color: var(--text-light); text-transform: uppercase; letter-spacing: 0.08em; }
+
+/* Stamp/seal area */
+.stamp-area {
+    border: 1pt dashed var(--border);
+    border-radius: 4pt;
+    width: 80pt;
+    height: 80pt;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 7pt;
+    color: var(--text-light);
+    text-align: center;
+    float: right;
+    margin-top: -10pt;
+}
+
+/* Section divider in documents */
+.doc-section-title {
+    font-family: 'Lemonada', cursive;
+    font-size: 10pt;
+    font-weight: 700;
+    color: var(--gold);
+    border-bottom: 1pt solid var(--gold);
+    padding-bottom: 3pt;
+    margin: 12pt 0 8pt;
+    letter-spacing: 0.02em;
+}
+
+/* Page number */
+.page-num {
+    position: fixed;
+    bottom: 8mm;
+    right: var(--page-margin);
+    font-size: 7pt;
+    color: var(--text-light);
+}
+
+/* No-print toolbar (shown in browser, hidden when printing) */
+.doc-toolbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: #1a1208;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 9999;
+    font-family: 'Nunito', sans-serif;
+}
+.doc-toolbar-title { color: rgba(255,255,255,0.85); font-size: 13px; font-weight: 600; }
+.doc-toolbar-actions { display: flex; gap: 10px; }
+.doc-btn {
+    padding: 7px 18px;
+    border-radius: 4px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    border: none;
+    transition: all 0.2s;
+}
+.doc-btn-print { background: #c9912a; color: #1a1208; }
+.doc-btn-print:hover { background: #e8b96a; }
+.doc-btn-back  { background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.8); border: 1px solid rgba(255,255,255,0.2); }
+.doc-btn-back:hover  { background: rgba(255,255,255,0.15); }
+
+@media screen {
+    body { margin-top: 50px; padding: 20px; background: #e8e0d4; }
+    .doc-page {
+        background: #fff;
+        max-width: 210mm;
+        min-height: 297mm;
+        margin: 0 auto 20px;
+        padding: var(--page-margin);
+        box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    }
+}
+
+@media print {
+    body { margin: 0; padding: 0; background: white; }
+    .doc-page { padding: 0; box-shadow: none; max-width: none; min-height: none; }
+    .doc-toolbar { display: none; }
+}
