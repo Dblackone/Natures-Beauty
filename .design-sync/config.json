@@ -4,5 +4,9 @@
   "shape": "package",
   "buildCmd": "npm run build",
   "cssEntry": "dist/ds-entry.css",
-  "runtimeFontPrefixes": ["Lemonada", "Nunito"]
+  "runtimeFontPrefixes": ["Lemonada", "Nunito"],
+  "overrides": {
+    "Badge": { "cardMode": "column" }
+  },
+  "readmeHeader": ".design-sync/conventions.md"
 }

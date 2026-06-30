@@ -14,14 +14,18 @@
 - **`tokensGlob` requires `tokensPkg`**: `cfg.tokensGlob` is a glob filter within a SEPARATE npm tokens package — it does nothing without `cfg.tokensPkg`. Since tokens are in the same package (`dist/tokens.css`), we use a combined CSS entry instead. Before re-syncing, regenerate `ui/dist/ds-entry.css` by concatenating `ui/dist/tokens.css` + `ui/dist/nb-ui.css` (this step will eventually be part of the tsup build). See `cssEntry: "dist/ds-entry.css"` in config.
 - **`ds-entry.css` is not in the tsup build output**: It must be created manually before running the converter. The re-sync command below includes this step.
 
+- **`tokens.css` header comment trips a false `[CSS_IMPORT_MISSING]`**: the repo's `tokens.css` doc header contains a literal `Usage: @import './tokens.css';` line. The validator's `@import` regex matches that text even inside the comment, since `_ds_bundle.css` is built from the concatenated `ds-entry.css` (which inlines this comment verbatim). Fix is in the concatenation step below (`sed '/Usage: @import/d'` strips the line before concatenating) — never edit the repo's real `tokens.css`, this only affects the design-sync-only `ds-entry.css` artifact.
+
 ## Re-sync command
 
 From repo root after a fresh clone or source change:
 
 ```sh
 # If node_modules missing: (cd ui && npm ci)
-# Regenerate combined CSS entry (tokens + components):
-cat ui/dist/tokens.css ui/dist/nb-ui.css > ui/dist/ds-entry.css
+# Regenerate combined CSS entry (tokens + components), stripping the
+# tokens.css doc comment's literal "@import" text (false-positive trap):
+sed '/Usage: @import/d' ui/dist/tokens.css > /tmp/tokens-stripped.css
+cat /tmp/tokens-stripped.css ui/dist/nb-ui.css > ui/dist/ds-entry.css
 # Run the driver:
 node .ds-sync/resync.mjs --config .design-sync/config.json \
   --node-modules ui/node_modules \
