@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document Templates — Nature's Beauty Construction</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lemonada:wght@400;600;700&family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Nunito', sans-serif; background: #faf7f0; color: #1a1208; line-height: 1.6; }
+
+.header {
+    background: #2c1f0e;
+    padding: 0 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.3);
+}
+.header-brand { display: flex; align-items: center; gap: 14px; }
+.hb-mark { width: 40px; height: 40px; background: #c9912a; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-family: 'Lemonada', cursive; font-weight: 700; font-size: 0.85rem; color: #1a1208; flex-shrink: 0; }
+.hb-text { display: flex; flex-direction: column; line-height: 1.25; }
+.hb-main { font-family: 'Lemonada', cursive; font-size: 1rem; font-weight: 700; color: #fff; }
+.hb-sub { font-size: 0.65rem; color: rgba(255,255,255,0.45); }
+.header-link { font-size: 0.82rem; color: rgba(255,255,255,0.55); text-decoration: none; transition: color 0.2s; }
+.header-link:hover { color: #e8b96a; }
+
+.hero {
+    background: linear-gradient(135deg, #1a2e14 0%, #2c1f0e 100%);
+    padding: 48px 40px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+.hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 70% 30%, rgba(201,145,42,0.12) 0%, transparent 60%);
+}
+.hero-eyebrow { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: #e8b96a; display: block; margin-bottom: 10px; position: relative; }
+.hero-title { font-family: 'Lemonada', cursive; font-size: 2.2rem; color: #fff; margin-bottom: 12px; position: relative; }
+.hero-sub { font-size: 0.95rem; color: rgba(255,255,255,0.65); max-width: 560px; margin: 0 auto; position: relative; }
+
+.main { max-width: 1100px; margin: 0 auto; padding: 40px 32px 80px; }
+
+.section-title { font-family: 'Lemonada', cursive; font-size: 1.1rem; color: #c9912a; margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
+.section-title::after { content: ''; flex: 1; height: 1px; background: #e8d8bc; }
+
+.templates-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 48px; }
+
+.template-card {
+    background: #fff;
+    border: 1px solid #e8d8bc;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 16px rgba(44,31,14,0.08);
+    transition: all 0.25s;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+.template-card:hover { transform: translateY(-4px); box-shadow: 0 10px 32px rgba(44,31,14,0.15); border-color: #c9912a; }
+
+.tc-preview {
+    height: 120px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    font-size: 2.4rem;
+}
+.tc-body { padding: 16px 20px 20px; }
+.tc-tag { font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: #c9912a; display: block; margin-bottom: 4px; }
+.tc-name { font-family: 'Lemonada', cursive; font-size: 1rem; font-weight: 700; color: #1a1208; margin-bottom: 6px; }
+.tc-desc { font-size: 0.82rem; color: #6a5a4a; line-height: 1.5; margin-bottom: 14px; }
+.tc-actions { display: flex; gap: 8px; }
+.tc-btn { display: inline-flex; align-items: center; gap: 5px; padding: 7px 14px; border-radius: 4px; font-family: 'Nunito', sans-serif; font-size: 0.78rem; font-weight: 700; cursor: pointer; border: none; text-decoration: none; transition: all 0.2s; }
+.tc-btn-open { background: #c9912a; color: #1a1208; }
+.tc-btn-open:hover { background: #e8b96a; }
+.tc-btn-preview { background: #f0e8d8; color: #5c3d1e; border: 1px solid #e0d0b8; }
+.tc-btn-preview:hover { background: #e8d8c4; }
+
+/* Preview backgrounds per type */
+.tc-letter-ext { background: linear-gradient(135deg, #1a2e14, #2d5c40); }
+.tc-letter-int { background: linear-gradient(135deg, #2c1f0e, #5c3d1e); }
+.tc-quote     { background: linear-gradient(135deg, #c9912a, #8b5a16); }
+.tc-invoice   { background: linear-gradient(135deg, #1e3d2c, #4a7c5a); }
+.tc-complete  { background: linear-gradient(135deg, #2e7d32, #1b5e20); }
+.tc-salary    { background: linear-gradient(135deg, #0c4a6e, #0288d1); }
+.tc-report    { background: linear-gradient(135deg, #3d2810, #8b5e2e); }
+.tc-proj-rpt  { background: linear-gradient(135deg, #2c1f0e, #c9912a); }
+.tc-milestone { background: linear-gradient(135deg, #4a2c08, #c9912a); }
+
+.info-banner {
+    background: #fdf6e3;
+    border: 1px solid #e8d8bc;
+    border-left: 4px solid #c9912a;
+    border-radius: 8px;
+    padding: 16px 20px;
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    margin-bottom: 40px;
+    font-size: 0.88rem;
+    color: #4a3c2a;
+}
+.info-banner-icon { font-size: 1.4rem; flex-shrink: 0; margin-top: 1px; }
+
+.footer { background: #2c1f0e; padding: 24px 40px; text-align: center; font-size: 0.78rem; color: rgba(255,255,255,0.4); }
+</style>
+</head>
+<body>
+
+<header class="header">
+    <div class="header-brand">
+        <div class="hb-mark">NBC</div>
+        <div class="hb-text">
+            <span class="hb-main">Nature's Beauty Construction</span>
+            <span class="hb-sub">Document Templates</span>
+        </div>
+    </div>
+    <a href="../index.html" class="header-link">&#8592; Back to Website</a>
+</header>
+
+<div class="hero">
+    <span class="hero-eyebrow">Jenyo Akarakiri Global Enterprise &bull; Reg. No. 8219636</span>
+    <h1 class="hero-title">Official Document Templates</h1>
+    <p class="hero-sub">Nine professional templates built on the Nature's Beauty letterhead — open in browser, print to PDF, or save as Word document.</p>
+</div>
+
+<main class="main">
+
+    <div class="info-banner">
+        <span class="info-banner-icon">&#8505;</span>
+        <div>
+            <strong>How to use these templates:</strong> Open any template, click <em>Print / Save PDF</em> to export as PDF. To use as a Word document, open the HTML file directly in Microsoft Word (File → Open → select the .html file), fill in the fields, then save as <em>.docx</em>.
+            All templates share the official Nature's Beauty letterhead — Reg. No. 8219636 &bull; Tel: 08033528772 &bull; RB2 Ondo State Industrial Park, Akure.
+        </div>
+    </div>
+
+    <!-- CORRESPONDENCE -->
+    <div class="section-title">Correspondence</div>
+    <div class="templates-grid">
+        <a class="template-card" href="external-letter.html">
+            <div class="tc-preview tc-letter-ext">&#9993;</div>
+            <div class="tc-body">
+                <span class="tc-tag">Correspondence</span>
+                <div class="tc-name">External Letter</div>
+                <p class="tc-desc">Formal letters to clients, suppliers, government bodies, and external parties. Includes recipient block, subject, body, and signed signature block.</p>
+                <div class="tc-actions">
+                    <a href="external-letter.html" class="tc-btn tc-btn-open">Open Template</a>
+                    <a href="external-letter.html" target="_blank" class="tc-btn tc-btn-preview">Preview</a>
+                </div>
+            </div>
+        </a>
+        <a class="template-card" href="internal-letter.html">
+            <div class="tc-preview tc-letter-int">&#128233;</div>
+            <div class="tc-body">
+                <span class="tc-tag">Correspondence</span>
+                <div class="tc-name">Internal Letter / Memo</div>
+                <p class="tc-desc">Internal memoranda for staff communications. TO / FROM / DATE / REF / DEPARTMENT fields plus recipient acknowledgement sign-off.</p>
+                <div class="tc-actions">
+                    <a href="internal-letter.html" class="tc-btn tc-btn-open">Open Template</a>
+                    <a href="internal-letter.html" target="_blank" class="tc-btn tc-btn-preview">Preview</a>
+                </div>
+            </div>
+        </a>
+    </div>
+
+    <!-- COMMERCIAL -->
+    <div class="section-title">Commercial Documents</div>
+    <div class="templates-grid">
+        <a class="template-card" href="project-quote.html">
+            <div class="tc-preview tc-quote">&#128203;</div>
+            <div class="tc-body">
+                <span class="tc-tag">Commercial</span>
+                <div class="tc-name">Project Quotation</div>
+                <p class="tc-desc">Full bill of quantities with itemised rates, totals, VAT, payment schedule, and dual sign-off with company stamp area.</p>
+                <div class="tc-actions">
+                    <a href="project-quote.html" class="tc-btn tc-btn-open">Open Template</a>
+                    <a href="project-quote.html" target="_blank" class="tc-btn tc-btn-preview">Preview</a>
+                </div>
+            </div>
+        </a>
+        <a class="template-card" href="payment-invoice.html">
+            <div class="tc-preview tc-invoice">&#128179;</div>
+            <div class="tc-body">
+                <span class="tc-tag">Commercial</span>
+                <div class="tc-name">Payment Invoice</div>
+                <p class="tc-desc">Tax invoice with line items, subtotal, VAT, previous payments deduction, balance due, and bank transfer details.</p>
+                <div class="tc-actions">
+                    <a href="payment-invoice.html" class="tc-btn tc-btn-open">Open Template</a>
+                    <a href="payment-invoice.html" target="_blank" class="tc-btn tc-btn-preview">Preview</a>
+                </div>
+            </div>
+        </a>
+        <a class="template-card" href="milestone-payment.html">
+            <div class="tc-preview tc-milestone">&#127942;</div>
+            <div class="tc-body">
+                <span class="tc-tag">Commercial</span>
+                <div class="tc-name">Milestone Payment Request</div>
+                <p class="tc-desc">Formal milestone claim letter with financial breakdown, supporting documents checklist, and client acknowledgement section.</p>
+                <div class="tc-actions">
+                    <a href="milestone-payment.html" class="tc-btn tc-btn-open">Open Template</a>
+                    <a href="milestone-payment.html" target="_blank" class="tc-btn tc-btn-preview">Preview</a>
+                </div>
+            </div>
+        </a>
+    </div>
+
+    <!-- PROJECT & REPORTS -->
+    <div class="section-title">Project Management</div>
+    <div class="templates-grid">
+        <a class="template-card" href="project-report.html">
+            <div class="tc-preview tc-proj-rpt">&#128202;</div>
+            <div class="tc-body">
+                <span class="tc-tag">Project Management</span>
+                <div class="tc-name">Project Progress Report</div>
+                <p class="tc-desc">Milestone tracker table, financial summary, issues &amp; risks register, and planned next-period activities. Ideal for regular site reporting.</p>
+                <div class="tc-actions">
+                    <a href="project-report.html" class="tc-btn tc-btn-open">Open Template</a>
+                    <a href="project-report.html" target="_blank" class="tc-btn tc-btn-preview">Preview</a>
+                </div>
+            </div>
+        </a>
+        <a class="template-card" href="completion-form.html">
+            <div class="tc-preview tc-complete">&#9989;</div>
+            <div class="tc-body">
+                <span class="tc-tag">Project Management</span>
+                <div class="tc-name">Completion Form</div>
+                <p class="tc-desc">Certificate of Practical Completion with works checklist, snagging items table, financial summary, and dual contractor/client sign-off.</p>
+                <div class="tc-actions">
+                    <a href="completion-form.html" class="tc-btn tc-btn-open">Open Template</a>
+                    <a href="completion-form.html" target="_blank" class="tc-btn tc-btn-preview">Preview</a>
+                </div>
+            </div>
+        </a>
+        <a class="template-card" href="report.html">
+            <div class="tc-preview tc-report">&#128196;</div>
+            <div class="tc-body">
+                <span class="tc-tag">Reporting</span>
+                <div class="tc-name">General Report</div>
+                <p class="tc-desc">Flexible report template with executive summary, background, findings, analysis, recommendations, and conclusion sections.</p>
+                <div class="tc-actions">
+                    <a href="report.html" class="tc-btn tc-btn-open">Open Template</a>
+                    <a href="report.html" target="_blank" class="tc-btn tc-btn-preview">Preview</a>
+                </div>
+            </div>
+        </a>
+    </div>
+
+    <!-- HR -->
+    <div class="section-title">HR &amp; Payroll</div>
+    <div class="templates-grid">
+        <a class="template-card" href="salary-slip.html">
+            <div class="tc-preview tc-salary">&#128181;</div>
+            <div class="tc-body">
+                <span class="tc-tag">HR &amp; Payroll</span>
+                <div class="tc-name">Salary Slip</div>
+                <p class="tc-desc">Detailed pay slip with earnings (basic, allowances, bonus) and deductions (PAYE, pension, NHF), net pay total, and authorised signatory.</p>
+                <div class="tc-actions">
+                    <a href="salary-slip.html" class="tc-btn tc-btn-open">Open Template</a>
+                    <a href="salary-slip.html" target="_blank" class="tc-btn tc-btn-preview">Preview</a>
+                </div>
+            </div>
+        </a>
+    </div>
+
+</main>
+
+<footer class="footer">
+    &copy; 2026 Nature's Beauty Construction &mdash; A Division of Jenyo Akarakiri Global Enterprise &bull; Reg. No. 8219636 &bull; Akure, Ondo State, Nigeria
+</footer>
+
+</body>
+</html>
