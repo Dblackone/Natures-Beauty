@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Landing Page — Nature's Beauty Construction</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&amp;family=Work+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet">
+  <style>
+    body { margin: 0; background: #F7F6F1; }
+  </style>
+<style>
+.doc-toolbar{position:fixed;top:0;left:0;right:0;background:#1B231C;padding:10px 20px;display:flex;align-items:center;justify-content:space-between;z-index:9999;font-family:'Work Sans',sans-serif}
+.doc-toolbar-title{color:rgba(255,255,255,.85);font-size:13px;font-weight:600}
+.doc-toolbar-actions{display:flex;gap:10px}
+.doc-btn{padding:7px 18px;border-radius:4px;font-family:'Work Sans',sans-serif;font-size:12px;font-weight:700;cursor:pointer;border:none;transition:all .2s;text-decoration:none;display:inline-block}
+.doc-btn-print{background:#C8901A;color:#1B231C}
+.doc-btn-print:hover{background:#e0a52a}
+.doc-btn-back{background:rgba(255,255,255,.1);color:rgba(255,255,255,.8);border:1px solid rgba(255,255,255,.2)}
+.doc-btn-back:hover{background:rgba(255,255,255,.15)}
+@media print{.doc-toolbar{display:none}}
+</style>
+</head>
+<body>
+<div class="doc-toolbar no-print">
+<span class="doc-toolbar-title">Template: Landing Page</span>
+<div class="doc-toolbar-actions">
+<a href="index.html" class="doc-btn doc-btn-back">&#8592; All Templates</a>
+<button class="doc-btn doc-btn-print" onclick="window.print()">Print / Save PDF</button>
+</div>
+</div>
+<div style="font-family: 'Work Sans', sans-serif; color: #1B231C; background: #F7F6F1;">
+
+  <!-- ═══ Nav ═══ -->
+  <nav data-screen-label="Nav" style="display: flex; align-items: center; justify-content: space-between; padding: 20px 64px; background: #F7F6F1; border-bottom: 1px solid #E3E1D6; position: sticky; top: 0; z-index: 10;">
+    <div style="display: flex; align-items: center; gap: 12px;">
+      <div style="position: relative; width: 36px; height: 36px;">
+        <div style="position: absolute; inset: 0; background: #C8901A; border-radius: 0 50% 0 50%; transform: rotate(45deg);"></div>
+        <div style="position: absolute; inset: 4px; background: #2E5E3A; border: 2px solid #F7F6F1; border-radius: 0 50% 0 50%; transform: rotate(45deg);"></div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 1px;">
+        <span style="font-family: 'Sora', sans-serif; font-weight: 700; font-size: 17px; line-height: 1; color: #1F4229;">Nature&rsquo;s Beauty</span>
+        <span style="font-family: 'Sora', sans-serif; font-weight: 600; font-size: 8px; letter-spacing: 0.32em; color: #C8901A;">CONSTRUCTION</span>
+      </div>
+    </div>
+    <div style="display: flex; align-items: center; gap: 32px; font-size: 15px; font-weight: 500;">
+      <a href="#services" style="color: #3A443A; text-decoration: none;">Services</a>
+      <a href="#projects" style="color: #3A443A; text-decoration: none;">Projects</a>
+      <a href="#sectors" style="color: #3A443A; text-decoration: none;">Who we serve</a>
+      <a href="#contact" style="background: #2E5E3A; color: #F7F6F1; text-decoration: none; padding: 12px 24px; border-radius: 10px; font-family: 'Sora', sans-serif; font-weight: 600; font-size: 14px;" style-hover="background: #1F4229;">Get a quote</a>
+    </div>
+  </nav>
+
+  <!-- ═══ Hero ═══ -->
+  <header data-screen-label="Hero" style="display: grid; grid-template-columns: 1fr 1fr; gap: 56px; padding: 88px 64px; align-items: center; max-width: 1280px; margin: 0 auto; box-sizing: border-box;">
+    <div>
+      <div style="display: inline-flex; align-items: center; gap: 8px; background: #E7EFE4; border-radius: 999px; padding: 8px 16px; font-size: 13px; font-weight: 600; color: #1F4229; margin-bottom: 24px;">
+        <span style="width: 8px; height: 8px; background: #C8901A; border-radius: 0 50% 0 50%; transform: rotate(45deg); display: inline-block;"></span>
+        Family-owned · Akure → nationwide
+      </div>
+      <h1 style="font-family: 'Sora', sans-serif; font-weight: 800; font-size: 54px; line-height: 1.1; margin: 0 0 20px; color: #1F4229;">Grounds people are proud of</h1>
+      <p style="font-size: 18px; line-height: 1.7; color: #3A443A; margin: 0 0 32px; max-width: 480px;">We design, build and maintain landscapes — gardens, hardscapes and green infrastructure — for homes, businesses and public institutions across Nigeria.</p>
+      <div style="display: flex; gap: 16px; align-items: center;">
+        <a href="https://wa.me/2348033528772" style="background: #2E5E3A; color: #F7F6F1; text-decoration: none; padding: 16px 32px; border-radius: 10px; font-family: 'Sora', sans-serif; font-weight: 600; font-size: 16px;" style-hover="background: #1F4229;">Chat on WhatsApp</a>
+        <a href="#projects" style="color: #1F4229; text-decoration: none; font-family: 'Sora', sans-serif; font-weight: 600; font-size: 16px; border-bottom: 2px solid #C8901A; padding-bottom: 2px;">See our work</a>
+      </div>
+    </div>
+    <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="hero-photo" shape="rounded" radius="20" placeholder="Drop a hero photo — finished garden or grounds" style="width: 100%; height: 440px;" hint-size="100%,440px"></x-import>
+  </header>
+
+  <!-- ═══ Services ═══ -->
+  <section id="services" data-screen-label="Services" style="background: #1F4229; color: #F7F6F1; padding: 80px 64px;">
+    <div style="max-width: 1152px; margin: 0 auto;">
+      <div style="font-family: 'Sora', sans-serif; font-weight: 700; color: #C8901A; font-size: 14px; letter-spacing: 0.2em; margin-bottom: 12px;">WHAT WE DO</div>
+      <h2 style="font-family: 'Sora', sans-serif; font-weight: 700; font-size: 38px; margin: 0 0 40px;">From bare plot to living landscape</h2>
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;">
+        <div style="background: rgba(247,246,241,0.06); border: 1px solid rgba(247,246,241,0.14); border-radius: 14px; padding: 32px;">
+          <div style="width: 34px; height: 34px; background: #C8901A; border-radius: 0 50% 0 50%; transform: rotate(45deg); margin-bottom: 20px;"></div>
+          <h3 style="font-family: 'Sora', sans-serif; font-weight: 700; font-size: 20px; margin: 0 0 10px;">Landscape design &amp; build</h3>
+          <p style="font-size: 15px; line-height: 1.7; color: #C9D6C9; margin: 0;">Site planning, planting schemes, lawns, gardens and irrigation — designed with you, built by our own crew.</p>
+        </div>
+        <div style="background: rgba(247,246,241,0.06); border: 1px solid rgba(247,246,241,0.14); border-radius: 14px; padding: 32px;">
+          <div style="width: 34px; height: 34px; background: #C8901A; border-radius: 0 50% 0 50%; transform: rotate(45deg); margin-bottom: 20px;"></div>
+          <h3 style="font-family: 'Sora', sans-serif; font-weight: 700; font-size: 20px; margin: 0 0 10px;">Hardscape &amp; outdoor structures</h3>
+          <p style="font-size: 15px; line-height: 1.7; color: #C9D6C9; margin: 0;">Interlocking paving, walkways, drainage, fencing, gazebos and water features that stand up to the seasons.</p>
+        </div>
+        <div style="background: rgba(247,246,241,0.06); border: 1px solid rgba(247,246,241,0.14); border-radius: 14px; padding: 32px;">
+          <div style="width: 34px; height: 34px; background: #C8901A; border-radius: 0 50% 0 50%; transform: rotate(45deg); margin-bottom: 20px;"></div>
+          <h3 style="font-family: 'Sora', sans-serif; font-weight: 700; font-size: 20px; margin: 0 0 10px;">Grounds maintenance</h3>
+          <p style="font-size: 15px; line-height: 1.7; color: #C9D6C9; margin: 0;">Scheduled care for estates, campuses and public grounds — so the landscape looks better every year, not worse.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ Projects ═══ -->
+  <section id="projects" data-screen-label="Projects" style="padding: 80px 64px; max-width: 1280px; margin: 0 auto; box-sizing: border-box;">
+    <div style="font-family: 'Sora', sans-serif; font-weight: 700; color: #C8901A; font-size: 14px; letter-spacing: 0.2em; margin-bottom: 12px;">RECENT WORK</div>
+    <h2 style="font-family: 'Sora', sans-serif; font-weight: 700; font-size: 38px; margin: 0 0 40px; color: #1F4229;">Projects we&rsquo;re proud of</h2>
+    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;">
+      <div style="display: flex; flex-direction: column; gap: 14px;">
+        <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="project-1" shape="rounded" radius="14" placeholder="Project photo 1" style="width: 100%; height: 280px;" hint-size="100%,280px"></x-import>
+        <div>
+          <div style="font-family: 'Sora', sans-serif; font-weight: 700; font-size: 17px;">[Project name]</div>
+          <div style="font-size: 14px; color: #5C665C; margin-top: 2px;">[Location · scope]</div>
+        </div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 14px;">
+        <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="project-2" shape="rounded" radius="14" placeholder="Project photo 2" style="width: 100%; height: 280px;" hint-size="100%,280px"></x-import>
+        <div>
+          <div style="font-family: 'Sora', sans-serif; font-weight: 700; font-size: 17px;">[Project name]</div>
+          <div style="font-size: 14px; color: #5C665C; margin-top: 2px;">[Location · scope]</div>
+        </div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 14px;">
+        <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="project-3" shape="rounded" radius="14" placeholder="Project photo 3" style="width: 100%; height: 280px;" hint-size="100%,280px"></x-import>
+        <div>
+          <div style="font-family: 'Sora', sans-serif; font-weight: 700; font-size: 17px;">[Project name]</div>
+          <div style="font-size: 14px; color: #5C665C; margin-top: 2px;">[Location · scope]</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ Sectors ═══ -->
+  <section id="sectors" data-screen-label="Sectors" style="background: #E7EFE4; padding: 80px 64px;">
+    <div style="max-width: 1152px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center;">
+      <div>
+        <div style="font-family: 'Sora', sans-serif; font-weight: 700; color: #C8901A; font-size: 14px; letter-spacing: 0.2em; margin-bottom: 12px;">WHO WE SERVE</div>
+        <h2 style="font-family: 'Sora', sans-serif; font-weight: 700; font-size: 38px; margin: 0 0 16px; color: #1F4229;">Homes, businesses and public spaces</h2>
+        <p style="font-size: 16px; line-height: 1.7; color: #3A443A; margin: 0;">One family-owned team, three kinds of clients. We size the crew and the paperwork to the job — from a home garden to a government contract.</p>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 16px;">
+        <div style="background: #FFFFFF; border-radius: 12px; padding: 24px 28px; display: flex; gap: 20px; align-items: baseline;">
+          <span style="font-family: 'Sora', sans-serif; font-weight: 800; color: #C8901A; font-size: 18px;">01</span>
+          <div>
+            <div style="font-family: 'Sora', sans-serif; font-weight: 700; font-size: 17px;">Homeowners</div>
+            <div style="font-size: 14px; color: #5C665C; margin-top: 2px;">Residential gardens, compounds, remodels</div>
+          </div>
+        </div>
+        <div style="background: #FFFFFF; border-radius: 12px; padding: 24px 28px; display: flex; gap: 20px; align-items: baseline;">
+          <span style="font-family: 'Sora', sans-serif; font-weight: 800; color: #C8901A; font-size: 18px;">02</span>
+          <div>
+            <div style="font-family: 'Sora', sans-serif; font-weight: 700; font-size: 17px;">Commercial &amp; developers</div>
+            <div style="font-size: 14px; color: #5C665C; margin-top: 2px;">Estates, hotels, offices, retail grounds</div>
+          </div>
+        </div>
+        <div style="background: #FFFFFF; border-radius: 12px; padding: 24px 28px; display: flex; gap: 20px; align-items: baseline;">
+          <span style="font-family: 'Sora', sans-serif; font-weight: 800; color: #C8901A; font-size: 18px;">03</span>
+          <div>
+            <div style="font-family: 'Sora', sans-serif; font-weight: 700; font-size: 17px;">Government &amp; institutions</div>
+            <div style="font-size: 14px; color: #5C665C; margin-top: 2px;">Parks, campuses, roadside greening, public works</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ Contact / footer ═══ -->
+  <footer id="contact" data-screen-label="Contact" style="background: #1F4229; color: #F7F6F1; padding: 80px 64px 40px;">
+    <div style="max-width: 1152px; margin: 0 auto;">
+      <div style="display: grid; grid-template-columns: 1fr auto; gap: 40px; align-items: center; padding-bottom: 56px;">
+        <div>
+          <h2 style="font-family: 'Sora', sans-serif; font-weight: 700; font-size: 38px; margin: 0 0 12px;">Let&rsquo;s walk your site</h2>
+          <p style="font-size: 16px; line-height: 1.7; color: #C9D6C9; margin: 0; max-width: 480px;">Send a message on WhatsApp with your location and what you have in mind — we&rsquo;ll get back to you with next steps and a plain price.</p>
+        </div>
+        <a href="https://wa.me/2348033528772" style="background: #C8901A; color: #1B231C; text-decoration: none; padding: 18px 36px; border-radius: 10px; font-family: 'Sora', sans-serif; font-weight: 700; font-size: 17px; white-space: nowrap;" style-hover="background: #DBA52E;">+234 803 352 8772</a>
+      </div>
+      <div style="border-top: 1px solid rgba(247,246,241,0.18); padding-top: 24px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; font-size: 13px; color: #9DB39D;">
+        <span>Nature&rsquo;s Beauty Construction · Akure, Ondo State · @Natures_beauty_construction</span>
+        <span>A division of Jenyo Akarakiri Global Enterprise</span>
+      </div>
+    </div>
+  </footer>
+</div>
+</body>
+</html>

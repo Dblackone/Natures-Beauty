@@ -5,5 +5,5 @@
   "buildCmd": "npm run build",
   "cssEntry": "dist/ds-entry.css",
   "globalName": "NaturesBeautyUi",
-  "runtimeFontPrefixes": ["Lemonada", "Nunito"]
+  "runtimeFontPrefixes": ["Sora", "Work Sans"]
 }

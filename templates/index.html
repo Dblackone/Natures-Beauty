@@ -5,13 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Document Templates — Nature's Beauty Construction</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Lemonada:wght@400;600;700&family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-body { font-family: 'Nunito', sans-serif; background: #faf7f0; color: #1a1208; line-height: 1.6; }
+body { font-family: 'Work Sans', sans-serif; background: #EDEBE2; color: #1B231C; line-height: 1.6; }
 
 .header {
-    background: #2c1f0e;
+    background: #1B231C;
     padding: 0 32px;
     display: flex;
     align-items: center;
@@ -20,15 +21,15 @@ body { font-family: 'Nunito', sans-serif; background: #faf7f0; color: #1a1208; l
     box-shadow: 0 2px 12px rgba(0,0,0,0.3);
 }
 .header-brand { display: flex; align-items: center; gap: 14px; }
-.hb-mark { width: 40px; height: 40px; background: #c9912a; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-family: 'Lemonada', cursive; font-weight: 700; font-size: 0.85rem; color: #1a1208; flex-shrink: 0; }
+.hb-mark { width: 40px; height: 40px; background: #C8901A; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-family: 'Sora', sans-serif; font-weight: 700; font-size: 0.85rem; color: #1B231C; flex-shrink: 0; }
 .hb-text { display: flex; flex-direction: column; line-height: 1.25; }
-.hb-main { font-family: 'Lemonada', cursive; font-size: 1rem; font-weight: 700; color: #fff; }
+.hb-main { font-family: 'Sora', sans-serif; font-size: 1rem; font-weight: 700; color: #fff; }
 .hb-sub { font-size: 0.65rem; color: rgba(255,255,255,0.45); }
 .header-link { font-size: 0.82rem; color: rgba(255,255,255,0.55); text-decoration: none; transition: color 0.2s; }
-.header-link:hover { color: #e8b96a; }
+.header-link:hover { color: #e0a52a; }
 
 .hero {
-    background: linear-gradient(135deg, #1a2e14 0%, #2c1f0e 100%);
+    background: linear-gradient(135deg, #1F4229 0%, #1B231C 100%);
     padding: 48px 40px;
     text-align: center;
     position: relative;
@@ -38,31 +39,31 @@ body { font-family: 'Nunito', sans-serif; background: #faf7f0; color: #1a1208; l
     content: '';
     position: absolute;
     inset: 0;
-    background: radial-gradient(ellipse at 70% 30%, rgba(201,145,42,0.12) 0%, transparent 60%);
+    background: radial-gradient(ellipse at 70% 30%, rgba(200,144,26,0.14) 0%, transparent 60%);
 }
-.hero-eyebrow { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: #e8b96a; display: block; margin-bottom: 10px; position: relative; }
-.hero-title { font-family: 'Lemonada', cursive; font-size: 2.2rem; color: #fff; margin-bottom: 12px; position: relative; }
-.hero-sub { font-size: 0.95rem; color: rgba(255,255,255,0.65); max-width: 560px; margin: 0 auto; position: relative; }
+.hero-eyebrow { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: #e0a52a; display: block; margin-bottom: 10px; position: relative; }
+.hero-title { font-family: 'Sora', sans-serif; font-weight: 700; font-size: 2.2rem; color: #fff; margin-bottom: 12px; position: relative; }
+.hero-sub { font-size: 0.95rem; color: rgba(255,255,255,0.65); max-width: 580px; margin: 0 auto; position: relative; }
 
 .main { max-width: 1100px; margin: 0 auto; padding: 40px 32px 80px; }
 
-.section-title { font-family: 'Lemonada', cursive; font-size: 1.1rem; color: #c9912a; margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
-.section-title::after { content: ''; flex: 1; height: 1px; background: #e8d8bc; }
+.section-title { font-family: 'Sora', sans-serif; font-weight: 700; font-size: 1.1rem; color: #C8901A; margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
+.section-title::after { content: ''; flex: 1; height: 1px; background: #E3E1D6; }
 
 .templates-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 48px; }
 
 .template-card {
     background: #fff;
-    border: 1px solid #e8d8bc;
+    border: 1px solid #E3E1D6;
     border-radius: 16px;
     overflow: hidden;
-    box-shadow: 0 4px 16px rgba(44,31,14,0.08);
+    box-shadow: 0 4px 16px rgba(27,35,28,0.08);
     transition: all 0.25s;
     text-decoration: none;
     color: inherit;
     display: block;
 }
-.template-card:hover { transform: translateY(-4px); box-shadow: 0 10px 32px rgba(44,31,14,0.15); border-color: #c9912a; }
+.template-card:hover { transform: translateY(-4px); box-shadow: 0 10px 32px rgba(27,35,28,0.15); border-color: #C8901A; }
 
 .tc-preview {
     height: 120px;
@@ -74,31 +75,35 @@ body { font-family: 'Nunito', sans-serif; background: #faf7f0; color: #1a1208; l
     font-size: 2.4rem;
 }
 .tc-body { padding: 16px 20px 20px; }
-.tc-tag { font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: #c9912a; display: block; margin-bottom: 4px; }
-.tc-name { font-family: 'Lemonada', cursive; font-size: 1rem; font-weight: 700; color: #1a1208; margin-bottom: 6px; }
-.tc-desc { font-size: 0.82rem; color: #6a5a4a; line-height: 1.5; margin-bottom: 14px; }
+.tc-tag { font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.14em; color: #C8901A; display: block; margin-bottom: 4px; }
+.tc-name { font-family: 'Sora', sans-serif; font-size: 1rem; font-weight: 700; color: #1B231C; margin-bottom: 6px; }
+.tc-desc { font-size: 0.82rem; color: #5C665C; line-height: 1.5; margin-bottom: 14px; }
 .tc-actions { display: flex; gap: 8px; }
-.tc-btn { display: inline-flex; align-items: center; gap: 5px; padding: 7px 14px; border-radius: 4px; font-family: 'Nunito', sans-serif; font-size: 0.78rem; font-weight: 700; cursor: pointer; border: none; text-decoration: none; transition: all 0.2s; }
-.tc-btn-open { background: #c9912a; color: #1a1208; }
-.tc-btn-open:hover { background: #e8b96a; }
-.tc-btn-preview { background: #f0e8d8; color: #5c3d1e; border: 1px solid #e0d0b8; }
-.tc-btn-preview:hover { background: #e8d8c4; }
+.tc-btn { display: inline-flex; align-items: center; gap: 5px; padding: 7px 14px; border-radius: 4px; font-family: 'Work Sans', sans-serif; font-size: 0.78rem; font-weight: 600; cursor: pointer; border: none; text-decoration: none; transition: all 0.2s; }
+.tc-btn-open { background: #C8901A; color: #1B231C; }
+.tc-btn-open:hover { background: #e0a52a; }
+.tc-btn-preview { background: #F0EFE7; color: #3A443A; border: 1px solid #E3E1D6; }
+.tc-btn-preview:hover { background: #E3E1D6; }
 
 /* Preview backgrounds per type */
-.tc-letter-ext { background: linear-gradient(135deg, #1a2e14, #2d5c40); }
-.tc-letter-int { background: linear-gradient(135deg, #2c1f0e, #5c3d1e); }
-.tc-quote     { background: linear-gradient(135deg, #c9912a, #8b5a16); }
-.tc-invoice   { background: linear-gradient(135deg, #1e3d2c, #4a7c5a); }
+.tc-letter-ext { background: linear-gradient(135deg, #1F4229, #2E5E3A); }
+.tc-letter-int { background: linear-gradient(135deg, #1B231C, #3A443A); }
+.tc-quote     { background: linear-gradient(135deg, #C8901A, #8f6412); }
+.tc-invoice   { background: linear-gradient(135deg, #1F4229, #2E5E3A); }
 .tc-complete  { background: linear-gradient(135deg, #2e7d32, #1b5e20); }
 .tc-salary    { background: linear-gradient(135deg, #0c4a6e, #0288d1); }
-.tc-report    { background: linear-gradient(135deg, #3d2810, #8b5e2e); }
-.tc-proj-rpt  { background: linear-gradient(135deg, #2c1f0e, #c9912a); }
-.tc-milestone { background: linear-gradient(135deg, #4a2c08, #c9912a); }
+.tc-report    { background: linear-gradient(135deg, #3A443A, #5C665C); }
+.tc-proj-rpt  { background: linear-gradient(135deg, #1B231C, #C8901A); }
+.tc-milestone { background: linear-gradient(135deg, #4a2c08, #C8901A); }
+.tc-brand     { background: linear-gradient(135deg, #1F4229, #C8901A); }
+.tc-landing   { background: linear-gradient(135deg, #2E5E3A, #1B231C); }
+.tc-deck      { background: linear-gradient(135deg, #C8901A, #1F4229); }
+.tc-stationery{ background: linear-gradient(135deg, #1B231C, #C8901A); }
 
 .info-banner {
-    background: #fdf6e3;
-    border: 1px solid #e8d8bc;
-    border-left: 4px solid #c9912a;
+    background: #F7F1DE;
+    border: 1px solid #E3E1D6;
+    border-left: 4px solid #C8901A;
     border-radius: 8px;
     padding: 16px 20px;
     display: flex;
@@ -106,11 +111,11 @@ body { font-family: 'Nunito', sans-serif; background: #faf7f0; color: #1a1208; l
     align-items: flex-start;
     margin-bottom: 40px;
     font-size: 0.88rem;
-    color: #4a3c2a;
+    color: #3A443A;
 }
 .info-banner-icon { font-size: 1.4rem; flex-shrink: 0; margin-top: 1px; }
 
-.footer { background: #2c1f0e; padding: 24px 40px; text-align: center; font-size: 0.78rem; color: rgba(255,255,255,0.4); }
+.footer { background: #1B231C; padding: 24px 40px; text-align: center; font-size: 0.78rem; color: rgba(255,255,255,0.4); }
 </style>
 </head>
 <body>
@@ -129,7 +134,7 @@ body { font-family: 'Nunito', sans-serif; background: #faf7f0; color: #1a1208; l
 <div class="hero">
     <span class="hero-eyebrow">Jenyo Akarakiri Global Enterprise &bull; Reg. No. 8219636</span>
     <h1 class="hero-title">Official Document Templates</h1>
-    <p class="hero-sub">Nine professional templates built on the Nature's Beauty letterhead — open in browser, print to PDF, or save as Word document.</p>
+    <p class="hero-sub">Master templates built on the Nature's Beauty design system (Sora + Work Sans) — open in browser, print to PDF, or save as Word document.</p>
 </div>
 
 <main class="main">
@@ -137,8 +142,8 @@ body { font-family: 'Nunito', sans-serif; background: #faf7f0; color: #1a1208; l
     <div class="info-banner">
         <span class="info-banner-icon">&#8505;</span>
         <div>
-            <strong>How to use these templates:</strong> Open any template, click <em>Print / Save PDF</em> to export as PDF. To use as a Word document, open the HTML file directly in Microsoft Word (File → Open → select the .html file), fill in the fields, then save as <em>.docx</em>.
-            All templates share the official Nature's Beauty letterhead — Reg. No. 8219636 &bull; Tel: 08033528772 &bull; RB2 Ondo State Industrial Park, Akure.
+            <strong>How to use these templates:</strong> Open any template, click <em>Print / Save PDF</em> to export as PDF. To use as a Word document, open the HTML file directly in Microsoft Word (File &rarr; Open &rarr; select the .html file), fill in the fields, then save as <em>.docx</em>.
+            All templates share the official Nature's Beauty brand system &mdash; Reg. No. 8219636 &bull; Tel: 08033528772 &bull; RB2 Ondo State Industrial Park, Akure.
         </div>
     </div>
 
@@ -178,8 +183,8 @@ body { font-family: 'Nunito', sans-serif; background: #faf7f0; color: #1a1208; l
             <div class="tc-preview tc-quote">&#128203;</div>
             <div class="tc-body">
                 <span class="tc-tag">Commercial</span>
-                <div class="tc-name">Project Quotation</div>
-                <p class="tc-desc">Full bill of quantities with itemised rates, totals, VAT, payment schedule, and dual sign-off with company stamp area.</p>
+                <div class="tc-name">Project Quote</div>
+                <p class="tc-desc">Itemised quotation with line items, subtotal, VAT, terms and dual sign-off.</p>
                 <div class="tc-actions">
                     <a href="project-quote.html" class="tc-btn tc-btn-open">Open Template</a>
                     <a href="project-quote.html" target="_blank" class="tc-btn tc-btn-preview">Preview</a>
@@ -265,6 +270,59 @@ body { font-family: 'Nunito', sans-serif; background: #faf7f0; color: #1a1208; l
                 <div class="tc-actions">
                     <a href="salary-slip.html" class="tc-btn tc-btn-open">Open Template</a>
                     <a href="salary-slip.html" target="_blank" class="tc-btn tc-btn-preview">Preview</a>
+                </div>
+            </div>
+        </a>
+    </div>
+
+    <!-- MARKETING & BRAND -->
+    <div class="section-title">Marketing &amp; Brand</div>
+    <div class="templates-grid">
+        <a class="template-card" href="brand-guidelines.html">
+            <div class="tc-preview tc-brand">&#127912;</div>
+            <div class="tc-body">
+                <span class="tc-tag">Brand</span>
+                <div class="tc-name">Brand Guidelines</div>
+                <p class="tc-desc">One-page brand book — logo, color, type, voice, and applications reference.</p>
+                <div class="tc-actions">
+                    <a href="brand-guidelines.html" class="tc-btn tc-btn-open">Open Template</a>
+                    <a href="brand-guidelines.html" target="_blank" class="tc-btn tc-btn-preview">Preview</a>
+                </div>
+            </div>
+        </a>
+        <a class="template-card" href="landing-page.html">
+            <div class="tc-preview tc-landing">&#127760;</div>
+            <div class="tc-body">
+                <span class="tc-tag">Marketing</span>
+                <div class="tc-name">Landing Page</div>
+                <p class="tc-desc">Marketing landing page — hero, services, projects, sectors, and contact.</p>
+                <div class="tc-actions">
+                    <a href="landing-page.html" class="tc-btn tc-btn-open">Open Template</a>
+                    <a href="landing-page.html" target="_blank" class="tc-btn tc-btn-preview">Preview</a>
+                </div>
+            </div>
+        </a>
+        <a class="template-card" href="pitch-deck.html">
+            <div class="tc-preview tc-deck">&#128202;</div>
+            <div class="tc-body">
+                <span class="tc-tag">Marketing</span>
+                <div class="tc-name">Capabilities Deck</div>
+                <p class="tc-desc">8-slide capabilities / pitch deck for client presentations.</p>
+                <div class="tc-actions">
+                    <a href="pitch-deck.html" class="tc-btn tc-btn-open">Open Template</a>
+                    <a href="pitch-deck.html" target="_blank" class="tc-btn tc-btn-preview">Preview</a>
+                </div>
+            </div>
+        </a>
+        <a class="template-card" href="stationery.html">
+            <div class="tc-preview tc-stationery">&#128221;</div>
+            <div class="tc-body">
+                <span class="tc-tag">Brand</span>
+                <div class="tc-name">Stationery</div>
+                <p class="tc-desc">Letterhead + business card (front/back) for print production.</p>
+                <div class="tc-actions">
+                    <a href="stationery.html" class="tc-btn tc-btn-open">Open Template</a>
+                    <a href="stationery.html" target="_blank" class="tc-btn tc-btn-preview">Preview</a>
                 </div>
             </div>
         </a>
