@@ -2,380 +2,138 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Project Quotation — Installation of Interlocking Pavement — Nature's Beauty Construction</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Project Quote — Chop Republic — Nature's Beauty Construction</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Lemonada:wght@400;600;700&family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="tokens.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&amp;family=Work+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet">
+  <style>
+    body { margin: 0; background: #EDEBE2; }
+  </style>
 <style>
-/* ============================================================
-   Project Quotation — built on the @natures-beauty/ui design
-   system. All colours, type, spacing, and radii come from the
-   design tokens in tokens.css (single source of truth).
-   ============================================================ */
-
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-body {
-    font-family: var(--font-body);
-    font-size: 10.5pt;
-    color: var(--color-text-primary);
-    background: var(--color-surface);
-    line-height: var(--leading-normal);
+.doc-toolbar{position:fixed;top:0;left:0;right:0;background:#1B231C;padding:10px 20px;display:flex;align-items:center;justify-content:space-between;z-index:9999;font-family:'Work Sans',sans-serif}
+.doc-toolbar-title{color:rgba(255,255,255,.85);font-size:13px;font-weight:600}
+.doc-toolbar-actions{display:flex;gap:10px}
+.doc-btn{padding:7px 18px;border-radius:4px;font-family:'Work Sans',sans-serif;font-size:12px;font-weight:700;cursor:pointer;border:none;transition:all .2s;text-decoration:none;display:inline-block}
+.doc-btn-print{background:#C8901A;color:#1B231C}
+.doc-btn-print:hover{background:#e0a52a}
+.doc-btn-back{background:rgba(255,255,255,.1);color:rgba(255,255,255,.8);border:1px solid rgba(255,255,255,.2)}
+.doc-btn-back:hover{background:rgba(255,255,255,.15)}
+@media print{
+  .doc-toolbar{display:none !important}
+  body{padding-top:0 !important;background:#FFFFFF !important}
+  [data-screen-label]{box-shadow:none !important;min-height:0 !important;width:auto !important}
+  .print-wrap{padding:0 !important;display:block !important}
 }
-
-@page { size: A4 portrait; margin: 18mm; }
-
-/* ---- Toolbar (screen only) ---- */
-.doc-toolbar {
-    position: fixed; top: 0; left: 0; right: 0; z-index: var(--z-sticky);
-    background: var(--color-surface-inverse);
-    color: var(--color-text-inverse);
-    padding: 10px 24px;
-    display: flex; align-items: center; justify-content: space-between;
-    font-size: var(--text-sm);
-}
-.doc-toolbar-title { font-family: var(--font-display); font-weight: var(--weight-bold); font-size: var(--text-sm); }
-.doc-btn {
-    display: inline-flex; align-items: center; gap: 6px;
-    font-family: var(--font-body); font-weight: var(--weight-bold); font-size: var(--text-xs);
-    padding: 8px 16px; border-radius: var(--radius-sm); border: none; cursor: pointer;
-    text-decoration: none; transition: background var(--transition-base);
-}
-.doc-btn-back  { background: rgba(255,255,255,0.1); color: var(--color-text-inverse); margin-right: 8px; }
-.doc-btn-back:hover { background: rgba(255,255,255,0.2); }
-.doc-btn-print { background: var(--color-primary); color: var(--color-primary-on); }
-.doc-btn-print:hover { background: var(--color-primary-hover); }
-
-@media screen {
-    body { margin-top: 52px; padding: 24px; background: var(--color-surface-sunken); }
-    .doc-page {
-        background: var(--color-surface);
-        max-width: 210mm; min-height: 297mm;
-        margin: 0 auto 24px; padding: 18mm;
-        box-shadow: var(--shadow-lg);
-        border-radius: var(--radius-sm);
-    }
-}
-@media print {
-    body { margin: 0; padding: 0; background: var(--color-surface); }
-    .doc-page { padding: 0; box-shadow: none; max-width: none; min-height: auto; border-radius: 0; }
-    .doc-toolbar { display: none; }
-    .page-break { page-break-before: always; }
-    html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-}
-
-/* ---- Letterhead ---- */
-.lh-accent { height: 6pt; border-radius: var(--radius-full); background: linear-gradient(90deg, var(--gold-500) 0%, var(--gold-400) 55%, var(--green-600) 100%); margin-bottom: 14pt; }
-
-.lh-brand { display: flex; align-items: flex-start; justify-content: space-between; gap: 16pt; margin-bottom: 12pt; }
-.lh-name {
-    font-family: var(--font-display); font-weight: var(--weight-bold);
-    font-size: 22pt; line-height: var(--leading-tight); color: var(--gold-600);
-    letter-spacing: var(--tracking-tight);
-}
-.lh-division { font-size: 8.5pt; color: var(--color-text-tertiary); letter-spacing: var(--tracking-wide); margin-top: 3pt; }
-.lh-reg-badge {
-    display: inline-flex; align-items: center; gap: 4pt;
-    background: var(--color-primary-subtle); color: var(--gold-700);
-    border: 1px solid var(--gold-300);
-    border-radius: var(--radius-full);
-    font-size: 7.5pt; font-weight: var(--weight-bold);
-    letter-spacing: var(--tracking-wide);
-    padding: 4pt 10pt; white-space: nowrap;
-}
-
-.lh-strip {
-    background: var(--color-surface-inverse); color: var(--color-text-inverse);
-    border-radius: var(--radius-md);
-    padding: 7pt 12pt;
-    display: flex; align-items: center; justify-content: space-between; gap: 12pt;
-    font-size: 8.5pt; letter-spacing: var(--tracking-wide);
-}
-.lh-strip strong { color: var(--gold-400); font-weight: var(--weight-semibold); }
-
-/* ---- Document title ---- */
-.doc-title {
-    text-align: center; margin: 16pt 0 14pt;
-    font-family: var(--font-display); font-weight: var(--weight-bold);
-    font-size: 14pt; letter-spacing: var(--tracking-widest);
-    text-transform: uppercase; color: var(--color-text-accent);
-}
-
-/* ---- Cards (from .nb-card--outlined / --filled) ---- */
-.card {
-    background: var(--color-surface);
-    border: 2px solid var(--color-border);
-    border-radius: var(--radius-lg);
-    padding: 10pt 12pt;
-}
-.card--filled { background: var(--color-surface-raised); border-color: transparent; }
-.card-title {
-    font-size: 7.5pt; font-weight: var(--weight-bold);
-    letter-spacing: var(--tracking-widest); text-transform: uppercase;
-    color: var(--color-text-accent); margin-bottom: 6pt;
-}
-
-.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 10pt; }
-
-.field-row { display: flex; align-items: baseline; gap: 6pt; margin-bottom: 5pt; font-size: 9pt; }
-.field-row:last-child { margin-bottom: 0; }
-.field-label {
-    flex-shrink: 0; width: 62pt;
-    font-size: 7.5pt; font-weight: var(--weight-bold);
-    letter-spacing: var(--tracking-label); text-transform: uppercase;
-    color: var(--color-text-tertiary);
-}
-.field-val  { color: var(--color-text-primary); font-weight: var(--weight-semibold); }
-.field-line { flex: 1; border-bottom: 1px solid var(--color-border-strong); min-height: 10pt; }
-
-/* ---- Subject callout (from .nb-alert) ---- */
-.subject-block {
-    margin: 12pt 0;
-    background: var(--color-primary-subtle);
-    border: 1px solid var(--gold-200);
-    border-left: 4px solid var(--color-primary);
-    border-radius: var(--radius-md);
-    padding: 8pt 12pt;
-}
-.subject-label {
-    display: block; font-size: 7.5pt; font-weight: var(--weight-bold);
-    letter-spacing: var(--tracking-widest); text-transform: uppercase;
-    color: var(--gold-700); margin-bottom: 3pt;
-}
-.subject-text { font-family: var(--font-display); font-weight: var(--weight-semibold); font-size: 11.5pt; color: var(--color-text-primary); }
-
-/* ---- Section titles ---- */
-.section-title {
-    display: flex; align-items: center; gap: 8pt;
-    font-family: var(--font-display); font-weight: var(--weight-bold);
-    font-size: 10.5pt; color: var(--color-text-accent);
-    margin: 14pt 0 8pt;
-}
-.section-title::after { content: ''; flex: 1; height: 1px; background: var(--color-border-strong); }
-
-.body-text { font-size: 9.5pt; color: var(--color-text-secondary); line-height: var(--leading-relaxed); margin-bottom: 8pt; }
-
-/* ---- Bill of quantities table ---- */
-.doc-table { width: 100%; border-collapse: separate; border-spacing: 0; font-size: 9pt; border: 1px solid var(--color-border); border-radius: var(--radius-md); overflow: hidden; }
-.doc-table th {
-    background: var(--color-surface-inverse); color: var(--color-text-inverse);
-    font-size: 7.5pt; font-weight: var(--weight-bold);
-    letter-spacing: var(--tracking-label); text-transform: uppercase;
-    padding: 7pt 8pt; text-align: left;
-}
-.doc-table td { padding: 7pt 8pt; border-top: 1px solid var(--color-border); vertical-align: top; color: var(--color-text-secondary); }
-.doc-table tbody tr:nth-child(even) td { background: var(--color-surface-raised); }
-.doc-table .right  { text-align: right; }
-.doc-table .center { text-align: center; }
-.doc-table tfoot td { background: var(--color-primary-subtle); color: var(--color-text-primary); font-weight: var(--weight-semibold); }
-.doc-table tfoot .total-row td {
-    background: var(--color-surface-inverse); color: var(--color-text-inverse);
-    font-size: 10pt;
-}
-.doc-table tfoot .total-row td strong { color: var(--gold-400); }
-.amount { white-space: nowrap; }
-
-/* ---- Signatures ---- */
-.sig-row { display: grid; grid-template-columns: 1fr 1fr; gap: 24pt; margin-top: 26pt; align-items: end; }
-.sig-line { border-bottom: 1.5px solid var(--color-text-primary); height: 26pt; margin-bottom: 5pt; }
-.stamp-slot { display: flex; justify-content: flex-end; margin-bottom: 8pt; }
-.sig-name { font-weight: var(--weight-bold); font-size: 9.5pt; color: var(--color-text-primary); }
-.sig-title { font-size: 7.5pt; letter-spacing: var(--tracking-label); text-transform: uppercase; color: var(--color-text-tertiary); margin-top: 2pt; }
-.stamp-area {
-    width: 80pt; height: 58pt;
-    border: 1.5px dashed var(--color-border-strong); border-radius: var(--radius-md);
-    display: flex; align-items: center; justify-content: center; text-align: center;
-    font-size: 7pt; color: var(--color-text-disabled); letter-spacing: var(--tracking-wide); text-transform: uppercase;
-}
-
-/* ---- Footer ---- */
-.lh-footer { position: fixed; bottom: 0; left: 0; right: 0; padding: 0 18mm 6mm; }
-@media screen { .lh-footer { position: static; padding: 24pt 0 0; } }
-.lh-footer-bar {
-    border-top: 2px solid var(--color-primary);
-    padding-top: 7pt;
-    display: grid; grid-template-columns: 1.5fr 1fr 1fr 1.2fr; gap: 10pt;
-    font-size: 7pt; color: var(--color-text-tertiary); line-height: var(--leading-snug);
-}
-.lh-footer-col span { display: block; }
-.lh-footer-col-title {
-    display: block; font-size: 6.5pt; font-weight: var(--weight-bold);
-    letter-spacing: var(--tracking-widest); text-transform: uppercase;
-    color: var(--color-text-accent); margin-bottom: 3pt;
-}
-.lh-footer-brand-name { font-family: var(--font-display); font-weight: var(--weight-bold); font-style: normal; font-size: 8.5pt; color: var(--gold-600); }
+@page{margin:0}
 </style>
 </head>
 <body>
-
-<div class="doc-toolbar">
-    <span class="doc-toolbar-title">Project Quotation: Installation of Interlocking Pavement — Chop Republic</span>
-    <div>
-        <a href="templates/index.html" class="doc-btn doc-btn-back">&#8592; All Templates</a>
-        <button class="doc-btn doc-btn-print" onclick="window.print()">Print / Save PDF</button>
-    </div>
+<div class="doc-toolbar no-print">
+<span class="doc-toolbar-title">Project Quote: Chop Republic — Interlocking Pavement</span>
+<div class="doc-toolbar-actions">
+<a href="templates/index.html" class="doc-btn doc-btn-back">&#8592; All Templates</a>
+<button class="doc-btn doc-btn-print" onclick="window.print()">Print / Save PDF</button>
 </div>
+</div>
+<div class="print-wrap" style="font-family: 'Work Sans', sans-serif; color: #1B231C; display: flex; justify-content: center; padding: 48px;">
+  <div data-screen-label="Project Quote" style="width: 794px; min-height: 1123px; background: #FFFFFF; box-shadow: 0 8px 32px rgba(27,35,28,0.14); display: flex; flex-direction: column; box-sizing: border-box;">
+    <div style="height: 8px; background: linear-gradient(90deg, #2E5E3A 70%, #C8901A 70%);"></div>
 
-<div class="doc-page">
-
-    <!-- LETTERHEAD -->
-    <div class="lh-accent"></div>
-    <div class="lh-brand">
-        <div>
-            <div class="lh-name">Nature's Beauty</div>
-            <div class="lh-division">Construction &mdash; A Division of Jenyo Akarakiri Global Enterprise</div>
+    <div style="padding: 36px 56px 0; display: flex; justify-content: space-between; align-items: flex-start;">
+      <div style="display: flex; align-items: center; gap: 12px;">
+        <div style="position: relative; width: 36px; height: 36px;">
+          <div style="position: absolute; inset: 0; background: #C8901A; border-radius: 0 50% 0 50%; transform: rotate(45deg);"></div>
+          <div style="position: absolute; inset: 4px; background: #2E5E3A; border: 2px solid #FFFFFF; border-radius: 0 50% 0 50%; transform: rotate(45deg);"></div>
         </div>
-        <span class="lh-reg-badge">Reg. No. 8219636</span>
-    </div>
-    <div class="lh-strip">
-        <span><strong>Tel</strong> &nbsp;08033528772</span>
-        <span><strong>Address</strong> &nbsp;RB2 Ondo State Industrial Park, Onyearugbulem Market, Akure, Ondo State</span>
-    </div>
-
-    <!-- DOCUMENT TITLE -->
-    <div class="doc-title">Project Quotation</div>
-
-    <!-- META GRID -->
-    <div class="two-col">
-        <div class="card card--filled">
-            <div class="card-title">Bill To</div>
-            <div class="field-row"><span class="field-label">Client Name</span><span class="field-val">Chop Republic</span></div>
-            <div class="field-row"><span class="field-label">Address</span><span class="field-line"></span></div>
-            <div class="field-row"><span class="field-label"></span><span class="field-line"></span></div>
-            <div class="field-row"><span class="field-label">Phone</span><span class="field-line"></span></div>
+        <div style="display: flex; flex-direction: column; gap: 2px;">
+          <span style="font-family: 'Sora', sans-serif; font-weight: 700; font-size: 17px; line-height: 1; color: #1F4229;">Nature&rsquo;s Beauty</span>
+          <span style="font-family: 'Sora', sans-serif; font-weight: 600; font-size: 8px; letter-spacing: 0.32em; color: #C8901A;">CONSTRUCTION</span>
         </div>
-        <div class="card card--filled">
-            <div class="card-title">Quote Details</div>
-            <div class="field-row"><span class="field-label">Quote No.</span><span class="field-val">JAGE/Q/ _______ /2026</span></div>
-            <div class="field-row"><span class="field-label">Date Issued</span><span class="field-val">3rd July, 2026</span></div>
-            <div class="field-row"><span class="field-label">Valid Until</span><span class="field-val">2nd August, 2026</span></div>
-            <div class="field-row"><span class="field-label">Project Site</span><span class="field-line"></span></div>
-        </div>
+      </div>
+      <div style="text-align: right; font-size: 10.5px; line-height: 1.7; color: #5C665C;">Akure, Ondo State, Nigeria<br>WhatsApp +234 803 352 8772<br>@Natures_beauty_construction</div>
     </div>
 
-    <!-- SUBJECT -->
-    <div class="subject-block">
-        <span class="subject-label">Project Description</span>
-        <span class="subject-text">Installation of Interlocking Pavement &amp; Plaster Rendering Works</span>
+    <div style="padding: 34px 56px 0; display: flex; justify-content: space-between; align-items: flex-end;">
+      <div>
+        <div style="font-family: 'Sora', sans-serif; font-weight: 600; font-size: 10px; letter-spacing: 0.28em; color: #C8901A;">QUOTATION</div>
+        <div style="font-family: 'Sora', sans-serif; font-weight: 700; font-size: 27px; color: #1F4229; margin-top: 4px;">Project Quote</div>
+      </div>
+      <div style="text-align: right; font-size: 12px; line-height: 1.7; color: #3A443A;">
+        Quote no. <strong>NBC-Q-[0000]</strong><br>
+        Date: 3 July 2026 &nbsp;&middot;&nbsp; Valid for 30 days
+      </div>
     </div>
 
-    <!-- SCOPE OF WORK -->
-    <div class="section-title">Scope of Work</div>
-    <p class="body-text">
-        Laying of interlocking paving stones (paving stones to be provided by the client) at the rate of
-        &#8358;2,500 per square metre. The rate is inclusive of clearing of debris and obstructions,
-        scarifying, and levelling of the base ahead of laying. The quoted area of 100&nbsp;sqm is
-        provisional; the final area laid will be jointly measured on completion and billed at the
-        agreed rate per square metre. The works also include plaster rendering over the septic
-        tanks and inspection chamber at a lump sum.
-    </p>
+    <div style="padding: 26px 56px 0; display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
+      <div>
+        <div style="font-family: 'Sora', sans-serif; font-weight: 600; font-size: 9px; letter-spacing: 0.18em; color: #8A948A;">PREPARED FOR</div>
+        <div style="font-size: 13px; line-height: 1.6; margin-top: 4px;">Chop Republic<br>[Client address]<br>[Phone / email]</div>
+      </div>
+      <div>
+        <div style="font-family: 'Sora', sans-serif; font-weight: 600; font-size: 9px; letter-spacing: 0.18em; color: #8A948A;">PROJECT</div>
+        <div style="font-size: 13px; line-height: 1.6; margin-top: 4px;">Installation of Interlocking Pavement<br>[Site location]<br>[Expected start date]</div>
+      </div>
+    </div>
 
-    <!-- ITEMISED BILL OF QUANTITIES -->
-    <div class="section-title">Bill of Quantities</div>
-    <table class="doc-table">
+    <div style="padding: 28px 56px 0;">
+      <table style="width: 100%; border-collapse: collapse;">
         <thead>
-            <tr>
-                <th style="width:26pt">No.</th>
-                <th>Description of Work</th>
-                <th class="right" style="width:38pt">Qty</th>
-                <th class="center" style="width:34pt">Unit</th>
-                <th class="right" style="width:64pt">Unit Rate (&#8358;)</th>
-                <th class="right" style="width:72pt">Amount (&#8358;)</th>
-            </tr>
+          <tr style="background: #F0EFE7;">
+            <th style="text-align: left; padding: 10px 12px; font-family: 'Sora', sans-serif; font-weight: 600; font-size: 9.5px; letter-spacing: 0.14em; color: #5C665C; border-bottom: 1px solid #E3E1D6;">DESCRIPTION</th>
+            <th style="text-align: right; padding: 10px 12px; font-family: 'Sora', sans-serif; font-weight: 600; font-size: 9.5px; letter-spacing: 0.14em; color: #5C665C; border-bottom: 1px solid #E3E1D6;">QTY</th>
+            <th style="text-align: right; padding: 10px 12px; font-family: 'Sora', sans-serif; font-weight: 600; font-size: 9.5px; letter-spacing: 0.14em; color: #5C665C; border-bottom: 1px solid #E3E1D6;">UNIT PRICE (&#8358;)</th>
+            <th style="text-align: right; padding: 10px 12px; font-family: 'Sora', sans-serif; font-weight: 600; font-size: 9.5px; letter-spacing: 0.14em; color: #5C665C; border-bottom: 1px solid #E3E1D6;">AMOUNT (&#8358;)</th>
+          </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>1</td>
-                <td>Laying of client-supplied interlocking paving stones, including clearing of debris and obstructions, scarifying and levelling of base</td>
-                <td class="right">100</td>
-                <td class="center">sqm</td>
-                <td class="right amount">2,500.00</td>
-                <td class="right amount">250,000.00</td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>Plaster rendering over septic tanks and inspection chamber</td>
-                <td class="right">1</td>
-                <td class="center">L.S.</td>
-                <td class="right amount">150,000.00</td>
-                <td class="right amount">150,000.00</td>
-            </tr>
+          <tr>
+            <td style="padding: 10px 12px; font-size: 12.5px; border-bottom: 1px solid #EDEBE2;">Laying of client-supplied interlocking paving stones, incl. clearing of debris &amp; obstructions, scarifying and levelling of base (rate per sqm, area jointly measured on completion)</td>
+            <td style="padding: 10px 12px; font-size: 12.5px; border-bottom: 1px solid #EDEBE2; text-align: right;">100 sqm</td>
+            <td style="padding: 10px 12px; font-size: 12.5px; border-bottom: 1px solid #EDEBE2; text-align: right;">2,500.00</td>
+            <td style="padding: 10px 12px; font-size: 12.5px; border-bottom: 1px solid #EDEBE2; text-align: right;">250,000.00</td>
+          </tr>
+          <tr>
+            <td style="padding: 10px 12px; font-size: 12.5px; border-bottom: 1px solid #EDEBE2;">Plaster rendering over septic tanks and inspection chamber</td>
+            <td style="padding: 10px 12px; font-size: 12.5px; border-bottom: 1px solid #EDEBE2; text-align: right;">1 L.S.</td>
+            <td style="padding: 10px 12px; font-size: 12.5px; border-bottom: 1px solid #EDEBE2; text-align: right;">150,000.00</td>
+            <td style="padding: 10px 12px; font-size: 12.5px; border-bottom: 1px solid #EDEBE2; text-align: right;">150,000.00</td>
+          </tr>
         </tbody>
-        <tfoot>
-            <tr><td colspan="5" class="right">Sub-Total</td><td class="right amount">&#8358;&nbsp;400,000.00</td></tr>
-            <tr class="total-row"><td colspan="5" class="right"><strong>TOTAL QUOTED AMOUNT</strong></td><td class="right amount"><strong>&#8358;&nbsp;400,000.00</strong></td></tr>
-        </tfoot>
-    </table>
+      </table>
 
-    <!-- PAYMENT TERMS -->
-    <div class="section-title page-break">Payment Terms &amp; Conditions</div>
-    <div class="two-col">
-        <div class="card">
-            <div class="card-title">Payment Schedule</div>
-            <div class="field-row"><span class="field-label">Mobilisation</span><span class="field-val">______% on signing</span></div>
-            <div class="field-row"><span class="field-label">Midpoint</span><span class="field-val">______% at milestone</span></div>
-            <div class="field-row"><span class="field-label">Completion</span><span class="field-val">______% on handover</span></div>
+      <div style="display: flex; justify-content: flex-end; margin-top: 16px;">
+        <div style="width: 280px; font-size: 12.5px;">
+          <div style="display: flex; justify-content: space-between; padding: 6px 12px;"><span style="color: #5C665C;">Subtotal</span><span>&#8358; 400,000.00</span></div>
+          <div style="display: flex; justify-content: space-between; padding: 6px 12px;"><span style="color: #5C665C;">VAT (7.5%)</span><span>&#8358; 30,000.00</span></div>
+          <div style="display: flex; justify-content: space-between; padding: 10px 12px; margin-top: 4px; background: #1F4229; color: #F7F6F1; font-family: 'Sora', sans-serif; font-weight: 700; font-size: 13.5px;"><span>Total</span><span>&#8358; 430,000.00</span></div>
         </div>
-        <div class="card">
-            <div class="card-title">General Terms</div>
-            <p style="font-size:8.5pt;color:var(--color-text-secondary);line-height:var(--leading-relaxed)">
-                1. This quotation is valid for 30 days from the date of issue.<br>
-                2. Interlocking paving stones are supplied by the client; rates cover workmanship and site preparation only.<br>
-                3. Final paved area to be jointly measured on completion and billed at &#8358;2,500 per sqm.<br>
-                4. Client to provide unrestricted site access.<br>
-                5. All payments by bank transfer to account details below.
-            </p>
-        </div>
+      </div>
     </div>
 
-    <!-- ACCEPTANCE -->
-    <div class="section-title">Acceptance</div>
-    <p class="body-text">
-        By signing below, the client accepts the terms and scope of this quotation and authorises Nature's Beauty Construction to proceed with the described works.
-    </p>
-
-    <div class="sig-row">
-        <div>
-            <div class="sig-line"></div>
-            <div class="sig-name">Jenyo Akarakiri</div>
-            <div class="sig-title">Director &amp; Founder — Nature's Beauty</div>
-            <div class="sig-title" style="margin-top:3pt">Date: ____________________</div>
-        </div>
-        <div>
-            <div class="stamp-slot"><div class="stamp-area">Company<br>Stamp</div></div>
-            <div class="sig-line"></div>
-            <div class="sig-name">For Chop Republic</div>
-            <div class="sig-title">Client Signature &amp; Name</div>
-            <div class="sig-title" style="margin-top:3pt">Date: ____________________</div>
-        </div>
+    <div style="flex: 1; padding: 28px 56px 0; font-size: 12px; line-height: 1.7; color: #3A443A;">
+      <div style="font-family: 'Sora', sans-serif; font-weight: 600; font-size: 9px; letter-spacing: 0.18em; color: #8A948A; margin-bottom: 6px;">TERMS</div>
+      <p style="margin: 0;">Interlocking paving stones are supplied by the client; the rates above cover workmanship, site clearing, scarifying and levelling only. The 100&nbsp;sqm area is provisional &mdash; final area laid is jointly measured on completion and billed at &#8358;2,500/sqm. Client to provide unrestricted site access. Payment by bank transfer. This quote is valid for 30 days from the date above.</p>
     </div>
 
-    <!-- FOOTER -->
-    <div class="lh-footer">
-        <div class="lh-footer-bar">
-            <div class="lh-footer-col">
-                <span class="lh-footer-col-title">Registered Address</span>
-                <span>RB2 Ondo State Industrial Park,</span>
-                <span>Onyearugbulem Market, Akure,</span>
-                <span>Ondo State, Nigeria</span>
-            </div>
-            <div class="lh-footer-col">
-                <span class="lh-footer-col-title">Contact</span>
-                <span>Tel: 08033528772</span>
-            </div>
-            <div class="lh-footer-col">
-                <span class="lh-footer-col-title">Registration</span>
-                <span>Business Name Reg. No.</span>
-                <span><strong>8219636</strong></span>
-            </div>
-            <div class="lh-footer-col">
-                <span class="lh-footer-col-title">Brand</span>
-                <span class="lh-footer-brand-name">Nature's Beauty</span>
-                <span>A Division of Jenyo Akarakiri Global Enterprise</span>
-            </div>
-        </div>
+    <div style="padding: 24px 56px 0; display: flex; gap: 48px;">
+      <div style="flex: 1;">
+        <div style="border-bottom: 1px solid #1B231C; height: 42px;"></div>
+        <div style="margin-top: 8px; font-family: 'Sora', sans-serif; font-weight: 600; font-size: 11px; color: #1F4229;">For Nature&rsquo;s Beauty Construction</div>
+        <div style="font-size: 10.5px; color: #8A948A;">Jenyo Akarakiri &middot; Signature &middot; Date</div>
+      </div>
+      <div style="flex: 1;">
+        <div style="border-bottom: 1px solid #1B231C; height: 42px;"></div>
+        <div style="margin-top: 8px; font-family: 'Sora', sans-serif; font-weight: 600; font-size: 11px; color: #1F4229;">Client acceptance</div>
+        <div style="font-size: 10.5px; color: #8A948A;">For Chop Republic &middot; Signature &middot; Date</div>
+      </div>
     </div>
 
+    <div style="margin-top: 28px; padding: 18px 56px 26px; border-top: 1px solid #E3E1D6; display: flex; justify-content: space-between; font-size: 10px; color: #8A948A;">
+      <span>Landscape design &middot; construction &middot; grounds maintenance &mdash; nationwide</span>
+      <span>A division of Jenyo Akarakiri Global Enterprise</span>
+    </div>
+  </div>
 </div>
 </body>
 </html>
