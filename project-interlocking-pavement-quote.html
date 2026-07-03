@@ -3,13 +3,214 @@
 <head>
 <meta charset="UTF-8">
 <title>Project Quotation — Installation of Interlocking Pavement — Nature's Beauty Construction</title>
-<link rel="stylesheet" href="templates/letterhead.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lemonada:wght@400;600;700&family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="tokens.css">
+<style>
+/* ============================================================
+   Project Quotation — built on the @natures-beauty/ui design
+   system. All colours, type, spacing, and radii come from the
+   design tokens in tokens.css (single source of truth).
+   ============================================================ */
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: var(--font-body);
+    font-size: 10.5pt;
+    color: var(--color-text-primary);
+    background: var(--color-surface);
+    line-height: var(--leading-normal);
+}
+
+@page { size: A4 portrait; margin: 18mm; }
+
+/* ---- Toolbar (screen only) ---- */
+.doc-toolbar {
+    position: fixed; top: 0; left: 0; right: 0; z-index: var(--z-sticky);
+    background: var(--color-surface-inverse);
+    color: var(--color-text-inverse);
+    padding: 10px 24px;
+    display: flex; align-items: center; justify-content: space-between;
+    font-size: var(--text-sm);
+}
+.doc-toolbar-title { font-family: var(--font-display); font-weight: var(--weight-bold); font-size: var(--text-sm); }
+.doc-btn {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-family: var(--font-body); font-weight: var(--weight-bold); font-size: var(--text-xs);
+    padding: 8px 16px; border-radius: var(--radius-sm); border: none; cursor: pointer;
+    text-decoration: none; transition: background var(--transition-base);
+}
+.doc-btn-back  { background: rgba(255,255,255,0.1); color: var(--color-text-inverse); margin-right: 8px; }
+.doc-btn-back:hover { background: rgba(255,255,255,0.2); }
+.doc-btn-print { background: var(--color-primary); color: var(--color-primary-on); }
+.doc-btn-print:hover { background: var(--color-primary-hover); }
+
+@media screen {
+    body { margin-top: 52px; padding: 24px; background: var(--color-surface-sunken); }
+    .doc-page {
+        background: var(--color-surface);
+        max-width: 210mm; min-height: 297mm;
+        margin: 0 auto 24px; padding: 18mm;
+        box-shadow: var(--shadow-lg);
+        border-radius: var(--radius-sm);
+    }
+}
+@media print {
+    body { margin: 0; padding: 0; background: var(--color-surface); }
+    .doc-page { padding: 0; box-shadow: none; max-width: none; min-height: auto; border-radius: 0; }
+    .doc-toolbar { display: none; }
+    .page-break { page-break-before: always; }
+    html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
+
+/* ---- Letterhead ---- */
+.lh-accent { height: 6pt; border-radius: var(--radius-full); background: linear-gradient(90deg, var(--gold-500) 0%, var(--gold-400) 55%, var(--green-600) 100%); margin-bottom: 14pt; }
+
+.lh-brand { display: flex; align-items: flex-start; justify-content: space-between; gap: 16pt; margin-bottom: 12pt; }
+.lh-name {
+    font-family: var(--font-display); font-weight: var(--weight-bold);
+    font-size: 22pt; line-height: var(--leading-tight); color: var(--gold-600);
+    letter-spacing: var(--tracking-tight);
+}
+.lh-division { font-size: 8.5pt; color: var(--color-text-tertiary); letter-spacing: var(--tracking-wide); margin-top: 3pt; }
+.lh-reg-badge {
+    display: inline-flex; align-items: center; gap: 4pt;
+    background: var(--color-primary-subtle); color: var(--gold-700);
+    border: 1px solid var(--gold-300);
+    border-radius: var(--radius-full);
+    font-size: 7.5pt; font-weight: var(--weight-bold);
+    letter-spacing: var(--tracking-wide);
+    padding: 4pt 10pt; white-space: nowrap;
+}
+
+.lh-strip {
+    background: var(--color-surface-inverse); color: var(--color-text-inverse);
+    border-radius: var(--radius-md);
+    padding: 7pt 12pt;
+    display: flex; align-items: center; justify-content: space-between; gap: 12pt;
+    font-size: 8.5pt; letter-spacing: var(--tracking-wide);
+}
+.lh-strip strong { color: var(--gold-400); font-weight: var(--weight-semibold); }
+
+/* ---- Document title ---- */
+.doc-title {
+    text-align: center; margin: 16pt 0 14pt;
+    font-family: var(--font-display); font-weight: var(--weight-bold);
+    font-size: 14pt; letter-spacing: var(--tracking-widest);
+    text-transform: uppercase; color: var(--color-text-accent);
+}
+
+/* ---- Cards (from .nb-card--outlined / --filled) ---- */
+.card {
+    background: var(--color-surface);
+    border: 2px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: 10pt 12pt;
+}
+.card--filled { background: var(--color-surface-raised); border-color: transparent; }
+.card-title {
+    font-size: 7.5pt; font-weight: var(--weight-bold);
+    letter-spacing: var(--tracking-widest); text-transform: uppercase;
+    color: var(--color-text-accent); margin-bottom: 6pt;
+}
+
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 10pt; }
+
+.field-row { display: flex; align-items: baseline; gap: 6pt; margin-bottom: 5pt; font-size: 9pt; }
+.field-row:last-child { margin-bottom: 0; }
+.field-label {
+    flex-shrink: 0; width: 62pt;
+    font-size: 7.5pt; font-weight: var(--weight-bold);
+    letter-spacing: var(--tracking-label); text-transform: uppercase;
+    color: var(--color-text-tertiary);
+}
+.field-val  { color: var(--color-text-primary); font-weight: var(--weight-semibold); }
+.field-line { flex: 1; border-bottom: 1px solid var(--color-border-strong); min-height: 10pt; }
+
+/* ---- Subject callout (from .nb-alert) ---- */
+.subject-block {
+    margin: 12pt 0;
+    background: var(--color-primary-subtle);
+    border: 1px solid var(--gold-200);
+    border-left: 4px solid var(--color-primary);
+    border-radius: var(--radius-md);
+    padding: 8pt 12pt;
+}
+.subject-label {
+    display: block; font-size: 7.5pt; font-weight: var(--weight-bold);
+    letter-spacing: var(--tracking-widest); text-transform: uppercase;
+    color: var(--gold-700); margin-bottom: 3pt;
+}
+.subject-text { font-family: var(--font-display); font-weight: var(--weight-semibold); font-size: 11.5pt; color: var(--color-text-primary); }
+
+/* ---- Section titles ---- */
+.section-title {
+    display: flex; align-items: center; gap: 8pt;
+    font-family: var(--font-display); font-weight: var(--weight-bold);
+    font-size: 10.5pt; color: var(--color-text-accent);
+    margin: 14pt 0 8pt;
+}
+.section-title::after { content: ''; flex: 1; height: 1px; background: var(--color-border-strong); }
+
+.body-text { font-size: 9.5pt; color: var(--color-text-secondary); line-height: var(--leading-relaxed); margin-bottom: 8pt; }
+
+/* ---- Bill of quantities table ---- */
+.doc-table { width: 100%; border-collapse: separate; border-spacing: 0; font-size: 9pt; border: 1px solid var(--color-border); border-radius: var(--radius-md); overflow: hidden; }
+.doc-table th {
+    background: var(--color-surface-inverse); color: var(--color-text-inverse);
+    font-size: 7.5pt; font-weight: var(--weight-bold);
+    letter-spacing: var(--tracking-label); text-transform: uppercase;
+    padding: 7pt 8pt; text-align: left;
+}
+.doc-table td { padding: 7pt 8pt; border-top: 1px solid var(--color-border); vertical-align: top; color: var(--color-text-secondary); }
+.doc-table tbody tr:nth-child(even) td { background: var(--color-surface-raised); }
+.doc-table .right  { text-align: right; }
+.doc-table .center { text-align: center; }
+.doc-table tfoot td { background: var(--color-primary-subtle); color: var(--color-text-primary); font-weight: var(--weight-semibold); }
+.doc-table tfoot .total-row td {
+    background: var(--color-surface-inverse); color: var(--color-text-inverse);
+    font-size: 10pt;
+}
+.doc-table tfoot .total-row td strong { color: var(--gold-400); }
+.amount { white-space: nowrap; }
+
+/* ---- Signatures ---- */
+.sig-row { display: grid; grid-template-columns: 1fr 1fr; gap: 24pt; margin-top: 26pt; align-items: end; }
+.sig-line { border-bottom: 1.5px solid var(--color-text-primary); height: 26pt; margin-bottom: 5pt; }
+.stamp-slot { display: flex; justify-content: flex-end; margin-bottom: 8pt; }
+.sig-name { font-weight: var(--weight-bold); font-size: 9.5pt; color: var(--color-text-primary); }
+.sig-title { font-size: 7.5pt; letter-spacing: var(--tracking-label); text-transform: uppercase; color: var(--color-text-tertiary); margin-top: 2pt; }
+.stamp-area {
+    width: 80pt; height: 58pt;
+    border: 1.5px dashed var(--color-border-strong); border-radius: var(--radius-md);
+    display: flex; align-items: center; justify-content: center; text-align: center;
+    font-size: 7pt; color: var(--color-text-disabled); letter-spacing: var(--tracking-wide); text-transform: uppercase;
+}
+
+/* ---- Footer ---- */
+.lh-footer { position: fixed; bottom: 0; left: 0; right: 0; padding: 0 18mm 6mm; }
+@media screen { .lh-footer { position: static; padding: 24pt 0 0; } }
+.lh-footer-bar {
+    border-top: 2px solid var(--color-primary);
+    padding-top: 7pt;
+    display: grid; grid-template-columns: 1.5fr 1fr 1fr 1.2fr; gap: 10pt;
+    font-size: 7pt; color: var(--color-text-tertiary); line-height: var(--leading-snug);
+}
+.lh-footer-col span { display: block; }
+.lh-footer-col-title {
+    display: block; font-size: 6.5pt; font-weight: var(--weight-bold);
+    letter-spacing: var(--tracking-widest); text-transform: uppercase;
+    color: var(--color-text-accent); margin-bottom: 3pt;
+}
+.lh-footer-brand-name { font-family: var(--font-display); font-weight: var(--weight-bold); font-style: normal; font-size: 8.5pt; color: var(--gold-600); }
+</style>
 </head>
 <body>
 
-<div class="doc-toolbar no-print">
-    <span class="doc-toolbar-title">Project Quotation: Installation of Interlocking Pavement</span>
-    <div class="doc-toolbar-actions">
+<div class="doc-toolbar">
+    <span class="doc-toolbar-title">Project Quotation: Installation of Interlocking Pavement — Chop Republic</span>
+    <div>
         <a href="templates/index.html" class="doc-btn doc-btn-back">&#8592; All Templates</a>
         <button class="doc-btn doc-btn-print" onclick="window.print()">Print / Save PDF</button>
     </div>
@@ -18,41 +219,33 @@
 <div class="doc-page">
 
     <!-- LETTERHEAD -->
-    <div class="letterhead">
-        <div class="lh-brand">
-            <div>
-                <div class="lh-name">Nature's Beauty</div>
-                <div class="lh-tagline">B e a u t y</div>
-                <div class="lh-division">A Division of Jenyo Akarakiri Global Enterprise</div>
-            </div>
-            <div class="lh-logo-right">
-                <div class="lh-reg">
-                    Business Name Reg. No. <strong>8219636</strong>
-                </div>
-            </div>
+    <div class="lh-accent"></div>
+    <div class="lh-brand">
+        <div>
+            <div class="lh-name">Nature's Beauty</div>
+            <div class="lh-division">Construction &mdash; A Division of Jenyo Akarakiri Global Enterprise</div>
         </div>
-        <div class="lh-bar">
-            <span class="lh-bar-item"><span class="lh-bar-icon">&#128222;</span> 08033528772</span>
-            <span class="lh-bar-item"><span class="lh-bar-icon">&#128205;</span> RB2 Ondo State Industrial Park, Onyearugbulem Market, Akure, Ondo State</span>
-        </div>
+        <span class="lh-reg-badge">Reg. No. 8219636</span>
+    </div>
+    <div class="lh-strip">
+        <span><strong>Tel</strong> &nbsp;08033528772</span>
+        <span><strong>Address</strong> &nbsp;RB2 Ondo State Industrial Park, Onyearugbulem Market, Akure, Ondo State</span>
     </div>
 
     <!-- DOCUMENT TITLE -->
-    <div style="text-align:center;margin-bottom:12pt">
-        <span style="font-family:'Lemonada',cursive;font-size:13pt;font-weight:700;letter-spacing:0.1em;color:#c9912a;text-transform:uppercase">Project Quotation</span>
-    </div>
+    <div class="doc-title">Project Quotation</div>
 
     <!-- META GRID -->
-    <div class="two-col" style="margin-bottom:12pt;gap:20pt">
-        <div>
-            <div style="font-size:8pt;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:#8a7a6a;margin-bottom:4pt">Bill To</div>
-            <div class="field-row"><span class="field-label">Client Name</span><span class="field-line"></span></div>
+    <div class="two-col">
+        <div class="card card--filled">
+            <div class="card-title">Bill To</div>
+            <div class="field-row"><span class="field-label">Client Name</span><span class="field-val">Chop Republic</span></div>
             <div class="field-row"><span class="field-label">Address</span><span class="field-line"></span></div>
             <div class="field-row"><span class="field-label"></span><span class="field-line"></span></div>
             <div class="field-row"><span class="field-label">Phone</span><span class="field-line"></span></div>
         </div>
-        <div>
-            <div style="font-size:8pt;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:#8a7a6a;margin-bottom:4pt">Quote Details</div>
+        <div class="card card--filled">
+            <div class="card-title">Quote Details</div>
             <div class="field-row"><span class="field-label">Quote No.</span><span class="field-val">JAGE/Q/ _______ /2026</span></div>
             <div class="field-row"><span class="field-label">Date Issued</span><span class="field-val">3rd July, 2026</span></div>
             <div class="field-row"><span class="field-label">Valid Until</span><span class="field-val">2nd August, 2026</span></div>
@@ -67,8 +260,8 @@
     </div>
 
     <!-- SCOPE OF WORK -->
-    <div class="doc-section-title">Scope of Work</div>
-    <p style="font-size:9.5pt;color:#4a3c2a;margin-bottom:8pt">
+    <div class="section-title">Scope of Work</div>
+    <p class="body-text">
         Laying of interlocking paving stones (paving stones to be provided by the client) at the rate of
         &#8358;2,500 per square metre. The rate is inclusive of clearing of debris and obstructions,
         scarifying, and levelling of the base ahead of laying. The quoted area of 100&nbsp;sqm is
@@ -78,16 +271,16 @@
     </p>
 
     <!-- ITEMISED BILL OF QUANTITIES -->
-    <div class="doc-section-title">Bill of Quantities</div>
+    <div class="section-title">Bill of Quantities</div>
     <table class="doc-table">
         <thead>
             <tr>
-                <th style="width:30pt">No.</th>
+                <th style="width:26pt">No.</th>
                 <th>Description of Work</th>
-                <th class="right" style="width:40pt">Qty</th>
-                <th class="center" style="width:35pt">Unit</th>
-                <th class="right" style="width:65pt">Unit Rate (&#8358;)</th>
-                <th class="right" style="width:70pt">Amount (&#8358;)</th>
+                <th class="right" style="width:38pt">Qty</th>
+                <th class="center" style="width:34pt">Unit</th>
+                <th class="right" style="width:64pt">Unit Rate (&#8358;)</th>
+                <th class="right" style="width:72pt">Amount (&#8358;)</th>
             </tr>
         </thead>
         <tbody>
@@ -96,36 +289,36 @@
                 <td>Laying of client-supplied interlocking paving stones, including clearing of debris and obstructions, scarifying and levelling of base</td>
                 <td class="right">100</td>
                 <td class="center">sqm</td>
-                <td class="right">2,500.00</td>
-                <td class="right">250,000.00</td>
+                <td class="right amount">2,500.00</td>
+                <td class="right amount">250,000.00</td>
             </tr>
             <tr>
                 <td>2</td>
                 <td>Plaster rendering over septic tanks and inspection chamber</td>
                 <td class="right">1</td>
                 <td class="center">L.S.</td>
-                <td class="right">150,000.00</td>
-                <td class="right">150,000.00</td>
+                <td class="right amount">150,000.00</td>
+                <td class="right amount">150,000.00</td>
             </tr>
         </tbody>
         <tfoot>
-            <tr class="subtotal-row"><td colspan="5" class="right"><strong>Sub-Total</strong></td><td class="right" style="white-space:nowrap">&#8358;&nbsp;400,000.00</td></tr>
-            <tr class="total-row"><td colspan="5" class="right"><strong>TOTAL QUOTED AMOUNT</strong></td><td class="right" style="white-space:nowrap"><strong>&#8358;&nbsp;400,000.00</strong></td></tr>
+            <tr><td colspan="5" class="right">Sub-Total</td><td class="right amount">&#8358;&nbsp;400,000.00</td></tr>
+            <tr class="total-row"><td colspan="5" class="right"><strong>TOTAL QUOTED AMOUNT</strong></td><td class="right amount"><strong>&#8358;&nbsp;400,000.00</strong></td></tr>
         </tfoot>
     </table>
 
     <!-- PAYMENT TERMS -->
-    <div class="doc-section-title page-break">Payment Terms &amp; Conditions</div>
+    <div class="section-title page-break">Payment Terms &amp; Conditions</div>
     <div class="two-col">
-        <div class="info-box">
-            <span class="info-box-title">Payment Schedule</span>
-            <div class="field-row" style="font-size:9pt"><span class="field-label">Mobilisation</span><span class="field-val">______% on signing</span></div>
-            <div class="field-row" style="font-size:9pt"><span class="field-label">Midpoint</span><span class="field-val">______% at milestone</span></div>
-            <div class="field-row" style="font-size:9pt;margin-bottom:0"><span class="field-label">Completion</span><span class="field-val">______% on handover</span></div>
+        <div class="card">
+            <div class="card-title">Payment Schedule</div>
+            <div class="field-row"><span class="field-label">Mobilisation</span><span class="field-val">______% on signing</span></div>
+            <div class="field-row"><span class="field-label">Midpoint</span><span class="field-val">______% at milestone</span></div>
+            <div class="field-row"><span class="field-label">Completion</span><span class="field-val">______% on handover</span></div>
         </div>
-        <div class="info-box">
-            <span class="info-box-title">General Terms</span>
-            <p style="font-size:8.5pt;color:#4a3c2a">
+        <div class="card">
+            <div class="card-title">General Terms</div>
+            <p style="font-size:8.5pt;color:var(--color-text-secondary);line-height:var(--leading-relaxed)">
                 1. This quotation is valid for 30 days from the date of issue.<br>
                 2. Interlocking paving stones are supplied by the client; rates cover workmanship and site preparation only.<br>
                 3. Final paved area to be jointly measured on completion and billed at &#8358;2,500 per sqm.<br>
@@ -136,24 +329,24 @@
     </div>
 
     <!-- ACCEPTANCE -->
-    <div class="doc-section-title">Acceptance</div>
-    <p style="font-size:9.5pt;color:#4a3c2a;margin-bottom:10pt">
+    <div class="section-title">Acceptance</div>
+    <p class="body-text">
         By signing below, the client accepts the terms and scope of this quotation and authorises Nature's Beauty Construction to proceed with the described works.
     </p>
 
     <div class="sig-row">
-        <div class="sig-col">
-            <div class="sig-col-line"></div>
-            <div class="sig-col-name">Jenyo Akarakiri</div>
-            <div class="sig-col-title">Director &amp; Founder — Nature's Beauty</div>
-            <div class="sig-col-title" style="margin-top:3pt">Date: ____________________</div>
+        <div>
+            <div class="sig-line"></div>
+            <div class="sig-name">Jenyo Akarakiri</div>
+            <div class="sig-title">Director &amp; Founder — Nature's Beauty</div>
+            <div class="sig-title" style="margin-top:3pt">Date: ____________________</div>
         </div>
-        <div class="sig-col">
-            <div class="stamp-area">Company<br>Stamp</div>
-            <div class="sig-col-line"></div>
-            <div class="sig-col-name">___________________________</div>
-            <div class="sig-col-title">Client Signature &amp; Name</div>
-            <div class="sig-col-title" style="margin-top:3pt">Date: ____________________</div>
+        <div>
+            <div class="stamp-slot"><div class="stamp-area">Company<br>Stamp</div></div>
+            <div class="sig-line"></div>
+            <div class="sig-name">For Chop Republic</div>
+            <div class="sig-title">Client Signature &amp; Name</div>
+            <div class="sig-title" style="margin-top:3pt">Date: ____________________</div>
         </div>
     </div>
 
@@ -178,7 +371,7 @@
             <div class="lh-footer-col">
                 <span class="lh-footer-col-title">Brand</span>
                 <span class="lh-footer-brand-name">Nature's Beauty</span>
-                <span>A Division of Jenyo Akarakiri<br>Global Enterprise</span>
+                <span>A Division of Jenyo Akarakiri Global Enterprise</span>
             </div>
         </div>
     </div>
