@@ -93,12 +93,20 @@
   .two-col{display:grid;grid-template-columns:1fr 1fr;gap:28px}
   .ref-tag{font-family:'Sora',sans-serif;font-weight:600;font-size:10px;letter-spacing:.06em;color:var(--gold-dark)}
 
+  @page{size:A4;margin:0}
   @media print{
     body{background:#fff}
     .doc-toolbar,.no-print{display:none}
     .viewport{padding:0;gap:0}
-    .page{box-shadow:none;width:100%;min-height:100vh;page-break-after:always}
-    .page:last-child{page-break-after:auto}
+    /* Each logical page starts on a fresh A4 sheet; 296mm (just under A4's 297mm)
+       avoids sub-pixel overflow that would emit spurious blank sheets. */
+    .page{box-shadow:none;width:210mm;min-height:296mm;break-before:page;page-break-before:always}
+    .page:first-child{break-before:avoid;page-break-before:avoid}
+    /* Keep table rows and callouts from splitting across sheets */
+    .tbl tr,.callout{break-inside:avoid;page-break-inside:avoid}
+    /* Page 2 carries three sections; start the Financial Summary on its own sheet
+       so Executive Summary + Scope share the first and nothing splits mid-content */
+    #finsum{break-before:page;page-break-before:always;margin-top:0}
   }
 </style>
 </head>
@@ -197,7 +205,7 @@
       <h3 class="block">C &middot; Other Client Expenses</h3>
       <p>Operational disbursements made on the client&rsquo;s behalf, unrelated to the two construction streams, presented in two periods: earlier expenses (January&ndash;April) covering security-men salaries and a pressure-pump repair; and current miscellaneous expenses (May&ndash;present) covering a wreath and transportation, security salaries, and site logistics.</p>
 
-      <h2 class="sec-title" style="margin-top:20px">Financial Summary</h2>
+      <h2 class="sec-title" id="finsum" style="margin-top:20px">Financial Summary</h2>
       <p>The consolidated position across the three expense groups is set out below. Each line reconciles exactly with its supporting schedule in the Detailed Financial Breakdown.</p>
 
       <h3 class="block">Section A &mdash; Grave Canopy Project (by phase)</h3>
@@ -243,7 +251,6 @@
 
       <div class="eyebrow">Detailed Financial Breakdown</div>
       <h2 class="sec-title">Section A &middot; Phase 1 &mdash; Foundation to Roofing Level</h2>
-      <div class="lede-strip">This detailed breakdown presents every expenditure line by line for each phase and section, with dates, descriptions, quantities and unit rates where applicable.</div>
 
       <table class="tbl">
         <thead>
