@@ -17,12 +17,16 @@
   -------------------
   • Each A4 page is a <section class="doc-page"> (794 x 1123px @96dpi).
   • Tile options are <div class="tile-card"> blocks. To add a tile: copy one,
-    swap the .swatch background (see the swatch recipes below), the name,
-    category, description and the four spec values (SIZE / COST / ORIGIN /
-    QUALITY), and keep the grade badge class in sync (--std / --prem / --lux).
-  • Every tile you add must ALSO appear in the Comparison Table (page 4).
+    swap the .swatch background, the name, category, description and the four
+    spec values (SIZE / COST / ORIGIN / QUALITY), and keep the grade badge
+    class in sync (--std / --prem / --lux).
+  • Every tile you add must ALSO appear in the Comparison Table (page 5).
   • Origins currently shown: SPAIN (₦26,000/m²) and CHINA (₦27,500/m²).
     Add a new origin by duplicating a category band + grid.
+  • Product codes (61550, 61530, 61521, 61551, 61564, 630056, 8D300, L14020)
+    are the supplier box codes shown on the sample labels.
+  • Pack data: 15x60 split-face = 8 pcs / 0.72 m² box; 30x60 large-format =
+    8 pcs / 1.44 m² box.
   • [square-bracket] fields are per-client blanks — fill per job.
   • Swatches are CSS approximations of each finish. To show a real product
     photo instead, drop a cropped image in an assets/ folder and replace the
@@ -76,17 +80,17 @@
   .cat-line{flex:1;height:1px;background:#E3E1D6}
 
   /* Tile card */
-  .tile-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .tile-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
   .tile-card{border:1px solid #E3E1D6;border-radius:12px;overflow:hidden;background:#FFF;box-shadow:0 2px 8px rgba(27,35,28,0.05)}
-  .swatch{height:76px;position:relative;box-shadow:inset 0 -1px 0 rgba(0,0,0,0.06)}
-  .tile-body{padding:12px 15px 14px}
+  .swatch{height:68px;position:relative;box-shadow:inset 0 -1px 0 rgba(0,0,0,0.06)}
+  .tile-body{padding:11px 15px 13px}
   .tile-top{display:flex;justify-content:space-between;align-items:flex-start;gap:8px}
   .tile-name{font-family:'Sora',sans-serif;font-weight:700;font-size:13.5px;color:#1F4229;line-height:1.2}
-  .tile-cat{font-size:10.5px;color:#8A948A;margin-top:2px}
-  .tile-desc{font-size:11px;line-height:1.5;color:#3A443A;margin:9px 0 11px}
-  .specs{display:grid;grid-template-columns:1fr 1fr;gap:7px 10px;border-top:1px solid #EDEBE2;padding-top:10px}
+  .tile-cat{font-size:10px;color:#8A948A;margin-top:2px}
+  .tile-desc{font-size:10.5px;line-height:1.5;color:#3A443A;margin:8px 0 10px}
+  .specs{display:grid;grid-template-columns:1fr 1fr;gap:6px 10px;border-top:1px solid #EDEBE2;padding-top:9px}
   .spec-l{font-family:'Sora',sans-serif;font-weight:600;font-size:7.5px;letter-spacing:0.14em;color:#8A948A}
-  .spec-v{font-size:11.5px;color:#1B231C;font-weight:500;margin-top:1px}
+  .spec-v{font-size:11px;color:#1B231C;font-weight:500;margin-top:1px}
 
   .grade{font-family:'Sora',sans-serif;font-weight:600;font-size:8px;letter-spacing:0.1em;padding:3px 9px;border-radius:99px;white-space:nowrap;flex-shrink:0}
   .grade--std{background:#EEF2EC;color:#4A7C5A}
@@ -96,8 +100,8 @@
   /* Comparison table */
   .cmp{width:100%;border-collapse:collapse}
   .cmp thead tr{background:#F0EFE7}
-  .cmp th{text-align:left;padding:9px 12px;font-family:'Sora',sans-serif;font-weight:600;font-size:9px;letter-spacing:0.12em;color:#5C665C;border-bottom:1px solid #E3E1D6}
-  .cmp td{padding:8px 12px;font-size:11.5px;border-bottom:1px solid #EDEBE2;color:#3A443A}
+  .cmp th{text-align:left;padding:8px 12px;font-family:'Sora',sans-serif;font-weight:600;font-size:9px;letter-spacing:0.12em;color:#5C665C;border-bottom:1px solid #E3E1D6}
+  .cmp td{padding:7px 12px;font-size:11px;border-bottom:1px solid #EDEBE2;color:#3A443A}
   .cmp .num{text-align:right;font-variant-numeric:tabular-nums}
   .cmp tr:nth-child(even) td{background:#FBFAF6}
   .grp{font-family:'Sora',sans-serif;font-weight:700;font-size:9px;letter-spacing:0.14em;color:#1F4229}
@@ -160,14 +164,13 @@
       <p style="font-size:20px;line-height:1.5;color:#C9D6C9;margin:0;max-width:540px">Tile Options for Wall Rendering &mdash; imported Spanish &amp; Chinese stone and brick-effect wall cladding for feature walls and façades.</p>
     </div>
 
-    <!-- swatch strip: real finish tones -->
     <div style="display:flex;gap:0;margin:44px 64px 0;border-radius:12px;overflow:hidden;height:74px;box-shadow:0 10px 30px rgba(0,0,0,0.25);position:relative">
       <div style="flex:1;background:repeating-linear-gradient(0deg,#efe7d8 0 2px,transparent 2px 22px),repeating-linear-gradient(90deg,#efe7d8 0 2px,transparent 2px 48px),linear-gradient(135deg,#b85f39,#9a4a2c)"></div>
       <div style="flex:1;background:repeating-linear-gradient(90deg,#ece0c9 0 6px,#dcc9a6 6px 11px,#f2e9d7 11px 17px,#d3bd97 17px 22px)"></div>
       <div style="flex:1;background:repeating-linear-gradient(90deg,#2b2b30 0 5px,#3a3a41 5px 9px,#232327 9px 14px,#44444c 14px 18px)"></div>
-      <div style="flex:1;background:repeating-linear-gradient(90deg,#d2d5d7 0 6px,#b4b9bc 6px 10px,#e6e9ea 10px 15px,#484c51 15px 17px,#c7cacd 17px 22px)"></div>
+      <div style="flex:1;background:repeating-linear-gradient(90deg,#8b9094 0 6px,#5f6469 6px 11px,#a7acb0 11px 17px,#4c5155 17px 22px)"></div>
+      <div style="flex:1;background:repeating-linear-gradient(90deg,#3d4247 0 3px,#4b5055 3px 5px,#33383c 5px 7px)"></div>
       <div style="flex:1;background:radial-gradient(circle at 25% 30%,#dcc7a2,transparent 42%),radial-gradient(circle at 70% 65%,#cbb187,transparent 45%),linear-gradient(135deg,#e6d6b6,#cbb48d)"></div>
-      <div style="flex:1;background:repeating-linear-gradient(90deg,#e7d4c4 0 6px,#d3b39c 6px 11px,#f0e0d2 11px 17px,#c39a80 17px 22px)"></div>
     </div>
 
     <div style="padding:34px 64px 40px;display:flex;justify-content:space-between;align-items:flex-end;position:relative">
@@ -202,7 +205,7 @@
     </div>
 
     <div style="padding:22px 56px 0;font-size:13px;line-height:1.75;color:#3A443A">
-      <p style="margin:0 0 16px">This catalogue presents the wall-cladding tiles Nature&rsquo;s Beauty Construction supplies and installs for wall rendering &mdash; split-face &ldquo;culture stone&rdquo;, brick-effect and flagstone finishes for feature walls, façades, pillars and boundary walls. Compare each option by finish, size, origin, quality grade and estimated cost so a confident selection can be made before works begin.</p>
+      <p style="margin:0 0 16px">This catalogue presents the wall-cladding tiles Nature&rsquo;s Beauty Construction supplies and installs for wall rendering &mdash; split-face &ldquo;culture stone&rdquo;, large-format stone and brick-effect finishes for feature walls, façades, pillars and boundary walls. Compare each option by finish, size, origin, quality grade and estimated cost so a confident selection can be made before works begin.</p>
     </div>
 
     <div style="padding:8px 56px 0;display:grid;grid-template-columns:1fr 1fr;gap:18px">
@@ -224,7 +227,7 @@
           <div style="font-size:11px;color:#5C665C;margin-top:4px;line-height:1.4">Countries of origin</div>
         </div>
         <div style="border:1px solid #E3E1D6;border-radius:10px;padding:16px;text-align:center">
-          <div style="font-family:'Sora',sans-serif;font-weight:800;font-size:24px;color:#C8901A">10</div>
+          <div style="font-family:'Sora',sans-serif;font-weight:800;font-size:24px;color:#C8901A">12</div>
           <div style="font-size:11px;color:#5C665C;margin-top:4px;line-height:1.4">Cladding options</div>
         </div>
         <div style="border:1px solid #E3E1D6;border-radius:10px;padding:16px;text-align:center">
@@ -248,8 +251,8 @@
     </div>
   </section>
 
-  <!-- ═══════════════════ PAGE 3 · SPANISH + CHINESE (PREMIUM) ═══════════════════ -->
-  <section class="doc-page" data-screen-label="Spanish &amp; Chinese Tiles">
+  <!-- ═══════════════════ PAGE 3 · SPANISH + SPLIT-FACE STACKED STONE ═══════════════════ -->
+  <section class="doc-page" data-screen-label="Spanish &amp; Split-Face Tiles">
     <div class="top-rule"></div>
     <div class="doc-head">
       <div class="logo-lock">
@@ -262,12 +265,12 @@
       <div class="contact">Akure, Ondo State, Nigeria<br>WhatsApp +234 803 352 8772<br>@Natures_beauty_construction</div>
     </div>
 
-    <div style="padding:30px 56px 0">
+    <div style="padding:28px 56px 0">
       <div class="eyebrow">TILE CATEGORIES &middot; A</div>
       <div class="page-title">Spanish Tiles</div>
     </div>
 
-    <div style="padding:16px 56px 0">
+    <div style="padding:14px 56px 0">
       <div class="cat-band">
         <span class="cat-flag">Spain</span>
         <span class="cat-origin">IMPORTED &middot; PREMIUM BRICK-EFFECT &middot; &#8358; 26,000 / m&#178;</span>
@@ -275,11 +278,10 @@
       </div>
     </div>
 
-    <div style="padding:14px 56px 0">
+    <div style="padding:12px 56px 0">
       <div class="tile-grid">
-        <!-- Spanish 1 — feature, full width -->
         <div class="tile-card" style="grid-column:1 / -1;display:flex">
-          <div class="swatch" style="width:210px;height:auto;flex-shrink:0;background:repeating-linear-gradient(0deg,#efe7d8 0 2px,transparent 2px 22px),repeating-linear-gradient(90deg,#efe7d8 0 2px,transparent 2px 48px),linear-gradient(135deg,#b85f39,#9a4a2c)"></div>
+          <div class="swatch" style="width:200px;height:auto;flex-shrink:0;background:repeating-linear-gradient(0deg,#efe7d8 0 2px,transparent 2px 22px),repeating-linear-gradient(90deg,#efe7d8 0 2px,transparent 2px 48px),linear-gradient(135deg,#b85f39,#9a4a2c)"></div>
           <div class="tile-body" style="flex:1">
             <div class="tile-top">
               <div><div class="tile-name">Castellón Brick-Face</div><div class="tile-cat">Brick-effect glazed porcelain &mdash; made in Spain</div></div>
@@ -297,30 +299,30 @@
       </div>
     </div>
 
-    <div style="padding:24px 56px 0">
+    <div style="padding:22px 56px 0">
       <div class="eyebrow">TILE CATEGORIES &middot; B</div>
-      <div class="page-title" style="font-size:22px">Chinese Tiles &mdash; Premium Line</div>
+      <div class="page-title" style="font-size:22px">Chinese Tiles &mdash; Split-Face Stacked Stone</div>
     </div>
 
-    <div style="padding:12px 56px 0">
+    <div style="padding:10px 56px 0">
       <div class="cat-band">
         <span class="cat-flag">China</span>
-        <span class="cat-origin">SPLIT-FACE CULTURE STONE &middot; &#8358; 27,500 / m&#178;</span>
+        <span class="cat-origin">150 &times; 600 mm &middot; 8 PCS / 0.72 m&#178; BOX &middot; &#8358; 27,500 / m&#178;</span>
         <span class="cat-line"></span>
       </div>
     </div>
 
-    <div style="padding:14px 56px 0">
+    <div style="padding:12px 56px 0">
       <div class="tile-grid">
-        <!-- China Premium 1 -->
+        <!-- 61550 -->
         <div class="tile-card">
           <div class="swatch" style="background:repeating-linear-gradient(90deg,#ece0c9 0 6px,#dcc9a6 6px 11px,#f2e9d7 11px 17px,#d3bd97 17px 22px)"></div>
           <div class="tile-body">
             <div class="tile-top">
-              <div><div class="tile-name">Cream Quartzite Ledge</div><div class="tile-cat">Split-face culture stone</div></div>
+              <div><div class="tile-name">Cream Quartzite Ledge</div><div class="tile-cat">Split-face culture stone &middot; code 61550</div></div>
               <span class="grade grade--prem">PREMIUM</span>
             </div>
-            <p class="tile-desc">Warm cream and beige stacked-stone panel with a bold 3D split texture &mdash; a bright, natural feature-wall finish for interiors and covered exteriors.</p>
+            <p class="tile-desc">Warm cream and beige stacked stone with a bold 3D split texture &mdash; a bright, natural feature-wall finish.</p>
             <div class="specs">
               <div><div class="spec-l">SIZE</div><div class="spec-v">150 &times; 600 mm</div></div>
               <div><div class="spec-l">COST / m&#178;</div><div class="spec-v">&#8358; 27,500</div></div>
@@ -329,7 +331,7 @@
             </div>
           </div>
         </div>
-        <!-- China Premium 2 -->
+        <!-- 61530 -->
         <div class="tile-card">
           <div class="swatch" style="background:repeating-linear-gradient(90deg,#d9c3a2 0 5px,#b2916d 5px 9px,#e7dcc6 9px 14px,#8f7d6a 14px 17px,#cbb48f 17px 22px)"></div>
           <div class="tile-body">
@@ -337,7 +339,7 @@
               <div><div class="tile-name">Autumn Blend Ledge</div><div class="tile-cat">Split-face culture stone &middot; code 61530</div></div>
               <span class="grade grade--prem">PREMIUM</span>
             </div>
-            <p class="tile-desc">Multi-tone stacked stone blending beige, grey and rust for a rich, quarried look. Supplied 8 pcs / 0.72 m² per box for easy estimating.</p>
+            <p class="tile-desc">Multi-tone stacked stone blending beige, grey and rust for a rich, quarried look with natural variation.</p>
             <div class="specs">
               <div><div class="spec-l">SIZE</div><div class="spec-v">150 &times; 600 mm</div></div>
               <div><div class="spec-l">COST / m&#178;</div><div class="spec-v">&#8358; 27,500</div></div>
@@ -346,7 +348,58 @@
             </div>
           </div>
         </div>
-        <!-- China Premium 3 -->
+        <!-- 61521 -->
+        <div class="tile-card">
+          <div class="swatch" style="background:repeating-linear-gradient(90deg,#b9bcbe 0 5px,#8f7a68 5px 9px,#d3d6d8 9px 14px,#7d8286 14px 17px,#c2b6a6 17px 22px)"></div>
+          <div class="tile-body">
+            <div class="tile-top">
+              <div><div class="tile-name">Sierra Grey Ledge</div><div class="tile-cat">Split-face culture stone &middot; code 61521</div></div>
+              <span class="grade grade--prem">PREMIUM</span>
+            </div>
+            <p class="tile-desc">Cool grey stacked stone warmed by rust-toned bands &mdash; a versatile, contemporary blend for interior and exterior walls.</p>
+            <div class="specs">
+              <div><div class="spec-l">SIZE</div><div class="spec-v">150 &times; 600 mm</div></div>
+              <div><div class="spec-l">COST / m&#178;</div><div class="spec-v">&#8358; 27,500</div></div>
+              <div><div class="spec-l">ORIGIN</div><div class="spec-v">China</div></div>
+              <div><div class="spec-l">QUALITY</div><div class="spec-v">Premium</div></div>
+            </div>
+          </div>
+        </div>
+        <!-- 61551 -->
+        <div class="tile-card">
+          <div class="swatch" style="background:repeating-linear-gradient(90deg,#8b9094 0 6px,#5f6469 6px 11px,#a7acb0 11px 17px,#4c5155 17px 22px)"></div>
+          <div class="tile-body">
+            <div class="tile-top">
+              <div><div class="tile-name">Storm Grey Ledge</div><div class="tile-cat">Split-face culture stone &middot; code 61551</div></div>
+              <span class="grade grade--prem">PREMIUM</span>
+            </div>
+            <p class="tile-desc">Deep charcoal-grey stacked stone with strong shadow lines &mdash; a bold, modern façade and feature-wall finish.</p>
+            <div class="specs">
+              <div><div class="spec-l">SIZE</div><div class="spec-v">150 &times; 600 mm</div></div>
+              <div><div class="spec-l">COST / m&#178;</div><div class="spec-v">&#8358; 27,500</div></div>
+              <div><div class="spec-l">ORIGIN</div><div class="spec-v">China</div></div>
+              <div><div class="spec-l">QUALITY</div><div class="spec-v">Premium</div></div>
+            </div>
+          </div>
+        </div>
+        <!-- 61564 -->
+        <div class="tile-card">
+          <div class="swatch" style="background:repeating-linear-gradient(90deg,#2b2b30 0 5px,#3a3a41 5px 9px,#232327 9px 14px,#44444c 14px 18px)"></div>
+          <div class="tile-body">
+            <div class="tile-top">
+              <div><div class="tile-name">Obsidian Split-Face</div><div class="tile-cat">Split-face culture stone &middot; code 61564</div></div>
+              <span class="grade grade--prem">PREMIUM</span>
+            </div>
+            <p class="tile-desc">Dramatic black stacked stone with a riven texture &mdash; a striking statement cladding for modern exteriors.</p>
+            <div class="specs">
+              <div><div class="spec-l">SIZE</div><div class="spec-v">150 &times; 600 mm</div></div>
+              <div><div class="spec-l">COST / m&#178;</div><div class="spec-v">&#8358; 27,500</div></div>
+              <div><div class="spec-l">ORIGIN</div><div class="spec-v">China</div></div>
+              <div><div class="spec-l">QUALITY</div><div class="spec-v">Premium</div></div>
+            </div>
+          </div>
+        </div>
+        <!-- Rose sandstone -->
         <div class="tile-card">
           <div class="swatch" style="background:repeating-linear-gradient(90deg,#e7d4c4 0 6px,#d3b39c 6px 11px,#f0e0d2 11px 17px,#c39a80 17px 22px)"></div>
           <div class="tile-body">
@@ -354,29 +407,12 @@
               <div><div class="tile-name">Rose Sandstone Ledge</div><div class="tile-cat">Split-face culture stone</div></div>
               <span class="grade grade--prem">PREMIUM</span>
             </div>
-            <p class="tile-desc">Soft pink-and-cream sandstone-look stacked panel with a fine split texture &mdash; a warm, elegant accent for interior feature walls.</p>
+            <p class="tile-desc">Soft pink-and-cream sandstone-look stacked panel &mdash; a warm, elegant accent for interior feature walls.</p>
             <div class="specs">
               <div><div class="spec-l">SIZE</div><div class="spec-v">150 &times; 600 mm</div></div>
               <div><div class="spec-l">COST / m&#178;</div><div class="spec-v">&#8358; 27,500</div></div>
               <div><div class="spec-l">ORIGIN</div><div class="spec-v">China</div></div>
               <div><div class="spec-l">QUALITY</div><div class="spec-v">Premium</div></div>
-            </div>
-          </div>
-        </div>
-        <!-- China Premium 4 -->
-        <div class="tile-card">
-          <div class="swatch" style="background:repeating-linear-gradient(90deg,#d2d5d7 0 6px,#b4b9bc 6px 10px,#e6e9ea 10px 15px,#484c51 15px 17px,#c7cacd 17px 22px)"></div>
-          <div class="tile-body">
-            <div class="tile-top">
-              <div><div class="tile-name">Silver Wave Panel</div><div class="tile-cat">Large-format stacked stone</div></div>
-              <span class="grade grade--lux">LUXURY</span>
-            </div>
-            <p class="tile-desc">Large-format grey-and-black stacked panel with striking vertical movement &mdash; a luxury statement cladding that covers walls fast with fewer joints.</p>
-            <div class="specs">
-              <div><div class="spec-l">SIZE</div><div class="spec-v">600 &times; 900 mm</div></div>
-              <div><div class="spec-l">COST / m&#178;</div><div class="spec-v">&#8358; 27,500</div></div>
-              <div><div class="spec-l">ORIGIN</div><div class="spec-v">China</div></div>
-              <div><div class="spec-l">QUALITY</div><div class="spec-v">Luxury</div></div>
             </div>
           </div>
         </div>
@@ -389,8 +425,8 @@
     </div>
   </section>
 
-  <!-- ═══════════════════ PAGE 4 · CHINESE (HIGH-QUALITY) + COMPARISON ═══════════════════ -->
-  <section class="doc-page" data-screen-label="Chinese Tiles &amp; Comparison">
+  <!-- ═══════════════════ PAGE 4 · LARGE-FORMAT + SPECIALTY ═══════════════════ -->
+  <section class="doc-page" data-screen-label="Large-Format &amp; Specialty Tiles">
     <div class="top-rule"></div>
     <div class="doc-head">
       <div class="logo-lock">
@@ -403,39 +439,74 @@
       <div class="contact">Akure, Ondo State, Nigeria<br>WhatsApp +234 803 352 8772<br>@Natures_beauty_construction</div>
     </div>
 
-    <div style="padding:30px 56px 0">
-      <div class="eyebrow">TILE CATEGORIES &middot; B (CONT.)</div>
-      <div class="page-title">Chinese Tiles &mdash; High-Quality Line</div>
+    <div style="padding:28px 56px 0">
+      <div class="eyebrow">TILE CATEGORIES &middot; C</div>
+      <div class="page-title">Chinese Tiles &mdash; Large-Format Feature</div>
     </div>
 
     <div style="padding:14px 56px 0">
       <div class="cat-band">
         <span class="cat-flag">China</span>
-        <span class="cat-origin">SLATE, BRICK &amp; FLAGSTONE FINISHES &middot; &#8358; 27,500 / m&#178;</span>
+        <span class="cat-origin">300 &times; 600 mm &middot; 8 PCS / 1.44 m&#178; BOX &middot; &#8358; 27,500 / m&#178;</span>
         <span class="cat-line"></span>
       </div>
     </div>
 
-    <div style="padding:14px 56px 0">
+    <div style="padding:12px 56px 0">
       <div class="tile-grid">
-        <!-- HQ 1 -->
+        <!-- 630056 -->
         <div class="tile-card">
-          <div class="swatch" style="background:repeating-linear-gradient(90deg,#2b2b30 0 5px,#3a3a41 5px 9px,#232327 9px 14px,#44444c 14px 18px)"></div>
+          <div class="swatch" style="background:repeating-linear-gradient(0deg,#e6e8ea 0 2px,transparent 2px 22px),repeating-linear-gradient(90deg,#e6e8ea 0 2px,transparent 2px 46px),linear-gradient(135deg,#8a9094,#6c7276)"></div>
           <div class="tile-body">
             <div class="tile-top">
-              <div><div class="tile-name">Obsidian Split-Face</div><div class="tile-cat">Black culture stone &middot; code 61564</div></div>
+              <div><div class="tile-name">Graphite Stone-Brick</div><div class="tile-cat">Large-format stone-brick &middot; code 630056</div></div>
               <span class="grade grade--prem">PREMIUM</span>
             </div>
-            <p class="tile-desc">Deep charcoal-black stacked stone with a dramatic riven texture &mdash; a bold modern façade and feature-wall finish. 8 pcs / 0.72 m² per box.</p>
+            <p class="tile-desc">Grey multi-tone stone-brick in a large 300 &times; 600 format &mdash; covers walls quickly with a natural stacked-stone face.</p>
             <div class="specs">
-              <div><div class="spec-l">SIZE</div><div class="spec-v">150 &times; 600 mm</div></div>
+              <div><div class="spec-l">SIZE</div><div class="spec-v">300 &times; 600 mm</div></div>
               <div><div class="spec-l">COST / m&#178;</div><div class="spec-v">&#8358; 27,500</div></div>
               <div><div class="spec-l">ORIGIN</div><div class="spec-v">China</div></div>
               <div><div class="spec-l">QUALITY</div><div class="spec-v">Premium</div></div>
             </div>
           </div>
         </div>
-        <!-- HQ 2 -->
+        <!-- 8D300 -->
+        <div class="tile-card">
+          <div class="swatch" style="background:repeating-linear-gradient(90deg,#3d4247 0 3px,#4b5055 3px 5px,#33383c 5px 7px)"></div>
+          <div class="tile-body">
+            <div class="tile-top">
+              <div><div class="tile-name">Fluted Graphite</div><div class="tile-cat">Large-format fluted porcelain &middot; code 8D300</div></div>
+              <span class="grade grade--lux">LUXURY</span>
+            </div>
+            <p class="tile-desc">Dark grey fine-fluted (ribbed) large-format panel &mdash; a refined, linear luxury finish for modern feature walls and reception areas.</p>
+            <div class="specs">
+              <div><div class="spec-l">SIZE</div><div class="spec-v">300 &times; 600 mm</div></div>
+              <div><div class="spec-l">COST / m&#178;</div><div class="spec-v">&#8358; 27,500</div></div>
+              <div><div class="spec-l">ORIGIN</div><div class="spec-v">China</div></div>
+              <div><div class="spec-l">QUALITY</div><div class="spec-v">Luxury</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="padding:22px 56px 0">
+      <div class="eyebrow">TILE CATEGORIES &middot; D</div>
+      <div class="page-title" style="font-size:22px">Chinese Tiles &mdash; Specialty Finishes</div>
+    </div>
+
+    <div style="padding:10px 56px 0">
+      <div class="cat-band">
+        <span class="cat-flag">China</span>
+        <span class="cat-origin">SLATE, BRICK &amp; FLAGSTONE &middot; &#8358; 27,500 / m&#178;</span>
+        <span class="cat-line"></span>
+      </div>
+    </div>
+
+    <div style="padding:12px 56px 0">
+      <div class="tile-grid">
+        <!-- L14020 -->
         <div class="tile-card">
           <div class="swatch" style="background:radial-gradient(circle at 30% 35%,rgba(255,255,255,.14),transparent 45%),linear-gradient(135deg,#3b3e43,#25272b)"></div>
           <div class="tile-body">
@@ -443,7 +514,7 @@
               <div><div class="tile-name">Charcoal Slate</div><div class="tile-cat">Split slate tile &middot; code L14020</div></div>
               <span class="grade grade--std">STANDARD</span>
             </div>
-            <p class="tile-desc">Compact riven-slate tile in natural charcoal with silver veining &mdash; a versatile, economical cladding for accent walls and low plinths.</p>
+            <p class="tile-desc">Compact riven-slate tile in natural charcoal with silver veining &mdash; a versatile, economical cladding for accent walls and plinths.</p>
             <div class="specs">
               <div><div class="spec-l">SIZE</div><div class="spec-v">200 &times; 400 mm</div></div>
               <div><div class="spec-l">COST / m&#178;</div><div class="spec-v">&#8358; 27,500</div></div>
@@ -452,7 +523,7 @@
             </div>
           </div>
         </div>
-        <!-- HQ 3 -->
+        <!-- Terracotta brick -->
         <div class="tile-card">
           <div class="swatch" style="background:repeating-linear-gradient(0deg,#241d19 0 2px,transparent 2px 22px),repeating-linear-gradient(90deg,#241d19 0 2px,transparent 2px 40px),linear-gradient(135deg,#8f6e4c,#6f5236)"></div>
           <div class="tile-body">
@@ -460,7 +531,7 @@
               <div><div class="tile-name">Terracotta Brick</div><div class="tile-cat">Brick-effect porcelain</div></div>
               <span class="grade grade--prem">PREMIUM</span>
             </div>
-            <p class="tile-desc">Speckled brown brick-effect tile with dark recessed joints for a classic exposed-brick look &mdash; ideal for interior feature walls and bar fronts.</p>
+            <p class="tile-desc">Speckled brown brick-effect tile with dark recessed joints for a classic exposed-brick look &mdash; ideal for interior feature walls.</p>
             <div class="specs">
               <div><div class="spec-l">SIZE</div><div class="spec-v">250 &times; 500 mm</div></div>
               <div><div class="spec-l">COST / m&#178;</div><div class="spec-v">&#8358; 27,500</div></div>
@@ -469,24 +540,7 @@
             </div>
           </div>
         </div>
-        <!-- HQ 4 -->
-        <div class="tile-card">
-          <div class="swatch" style="background:repeating-linear-gradient(0deg,rgba(255,255,255,.3) 0 2px,transparent 2px 26px),repeating-linear-gradient(90deg,rgba(255,255,255,.28) 0 2px,transparent 2px 40px),linear-gradient(135deg,#9aa1a6,#787f85)"></div>
-          <div class="tile-body">
-            <div class="tile-top">
-              <div><div class="tile-name">Graphite Ashlar</div><div class="tile-cat">Stone-effect porcelain</div></div>
-              <span class="grade grade--prem">PREMIUM</span>
-            </div>
-            <p class="tile-desc">Cool grey ashlar-block stone effect with soft natural veining &mdash; a refined, contemporary cladding for exterior walls and cladded columns.</p>
-            <div class="specs">
-              <div><div class="spec-l">SIZE</div><div class="spec-v">250 &times; 500 mm</div></div>
-              <div><div class="spec-l">COST / m&#178;</div><div class="spec-v">&#8358; 27,500</div></div>
-              <div><div class="spec-l">ORIGIN</div><div class="spec-v">China</div></div>
-              <div><div class="spec-l">QUALITY</div><div class="spec-v">Premium</div></div>
-            </div>
-          </div>
-        </div>
-        <!-- HQ 5 -->
+        <!-- Rustic flagstone -->
         <div class="tile-card">
           <div class="swatch" style="background:radial-gradient(circle at 25% 30%,#dcc7a2,transparent 42%),radial-gradient(circle at 70% 65%,#cbb187,transparent 45%),linear-gradient(135deg,#e6d6b6,#cbb48d)"></div>
           <div class="tile-body">
@@ -494,7 +548,7 @@
               <div><div class="tile-name">Rustic Flagstone</div><div class="tile-cat">Flagstone-effect porcelain</div></div>
               <span class="grade grade--std">STANDARD</span>
             </div>
-            <p class="tile-desc">Beige crazy-paving flagstone effect with a natural irregular face and soft grey jointing &mdash; a rustic finish for garden walls and exterior features.</p>
+            <p class="tile-desc">Beige crazy-paving flagstone effect with a natural irregular face and soft grey jointing &mdash; a rustic finish for garden and boundary walls.</p>
             <div class="specs">
               <div><div class="spec-l">SIZE</div><div class="spec-v">300 &times; 600 mm</div></div>
               <div><div class="spec-l">COST / m&#178;</div><div class="spec-v">&#8358; 27,500</div></div>
@@ -526,44 +580,49 @@
       <div class="contact">Akure, Ondo State, Nigeria<br>WhatsApp +234 803 352 8772<br>@Natures_beauty_construction</div>
     </div>
 
-    <div style="padding:30px 56px 0">
+    <div style="padding:28px 56px 0">
       <div class="eyebrow">AT A GLANCE</div>
       <div class="page-title">Tile Comparison Table</div>
     </div>
 
-    <div style="padding:20px 56px 0">
+    <div style="padding:18px 56px 0">
       <table class="cmp">
         <thead>
           <tr>
-            <th style="width:24%">TILE TYPE</th>
+            <th style="width:23%">TILE TYPE</th>
             <th style="width:11%">ORIGIN</th>
-            <th style="width:14%">SIZE (mm)</th>
-            <th style="width:20%">APPLICATION</th>
-            <th style="width:14%">QUALITY GRADE</th>
-            <th style="width:17%;text-align:right">EST. COST / m&#178;</th>
+            <th style="width:13%">SIZE (mm)</th>
+            <th style="width:12%">CODE</th>
+            <th style="width:16%">APPLICATION</th>
+            <th style="width:12%">GRADE</th>
+            <th style="width:13%;text-align:right">EST. / m&#178;</th>
           </tr>
         </thead>
         <tbody>
-          <tr><td colspan="6" style="padding-top:12px;border-bottom:none"><span class="grp">A &middot; SPAIN</span></td></tr>
-          <tr><td>Castellón Brick-Face</td><td>Spain</td><td>250 &times; 500</td><td>Exterior façade</td><td>Premium</td><td class="num">&#8358; 26,000</td></tr>
+          <tr><td colspan="7" style="padding-top:11px;border-bottom:none"><span class="grp">A &middot; SPAIN</span></td></tr>
+          <tr><td>Castellón Brick-Face</td><td>Spain</td><td>250 &times; 500</td><td>&mdash;</td><td>Exterior façade</td><td>Premium</td><td class="num">&#8358; 26,000</td></tr>
 
-          <tr><td colspan="6" style="padding-top:12px;border-bottom:none"><span class="grp">B &middot; CHINA &mdash; PREMIUM LINE</span></td></tr>
-          <tr><td>Cream Quartzite Ledge</td><td>China</td><td>150 &times; 600</td><td>Feature wall</td><td>Premium</td><td class="num">&#8358; 27,500</td></tr>
-          <tr><td>Autumn Blend Ledge</td><td>China</td><td>150 &times; 600</td><td>Feature wall</td><td>Premium</td><td class="num">&#8358; 27,500</td></tr>
-          <tr><td>Rose Sandstone Ledge</td><td>China</td><td>150 &times; 600</td><td>Interior accent</td><td>Premium</td><td class="num">&#8358; 27,500</td></tr>
-          <tr><td>Silver Wave Panel</td><td>China</td><td>600 &times; 900</td><td>Statement wall</td><td>Luxury</td><td class="num">&#8358; 27,500</td></tr>
+          <tr><td colspan="7" style="padding-top:11px;border-bottom:none"><span class="grp">B &middot; CHINA &mdash; SPLIT-FACE STACKED STONE (150 &times; 600)</span></td></tr>
+          <tr><td>Cream Quartzite Ledge</td><td>China</td><td>150 &times; 600</td><td>61550</td><td>Feature wall</td><td>Premium</td><td class="num">&#8358; 27,500</td></tr>
+          <tr><td>Autumn Blend Ledge</td><td>China</td><td>150 &times; 600</td><td>61530</td><td>Feature wall</td><td>Premium</td><td class="num">&#8358; 27,500</td></tr>
+          <tr><td>Sierra Grey Ledge</td><td>China</td><td>150 &times; 600</td><td>61521</td><td>Interior / exterior</td><td>Premium</td><td class="num">&#8358; 27,500</td></tr>
+          <tr><td>Storm Grey Ledge</td><td>China</td><td>150 &times; 600</td><td>61551</td><td>Modern façade</td><td>Premium</td><td class="num">&#8358; 27,500</td></tr>
+          <tr><td>Obsidian Split-Face</td><td>China</td><td>150 &times; 600</td><td>61564</td><td>Statement wall</td><td>Premium</td><td class="num">&#8358; 27,500</td></tr>
+          <tr><td>Rose Sandstone Ledge</td><td>China</td><td>150 &times; 600</td><td>&mdash;</td><td>Interior accent</td><td>Premium</td><td class="num">&#8358; 27,500</td></tr>
 
-          <tr><td colspan="6" style="padding-top:12px;border-bottom:none"><span class="grp">B &middot; CHINA &mdash; HIGH-QUALITY LINE</span></td></tr>
-          <tr><td>Obsidian Split-Face</td><td>China</td><td>150 &times; 600</td><td>Modern façade</td><td>Premium</td><td class="num">&#8358; 27,500</td></tr>
-          <tr><td>Charcoal Slate</td><td>China</td><td>200 &times; 400</td><td>Accent wall / plinth</td><td>Standard</td><td class="num">&#8358; 27,500</td></tr>
-          <tr><td>Terracotta Brick</td><td>China</td><td>250 &times; 500</td><td>Feature wall</td><td>Premium</td><td class="num">&#8358; 27,500</td></tr>
-          <tr><td>Graphite Ashlar</td><td>China</td><td>250 &times; 500</td><td>Exterior wall</td><td>Premium</td><td class="num">&#8358; 27,500</td></tr>
-          <tr><td>Rustic Flagstone</td><td>China</td><td>300 &times; 600</td><td>Garden / boundary wall</td><td>Standard</td><td class="num">&#8358; 27,500</td></tr>
+          <tr><td colspan="7" style="padding-top:11px;border-bottom:none"><span class="grp">C &middot; CHINA &mdash; LARGE-FORMAT (300 &times; 600)</span></td></tr>
+          <tr><td>Graphite Stone-Brick</td><td>China</td><td>300 &times; 600</td><td>630056</td><td>Feature wall</td><td>Premium</td><td class="num">&#8358; 27,500</td></tr>
+          <tr><td>Fluted Graphite</td><td>China</td><td>300 &times; 600</td><td>8D300</td><td>Statement wall</td><td>Luxury</td><td class="num">&#8358; 27,500</td></tr>
+
+          <tr><td colspan="7" style="padding-top:11px;border-bottom:none"><span class="grp">D &middot; CHINA &mdash; SPECIALTY FINISHES</span></td></tr>
+          <tr><td>Charcoal Slate</td><td>China</td><td>200 &times; 400</td><td>L14020</td><td>Accent / plinth</td><td>Standard</td><td class="num">&#8358; 27,500</td></tr>
+          <tr><td>Terracotta Brick</td><td>China</td><td>250 &times; 500</td><td>&mdash;</td><td>Feature wall</td><td>Premium</td><td class="num">&#8358; 27,500</td></tr>
+          <tr><td>Rustic Flagstone</td><td>China</td><td>300 &times; 600</td><td>&mdash;</td><td>Garden / boundary</td><td>Standard</td><td class="num">&#8358; 27,500</td></tr>
         </tbody>
       </table>
     </div>
 
-    <div style="padding:22px 56px 0;display:flex;gap:20px">
+    <div style="padding:18px 56px 0;display:flex;gap:20px">
       <div style="flex:1;display:flex;align-items:center;gap:10px">
         <span class="grade grade--std" style="font-size:8px">STANDARD</span>
         <span style="font-size:10.5px;color:#5C665C;line-height:1.4">Dependable everyday finish &middot; best value</span>
@@ -578,8 +637,8 @@
       </div>
     </div>
 
-    <div style="margin:24px 56px 0;padding:14px 18px;background:#FBFAF6;border:1px solid #E3E1D6;border-radius:10px;font-size:11px;line-height:1.6;color:#5C665C">
-      Sizes are nominal (mm). Costs are supply-only estimates per square metre and exclude adhesive, grout, labour and VAT. Split-face &amp; brick cladding is intended for walls; ask our team about matching corner pieces and sealers for exterior use.
+    <div style="margin:22px 56px 0;padding:14px 18px;background:#FBFAF6;border:1px solid #E3E1D6;border-radius:10px;font-size:11px;line-height:1.6;color:#5C665C">
+      Sizes are nominal (mm); codes are supplier box references. Costs are supply-only estimates per square metre and exclude adhesive, grout, labour and VAT. Split-face &amp; brick cladding is intended for walls; ask our team about matching corner pieces and sealers for exterior use.
     </div>
 
     <div class="doc-foot">
