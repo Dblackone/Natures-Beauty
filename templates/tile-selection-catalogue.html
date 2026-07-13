@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tile Selection Catalogue — Nature's Beauty Construction</title>
+<!--
+  ============================================================================
+  Nature's Beauty Construction — Tile Selection Catalogue (MASTER TEMPLATE)
+  ----------------------------------------------------------------------------
+  Built on the NBC design system (Sora + Work Sans, gold #C8901A / green
+  #2E5E3A / cream #F0EFE7). Follows the same page frame, header lockup and
+  footer used by the other templates in this folder (project-quote,
+  project-report, completion-form).
+
+  HOW TO EDIT / REUSE
+  -------------------
+  • Each A4 page is a <section class="doc-page"> (794 x 1123px @96dpi).
+  • Tile options live as <div class="tile-card"> blocks — copy one, swap the
+    swatch gradient, name, category, description and the four spec values
+    (SIZE / COST / ORIGIN / QUALITY). Keep the grade badge class in sync
+    (--std / --prem / --lux).
+  • Keep every tile you add ALSO listed in the Comparison Table (page 5) and
+    priced consistently.
+  • Fields in [square brackets] are per-client blanks — fill them in per job.
+  • Prices are estimates (₦/m²) — update after supplier quotation.
+  • Click "Print / Save PDF" to export. Fonts load from Google Fonts.
+  ============================================================================
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&amp;family=Work+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; }
+  body { margin: 0; background: #EDEBE2; font-family: 'Work Sans', sans-serif; color: #1B231C; }
+
+  /* Toolbar (shared with the other templates) */
+  .doc-toolbar{position:fixed;top:0;left:0;right:0;background:#1B231C;padding:10px 20px;display:flex;align-items:center;justify-content:space-between;z-index:9999;font-family:'Work Sans',sans-serif}
+  .doc-toolbar-title{color:rgba(255,255,255,.85);font-size:13px;font-weight:600}
+  .doc-toolbar-actions{display:flex;gap:10px}
+  .doc-btn{padding:7px 18px;border-radius:4px;font-family:'Work Sans',sans-serif;font-size:12px;font-weight:700;cursor:pointer;border:none;transition:all .2s;text-decoration:none;display:inline-block}
+  .doc-btn-print{background:#C8901A;color:#1B231C}
+  .doc-btn-print:hover{background:#e0a52a}
+  .doc-btn-back{background:rgba(255,255,255,.1);color:rgba(255,255,255,.8);border:1px solid rgba(255,255,255,.2)}
+  .doc-btn-back:hover{background:rgba(255,255,255,.15)}
+
+  /* Page frame */
+  .doc-stage{display:flex;flex-direction:column;align-items:center;gap:32px;padding:64px 48px 80px}
+  .doc-page{width:794px;min-height:1123px;background:#FFFFFF;box-shadow:0 8px 32px rgba(27,35,28,0.14);display:flex;flex-direction:column;box-sizing:border-box;position:relative;overflow:hidden}
+  .top-rule{height:8px;background:linear-gradient(90deg,#2E5E3A 70%,#C8901A 70%)}
+
+  /* Header lockup */
+  .doc-head{padding:30px 56px 0;display:flex;justify-content:space-between;align-items:flex-start}
+  .logo-lock{display:flex;align-items:center;gap:12px}
+  .logo-mark{position:relative;width:36px;height:36px}
+  .logo-mark .a{position:absolute;inset:0;background:#C8901A;border-radius:0 50% 0 50%;transform:rotate(45deg)}
+  .logo-mark .b{position:absolute;inset:4px;background:#2E5E3A;border:2px solid #FFFFFF;border-radius:0 50% 0 50%;transform:rotate(45deg)}
+  .logo-name{font-family:'Sora',sans-serif;font-weight:700;font-size:17px;line-height:1;color:#1F4229}
+  .logo-sub{font-family:'Sora',sans-serif;font-weight:600;font-size:8px;letter-spacing:0.32em;color:#C8901A}
+  .contact{text-align:right;font-size:10.5px;line-height:1.7;color:#5C665C}
+
+  .eyebrow{font-family:'Sora',sans-serif;font-weight:600;font-size:10px;letter-spacing:0.28em;color:#C8901A}
+  .page-title{font-family:'Sora',sans-serif;font-weight:700;font-size:27px;color:#1F4229;margin-top:4px}
+
+  /* Footer */
+  .doc-foot{margin-top:auto;padding:16px 56px 26px;border-top:1px solid #E3E1D6;display:flex;justify-content:space-between;font-size:10px;color:#8A948A}
+
+  /* Category band */
+  .cat-band{display:flex;align-items:center;gap:14px;margin:0 0 4px}
+  .cat-flag{font-family:'Sora',sans-serif;font-weight:700;font-size:11px;letter-spacing:0.06em;color:#F7F6F1;background:#1F4229;padding:6px 14px;border-radius:99px}
+  .cat-origin{font-family:'Sora',sans-serif;font-weight:600;font-size:9px;letter-spacing:0.18em;color:#8A948A}
+  .cat-line{flex:1;height:1px;background:#E3E1D6}
+
+  /* Tile card */
+  .tile-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .tile-card{border:1px solid #E3E1D6;border-radius:12px;overflow:hidden;background:#FFF;box-shadow:0 2px 8px rgba(27,35,28,0.05)}
+  .swatch{height:76px;position:relative;box-shadow:inset 0 -1px 0 rgba(0,0,0,0.06)}
+  .tile-body{padding:12px 15px 14px}
+  .tile-top{display:flex;justify-content:space-between;align-items:flex-start;gap:8px}
+  .tile-name{font-family:'Sora',sans-serif;font-weight:700;font-size:13.5px;color:#1F4229;line-height:1.2}
+  .tile-cat{font-size:10.5px;color:#8A948A;margin-top:2px}
+  .tile-desc{font-size:11px;line-height:1.5;color:#3A443A;margin:9px 0 11px}
+  .specs{display:grid;grid-template-columns:1fr 1fr;gap:7px 10px;border-top:1px solid #EDEBE2;padding-top:10px}
+  .spec-l{font-family:'Sora',sans-serif;font-weight:600;font-size:7.5px;letter-spacing:0.14em;color:#8A948A}
+  .spec-v{font-size:11.5px;color:#1B231C;font-weight:500;margin-top:1px}
+
+  .grade{font-family:'Sora',sans-serif;font-weight:600;font-size:8px;letter-spacing:0.1em;padding:3px 9px;border-radius:99px;white-space:nowrap;flex-shrink:0}
+  .grade--std{background:#EEF2EC;color:#4A7C5A}
+  .grade--prem{background:#FBF3E0;color:#A87020}
+  .grade--lux{background:#1F4229;color:#E8C77A}
+
+  /* Comparison table */
+  .cmp{width:100%;border-collapse:collapse}
+  .cmp thead tr{background:#F0EFE7}
+  .cmp th{text-align:left;padding:9px 12px;font-family:'Sora',sans-serif;font-weight:600;font-size:9px;letter-spacing:0.12em;color:#5C665C;border-bottom:1px solid #E3E1D6}
+  .cmp td{padding:8px 12px;font-size:11.5px;border-bottom:1px solid #EDEBE2;color:#3A443A}
+  .cmp .num{text-align:right;font-variant-numeric:tabular-nums}
+  .cmp tbody-alt{background:#FBFAF6}
+  .cmp tr:nth-child(even) td{background:#FBFAF6}
+  .grp{font-family:'Sora',sans-serif;font-weight:700;font-size:9px;letter-spacing:0.14em;color:#1F4229}
+
+  /* Selection form */
+  .sel{width:100%;border-collapse:collapse}
+  .sel th{text-align:left;padding:9px 12px;font-family:'Sora',sans-serif;font-weight:600;font-size:9px;letter-spacing:0.12em;color:#5C665C;background:#F0EFE7;border-bottom:1px solid #E3E1D6}
+  .sel td{padding:14px 12px;border-bottom:1px solid #E3E1D6;font-size:12px;color:#8A948A}
+
+  .note-box{margin:0 56px;padding:18px 20px;background:#F0EFE7;border-left:3px solid #2E5E3A;font-size:12px;line-height:1.7;color:#3A443A}
+  .note-head{font-family:'Sora',sans-serif;font-weight:600;font-size:9px;letter-spacing:0.18em;color:#1F4229;margin-bottom:8px}
+
+  .sign{display:flex;gap:40px}
+  .sign > div{flex:1}
+  .sign-line{border-bottom:1px solid #1B231C;height:42px}
+  .sign-role{margin-top:8px;font-family:'Sora',sans-serif;font-weight:600;font-size:11px;color:#1F4229}
+  .sign-meta{font-size:10.5px;color:#8A948A}
+
+  @media print{
+    .doc-toolbar{display:none}
+    body{background:#FFFFFF}
+    .doc-stage{padding:0;gap:0}
+    .doc-page{box-shadow:none;page-break-after:always}
+    .doc-page:last-child{page-break-after:auto}
+  }
+</style>
+</head>
+<body>
+
+<div class="doc-toolbar no-print">
+  <span class="doc-toolbar-title">Template: Tile Selection Catalogue</span>
+  <div class="doc-toolbar-actions">
+    <a href="index.html" class="doc-btn doc-btn-back">&#8592; All Templates</a>
+    <button class="doc-btn doc-btn-print" onclick="window.print()">Print / Save PDF</button>
+  </div>
+</div>
+
+<div class="doc-stage">
+
+  <!-- ═══════════════════ PAGE 1 · COVER ═══════════════════ -->
+  <section class="doc-page" data-screen-label="Cover" style="background:#1F4229;color:#F7F6F1;">
+    <div class="top-rule"></div>
+    <!-- decorative diamond -->
+    <div style="position:absolute;right:-160px;bottom:-160px;width:520px;height:520px;background:#2E5E3A;border-radius:0 50% 0 50%;transform:rotate(45deg);opacity:0.55"></div>
+    <div style="position:absolute;left:-120px;top:120px;width:300px;height:300px;background:rgba(200,144,26,0.10);border-radius:0 50% 0 50%;transform:rotate(45deg)"></div>
+
+    <!-- logo (light variant) -->
+    <div style="padding:56px 64px 0;display:flex;align-items:center;gap:16px;position:relative">
+      <div style="position:relative;width:52px;height:52px">
+        <div style="position:absolute;inset:0;background:#C8901A;border-radius:0 50% 0 50%;transform:rotate(45deg)"></div>
+        <div style="position:absolute;inset:6px;background:#2E5E3A;border:2px solid #1F4229;border-radius:0 50% 0 50%;transform:rotate(45deg)"></div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:3px">
+        <span style="font-family:'Sora',sans-serif;font-weight:700;font-size:26px;line-height:1">Nature&rsquo;s Beauty</span>
+        <span style="font-family:'Sora',sans-serif;font-weight:600;font-size:11px;letter-spacing:0.32em;color:#C8901A">CONSTRUCTION</span>
+      </div>
+    </div>
+
+    <!-- title block -->
+    <div style="padding:0 64px;margin-top:auto;position:relative">
+      <div style="font-family:'Sora',sans-serif;font-weight:600;font-size:12px;letter-spacing:0.3em;color:#C8901A">MATERIAL SELECTION CATALOGUE</div>
+      <h1 style="font-family:'Sora',sans-serif;font-weight:800;font-size:62px;line-height:1.06;margin:16px 0 18px;max-width:600px">Tile Selection Catalogue</h1>
+      <p style="font-size:20px;line-height:1.5;color:#C9D6C9;margin:0;max-width:520px">Tile Options for Wall Rendering &mdash; a curated selection of porcelain, ceramic and effect finishes for your project.</p>
+    </div>
+
+    <!-- swatch strip (architectural material visual) -->
+    <div style="display:flex;gap:0;margin:44px 64px 0;border-radius:12px;overflow:hidden;height:74px;box-shadow:0 10px 30px rgba(0,0,0,0.25);position:relative">
+      <div style="flex:1;background:linear-gradient(135deg,#f6f1e7,#e6dcc7)"></div>
+      <div style="flex:1;background:linear-gradient(115deg,#fbfbf9,#eceeec 40%,#e3e6e3 75%,#fbfbf9)"></div>
+      <div style="flex:1;background:repeating-linear-gradient(90deg,#a97a44 0,#b98a52 6px,#9e6f3c 12px,#b0824a 18px)"></div>
+      <div style="flex:1;background:linear-gradient(120deg,#e9e9e5,#c8c8c0 55%,#dedcd5)"></div>
+      <div style="flex:1;background:linear-gradient(135deg,#7a766d,#9a958a 50%,#6f6b62)"></div>
+      <div style="flex:1;background:linear-gradient(135deg,#efe6d3,#d6c4a1)"></div>
+    </div>
+
+    <!-- cover footer meta -->
+    <div style="padding:34px 64px 40px;display:flex;justify-content:space-between;align-items:flex-end;position:relative">
+      <div style="font-size:13px;line-height:1.7;color:#9DB39D">
+        Akure, Ondo State, Nigeria<br>
+        WhatsApp +234 803 352 8772 &nbsp;&middot;&nbsp; @Natures_beauty_construction
+      </div>
+      <div style="text-align:right;font-size:13px;line-height:1.7;color:#C9D6C9">
+        Ref. <strong style="color:#F7F6F1">NBC-TC-[0000]</strong><br>
+        Version 1.0 &nbsp;&middot;&nbsp; [July 2026]
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════ PAGE 2 · INTRODUCTION ═══════════════════ -->
+  <section class="doc-page" data-screen-label="Introduction">
+    <div class="top-rule"></div>
+    <div class="doc-head">
+      <div class="logo-lock">
+        <div class="logo-mark"><div class="a"></div><div class="b"></div></div>
+        <div style="display:flex;flex-direction:column;gap:2px">
+          <span class="logo-name">Nature&rsquo;s Beauty</span>
+          <span class="logo-sub">CONSTRUCTION</span>
+        </div>
+      </div>
+      <div class="contact">Akure, Ondo State, Nigeria<br>WhatsApp +234 803 352 8772<br>@Natures_beauty_construction</div>
+    </div>
+
+    <div style="padding:34px 56px 0">
+      <div class="eyebrow">INTRODUCTION</div>
+      <div class="page-title">Choosing the right finish</div>
+    </div>
+
+    <div style="padding:22px 56px 0;font-size:13px;line-height:1.75;color:#3A443A">
+      <p style="margin:0 0 16px">This catalogue presents the tile options Nature&rsquo;s Beauty Construction recommends for wall rendering and finishing across our residential and commercial projects. It is designed to help you compare finishes side by side &mdash; by material, size, origin, quality grade and estimated cost &mdash; so that a confident selection can be made before works begin.</p>
+    </div>
+
+    <div style="padding:8px 56px 0;display:grid;grid-template-columns:1fr 1fr;gap:18px">
+      <div style="background:#FBFAF6;border:1px solid #E3E1D6;border-radius:12px;padding:20px 22px">
+        <div style="font-family:'Sora',sans-serif;font-weight:700;font-size:14px;color:#1F4229;margin-bottom:8px">Our approach to material selection</div>
+        <p style="margin:0;font-size:12px;line-height:1.7;color:#3A443A">We specify materials on the balance of durability, finish quality and value. Every option here is chosen for its performance in the Nigerian climate and for reliable local availability &mdash; whether an imported luxury range or a cost-effective locally produced line.</p>
+      </div>
+      <div style="background:#FBFAF6;border:1px solid #E3E1D6;border-radius:12px;padding:20px 22px">
+        <div style="font-family:'Sora',sans-serif;font-weight:700;font-size:14px;color:#1F4229;margin-bottom:8px">How to use this catalogue</div>
+        <p style="margin:0;font-size:12px;line-height:1.7;color:#3A443A">Browse the four origin sections, then use the comparison table to shortlist. Record your choices in the Client Selection section on the final page. Our team will confirm final pricing and supply a physical sample of each shortlisted tile before approval.</p>
+      </div>
+    </div>
+
+    <div style="padding:26px 56px 0">
+      <div style="font-family:'Sora',sans-serif;font-weight:600;font-size:9px;letter-spacing:0.18em;color:#8A948A;margin-bottom:12px">WHAT&rsquo;S INSIDE</div>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:14px">
+        <div style="border:1px solid #E3E1D6;border-radius:10px;padding:16px;text-align:center">
+          <div style="font-family:'Sora',sans-serif;font-weight:800;font-size:24px;color:#C8901A">4</div>
+          <div style="font-size:11px;color:#5C665C;margin-top:4px;line-height:1.4">Countries of origin</div>
+        </div>
+        <div style="border:1px solid #E3E1D6;border-radius:10px;padding:16px;text-align:center">
+          <div style="font-family:'Sora',sans-serif;font-weight:800;font-size:24px;color:#C8901A">13</div>
+          <div style="font-size:11px;color:#5C665C;margin-top:4px;line-height:1.4">Tile options</div>
+        </div>
+        <div style="border:1px solid #E3E1D6;border-radius:10px;padding:16px;text-align:center">
+          <div style="font-family:'Sora',sans-serif;font-weight:800;font-size:24px;color:#C8901A">3</div>
+          <div style="font-size:11px;color:#5C665C;margin-top:4px;line-height:1.4">Quality grades</div>
+        </div>
+        <div style="border:1px solid #E3E1D6;border-radius:10px;padding:16px;text-align:center">
+          <div style="font-family:'Sora',sans-serif;font-weight:800;font-size:24px;color:#C8901A">&#8358;</div>
+          <div style="font-size:11px;color:#5C665C;margin-top:4px;line-height:1.4">Estimated cost / m&#178;</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin:28px 56px 0;padding:16px 20px;background:#F0EFE7;border-left:3px solid #C8901A;font-size:11.5px;line-height:1.65;color:#3A443A">
+      <strong style="color:#1F4229">Please note:</strong> All prices shown are estimates in Naira per square metre (&#8358;/m&#178;) and exclude adhesive, grout, labour and VAT unless stated in your quotation. Colour and veining vary between production batches &mdash; always approve against a physical sample.
+    </div>
+
+    <div class="doc-foot">
+      <span>Landscape design &middot; construction &middot; grounds maintenance &mdash; nationwide</span>
+      <span>Page 2 of 6 &middot; A division of Jenyo Akarakiri Global Enterprise</span>
+    </div>
+  </section>
+
+  <!-- ═══════════════════ PAGE 3 · SPANISH + ITALIAN ═══════════════════ -->
+  <section class="doc-page" data-screen-label="Spanish &amp; Italian Tiles">
+    <div class="top-rule"></div>
+    <div class="doc-head">
+      <div class="logo-lock">
+        <div class="logo-mark"><div class="a"></div><div class="b"></div></div>
+        <div style="display:flex;flex-direction:column;gap:2px">
+          <span class="logo-name">Nature&rsquo;s Beauty</span>
+          <span class="logo-sub">CONSTRUCTION</span>
+        </div>
+      </div>
+      <div class="contact">Akure, Ondo State, Nigeria<br>WhatsApp +234 803 352 8772<br>@Natures_beauty_construction</div>
+    </div>
+
+    <div style="padding:30px 56px 0">
+      <div class="eyebrow">TILE CATEGORIES &middot; A</div>
+      <div class="page-title">Spanish Tiles</div>
+    </div>
+
+    <div style="padding:16px 56px 0">
+      <div class="cat-band">
+        <span class="cat-flag">Spain</span>
+        <span class="cat-origin">DEPENDABLE PREMIUM &middot; STRONG VALUE</span>
+        <span class="cat-line"></span>
+      </div>
+    </div>
+
+    <div style="padding:14px 56px 0">
+      <div class="tile-grid">
+        <!-- Spanish 1 -->
+        <div class="tile-card">
+          <div class="swatch" style="background:linear-gradient(135deg,#f6f1e7,#e6dcc7)"></div>
+          <div class="tile-body">
+            <div class="tile-top">
+              <div><div class="tile-name">Valencia Porcelain</div><div class="tile-cat">Porcelain</div></div>
+              <span class="grade grade--prem">PREMIUM</span>
+            </div>
+            <p class="tile-desc">Through-body porcelain with a soft matte finish. Low water absorption and hard-wearing &mdash; ideal for feature walls and wet areas.</p>
+            <div class="specs">
+              <div><div class="spec-l">SIZE</div><div class="spec-v">600 &times; 600 mm</div></div>
+              <div><div class="spec-l">COST / m&#178;</div><div class="spec-v">&#8358; 8,500</div></div>
+              <div><div class="spec-l">ORIGIN</div><div class="spec-v">Spain</div></div>
+              <div><div class="spec-l">QUALITY</div><div class="spec-v">Premium</div></div>
+            </div>
+          </div>
+        </div>
+        <!-- Spanish 2 -->
+        <div class="tile-card">
+          <div class="swatch" style="background:linear-gradient(135deg,#efe6d4,#d9c8a8)"></div>
+          <div class="tile-body">
+            <div class="tile-top">
+              <div><div class="tile-name">Sevilla Ceramic</div><div class="tile-cat">Glazed ceramic</div></div>
+              <span class="grade grade--std">STANDARD</span>
+            </div>
+            <p class="tile-desc">Light, easy-to-fix glazed ceramic for interior wall rendering. A warm, even tone that suits living spaces and bedrooms.</p>
+            <div class="specs">
+              <div><div class="spec-l">SIZE</div><div class="spec-v">300 &times; 600 mm</div></div>
+              <div><div class="spec-l">COST / m&#178;</div><div class="spec-v">&#8358; 5,200</div></div>
+              <div><div class="spec-l">ORIGIN</div><div class="spec-v">Spain</div></div>
+              <div><div class="spec-l">QUALITY</div><div class="spec-v">Standard</div></div>
+            </div>
+          </div>
+        </div>
+        <!-- Spanish 3 -->
+        <div class="tile-card">
+          <div class="swatch" style="background:linear-gradient(115deg,#fbfbf9 0%,#eceeec 38%,#fafafa 52%,#e3e6e3 72%,#fbfbf9 100%)"></div>
+          <div class="tile-body">
+            <div class="tile-top">
+              <div><div class="tile-name">Marbella Blanco</div><div class="tile-cat">Marble-effect porcelain</div></div>
+              <span class="grade grade--lux">LUXURY</span>
+            </div>
+            <p class="tile-desc">Polished marble-effect porcelain with delicate grey veining &mdash; the luxury look of natural marble without the maintenance.</p>
+            <div class="specs">
+              <div><div class="spec-l">SIZE</div><div class="spec-v">600 &times; 1200 mm</div></div>
+              <div><div class="spec-l">COST / m&#178;</div><div class="spec-v">&#8358; 14,800</div></div>
+              <div><div class="spec-l">ORIGIN</div><div class="spec-v">Spain</div></div>
+              <div><div class="spec-l">QUALITY</div><div class="spec-v">Luxury</div></div>
+            </div>
+          </div>
+        </div>
+        <!-- Spanish 4 -->
+        <div class="tile-card">
+          <div class="swatch" style="background:repeating-linear-gradient(90deg,#a97a44 0,#b98a52 6px,#9e6f3c 12px,#b0824a 18px)"></div>
+          <div class="tile-body">
+            <div class="tile-top">
+              <div><div class="tile-name">Andalus Roble</div><div class="tile-cat">Wood-effect porcelain</div></div>
+              <span class="grade grade--prem">PREMIUM</span>
+            </div>
+            <p class="tile-desc">Wood-grain plank porcelain that brings warmth to feature walls and cladding with none of the upkeep of real timber.</p>
+            <div class="specs">
+              <div><div class="spec-l">SIZE</div><div class="spec-v">200 &times; 1200 mm</div></div>
+              <div><div class="spec-l">COST / m&#178;</div><div class="spec-v">&#8358; 9,600</div></div>
+              <div><div class="spec-l">ORIGIN</div><div class="spec-v">Spain</div></div>
+              <div><div class="spec-l">QUALITY</div><div class="spec-v">Premium</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="padding:26px 56px 0">
+      <div class="eyebrow">TILE CATEGORIES &middot; B</div>
+      <div class="page-title" style="font-size:22px">Italian Tiles</div>
+    </div>
+
+    <div style="padding:12px 56px 0">
+      <div class="cat-band">
+        <span class="cat-flag">Italy</span>
+        <span class="cat-origin">FLAGSHIP LUXURY &middot; LARGE-FORMAT</span>
+        <span class="cat-line"></span>
+      </div>
+    </div>
+
+    <div style="padding:14px 56px 0">
+      <div class="tile-grid">
+        <!-- Italian 1 -->
+        <div class="tile-card">
+          <div class="swatch" style="background:linear-gradient(135deg,#f4efe4,#d7cab2)"></div>
+          <div class="tile-body">
+            <div class="tile-top">
+              <div><div class="tile-name">Milano Superiore</div><div class="tile-cat">Premium porcelain</div></div>
+              <span class="grade grade--lux">LUXURY</span>
+            </div>
+            <p class="tile-desc">Rectified premium porcelain with razor-fine joints and a flawless surface &mdash; a refined finish for prestige interiors.</p>
+            <div class="specs">
+              <div><div class="spec-l">SIZE</div><div class="spec-v">800 &times; 800 mm</div></div>
+              <div><div class="spec-l">COST / m&#178;</div><div class="spec-v">&#8358; 18,500</div></div>
+              <div><div class="spec-l">ORIGIN</div><div class="spec-v">Italy</div></div>
+              <div><div class="spec-l">QUALITY</div><div class="spec-v">Luxury</div></div>
+            </div>
+          </div>
+        </div>
+        <!-- Italian 2 -->
+        <div class="tile-card">
+          <div class="swatch" style="background:linear-gradient(120deg,#efeade,#cfc3ab 55%,#e3dccb)"></div>
+          <div class="tile-body">
+            <div class="tile-top">
+              <div><div class="tile-name">Toscana Grande</div><div class="tile-cat">Large-format porcelain slab</div></div>
+              <span class="grade grade--lux">LUXURY</span>
+            </div>
+            <p class="tile-desc">Large-format slab for near-seamless walls with minimal grout lines &mdash; a bold, continuous surface for statement spaces.</p>
+            <div class="specs">
+              <div><div class="spec-l">SIZE</div><div class="spec-v">1200 &times; 1200 mm</div></div>
+              <div><div class="spec-l">COST / m&#178;</div><div class="spec-v">&#8358; 26,000</div></div>
+              <div><div class="spec-l">ORIGIN</div><div class="spec-v">Italy</div></div>
+              <div><div class="spec-l">QUALITY</div><div class="spec-v">Luxury</div></div>
+            </div>
+          </div>
+        </div>
+        <!-- Italian 3 -->
+        <div class="tile-card">
+          <div class="swatch" style="background:linear-gradient(120deg,#e9e9e5,#c8c8c0 55%,#dedcd5)"></div>
+          <div class="tile-body">
+            <div class="tile-top">
+              <div><div class="tile-name">Carrara Pietra</div><div class="tile-cat">Stone-effect porcelain</div></div>
+              <span class="grade grade--lux">LUXURY</span>
+            </div>
+            <p class="tile-desc">Natural stone-effect porcelain with a honed matte texture &mdash; the character of quarried stone with dependable consistency.</p>
+            <div class="specs">
+              <div><div class="spec-l">SIZE</div><div class="spec-v">600 &times; 1200 mm</div></div>
+              <div><div class="spec-l">COST / m&#178;</div><div class="spec-v">&#8358; 22,400</div></div>
+              <div><div class="spec-l">ORIGIN</div><div class="spec-v">Italy</div></div>
+              <div><div class="spec-l">QUALITY</div><div class="spec-v">Luxury</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="doc-foot">
+      <span>Landscape design &middot; construction &middot; grounds maintenance &mdash; nationwide</span>
+      <span>Page 3 of 6 &middot; A division of Jenyo Akarakiri Global Enterprise</span>
+    </div>
+  </section>
+
+  <!-- ═══════════════════ PAGE 4 · INDIAN + NIGERIAN ═══════════════════ -->
+  <section class="doc-page" data-screen-label="Indian &amp; Nigerian Tiles">
+    <div class="top-rule"></div>
+    <div class="doc-head">
+      <div class="logo-lock">
+        <div class="logo-mark"><div class="a"></div><div class="b"></div></div>
+        <div style="display:flex;flex-direction:column;gap:2px">
+          <span class="logo-name">Nature&rsquo;s Beauty</span>
+          <span class="logo-sub">CONSTRUCTION</span>
+        </div>
+      </div>
+      <div class="contact">Akure, Ondo State, Nigeria<br>WhatsApp +234 803 352 8772<br>@Natures_beauty_construction</div>
+    </div>
+
+    <div style="padding:30px 56px 0">
+      <div class="eyebrow">TILE CATEGORIES &middot; C</div>
+      <div class="page-title">Indian Tiles</div>
+    </div>
+
+    <div style="padding:16px 56px 0">
+      <div class="cat-band">
+        <span class="cat-flag">India</span>
+        <span class="cat-origin">AFFORDABLE PREMIUM &middot; RESIDENTIAL &amp; COMMERCIAL</span>
+        <span class="cat-line"></span>
+      </div>
+    </div>
+
+    <div style="padding:14px 56px 0">
+      <div class="tile-grid">
+        <!-- Indian 1 -->
+        <div class="tile-card">
+          <div class="swatch" style="background:linear-gradient(135deg,#f2ebdf,#dbcdb3)"></div>
+          <div class="tile-body">
+            <div class="tile-top">
+              <div><div class="tile-name">Morbi Select</div><div class="tile-cat">Affordable premium porcelain</div></div>
+              <span class="grade grade--prem">PREMIUM</span>
+            </div>
+            <p class="tile-desc">Vitrified porcelain offering a premium finish at an accessible price &mdash; excellent everyday value for full-house schemes.</p>
+            <div class="specs">
+              <div><div class="spec-l">SIZE</div><div class="spec-v">600 &times; 600 mm</div></div>
+              <div><div class="spec-l">COST / m&#178;</div><div class="spec-v">&#8358; 4,800</div></div>
+              <div><div class="spec-l">ORIGIN</div><div class="spec-v">India</div></div>
+              <div><div class="spec-l">QUALITY</div><div class="spec-v">Premium</div></div>
+            </div>
+          </div>
+        </div>
+        <!-- Indian 2 -->
+        <div class="tile-card">
+          <div class="swatch" style="background:linear-gradient(135deg,#7a766d,#9a958a 50%,#6f6b62)"></div>
+          <div class="tile-body">
+            <div class="tile-top">
+              <div><div class="tile-name">Rajasthan Granite</div><div class="tile-cat">Granite-effect vitrified</div></div>
+              <span class="grade grade--prem">PREMIUM</span>
+            </div>
+            <p class="tile-desc">Granite-effect vitrified tile with a dense, scratch-resistant body &mdash; a hard-wearing choice for high-traffic walls.</p>
+            <div class="specs">
+              <div><div class="spec-l">SIZE</div><div class="spec-v">600 &times; 1200 mm</div></div>
+              <div><div class="spec-l">COST / m&#178;</div><div class="spec-v">&#8358; 6,400</div></div>
+              <div><div class="spec-l">ORIGIN</div><div class="spec-v">India</div></div>
+              <div><div class="spec-l">QUALITY</div><div class="spec-v">Premium</div></div>
+            </div>
+          </div>
+        </div>
+        <!-- Indian 3 -->
+        <div class="tile-card">
+          <div class="swatch" style="background:linear-gradient(135deg,#e6ddce,#c6b899)"></div>
+          <div class="tile-body">
+            <div class="tile-top">
+              <div><div class="tile-name">Gujarat Commercial</div><div class="tile-cat">Vitrified &mdash; commercial grade</div></div>
+              <span class="grade grade--std">STANDARD</span>
+            </div>
+            <p class="tile-desc">Robust commercial-grade vitrified tile for offices, retail and public spaces &mdash; equally at home in residential fit-outs.</p>
+            <div class="specs">
+              <div><div class="spec-l">SIZE</div><div class="spec-v">800 &times; 800 mm</div></div>
+              <div><div class="spec-l">COST / m&#178;</div><div class="spec-v">&#8358; 5,600</div></div>
+              <div><div class="spec-l">ORIGIN</div><div class="spec-v">India</div></div>
+              <div><div class="spec-l">QUALITY</div><div class="spec-v">Standard</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="padding:26px 56px 0">
+      <div class="eyebrow">TILE CATEGORIES &middot; D</div>
+      <div class="page-title" style="font-size:22px">Nigerian Tiles</div>
+    </div>
+
+    <div style="padding:12px 56px 0">
+      <div class="cat-band">
+        <span class="cat-flag">Nigeria</span>
+        <span class="cat-origin">LOCALLY PRODUCED &middot; COST-EFFECTIVE &middot; READILY AVAILABLE</span>
+        <span class="cat-line"></span>
+      </div>
+    </div>
+
+    <div style="padding:14px 56px 0">
+      <div class="tile-grid">
+        <!-- Nigerian 1 -->
+        <div class="tile-card">
+          <div class="swatch" style="background:linear-gradient(135deg,#efe6d3,#d6c4a1)"></div>
+          <div class="tile-body">
+            <div class="tile-top">
+              <div><div class="tile-name">Ondo Classic</div><div class="tile-cat">Locally produced ceramic</div></div>
+              <span class="grade grade--std">STANDARD</span>
+            </div>
+            <p class="tile-desc">Locally manufactured glazed ceramic &mdash; short lead times and easy re-supply for straightforward wall rendering.</p>
+            <div class="specs">
+              <div><div class="spec-l">SIZE</div><div class="spec-v">400 &times; 400 mm</div></div>
+              <div><div class="spec-l">COST / m&#178;</div><div class="spec-v">&#8358; 3,200</div></div>
+              <div><div class="spec-l">ORIGIN</div><div class="spec-v">Nigeria</div></div>
+              <div><div class="spec-l">QUALITY</div><div class="spec-v">Standard</div></div>
+            </div>
+          </div>
+        </div>
+        <!-- Nigerian 2 -->
+        <div class="tile-card">
+          <div class="swatch" style="background:linear-gradient(135deg,#f0eadd,#d3c6ab)"></div>
+          <div class="tile-body">
+            <div class="tile-top">
+              <div><div class="tile-name">Lagos Porcelain</div><div class="tile-cat">Locally available porcelain</div></div>
+              <span class="grade grade--std">STANDARD</span>
+            </div>
+            <p class="tile-desc">Locally stocked porcelain that balances durability and cost &mdash; a dependable everyday finish held in ready supply.</p>
+            <div class="specs">
+              <div><div class="spec-l">SIZE</div><div class="spec-v">600 &times; 600 mm</div></div>
+              <div><div class="spec-l">COST / m&#178;</div><div class="spec-v">&#8358; 4,100</div></div>
+              <div><div class="spec-l">ORIGIN</div><div class="spec-v">Nigeria</div></div>
+              <div><div class="spec-l">QUALITY</div><div class="spec-v">Standard</div></div>
+            </div>
+          </div>
+        </div>
+        <!-- Nigerian 3 -->
+        <div class="tile-card">
+          <div class="swatch" style="background:linear-gradient(135deg,#eae1d0,#ccbc9a)"></div>
+          <div class="tile-body">
+            <div class="tile-top">
+              <div><div class="tile-name">Naija Value Finish</div><div class="tile-cat">Cost-effective ceramic</div></div>
+              <span class="grade grade--std">STANDARD</span>
+            </div>
+            <p class="tile-desc">Our most economical finishing solution &mdash; a clean, serviceable wall tile for budget-conscious projects and back-of-house areas.</p>
+            <div class="specs">
+              <div><div class="spec-l">SIZE</div><div class="spec-v">300 &times; 600 mm</div></div>
+              <div><div class="spec-l">COST / m&#178;</div><div class="spec-v">&#8358; 2,600</div></div>
+              <div><div class="spec-l">ORIGIN</div><div class="spec-v">Nigeria</div></div>
+              <div><div class="spec-l">QUALITY</div><div class="spec-v">Standard</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="doc-foot">
+      <span>Landscape design &middot; construction &middot; grounds maintenance &mdash; nationwide</span>
+      <span>Page 4 of 6 &middot; A division of Jenyo Akarakiri Global Enterprise</span>
+    </div>
+  </section>
+
+  <!-- ═══════════════════ PAGE 5 · COMPARISON TABLE ═══════════════════ -->
+  <section class="doc-page" data-screen-label="Comparison Table">
+    <div class="top-rule"></div>
+    <div class="doc-head">
+      <div class="logo-lock">
+        <div class="logo-mark"><div class="a"></div><div class="b"></div></div>
+        <div style="display:flex;flex-direction:column;gap:2px">
+          <span class="logo-name">Nature&rsquo;s Beauty</span>
+          <span class="logo-sub">CONSTRUCTION</span>
+        </div>
+      </div>
+      <div class="contact">Akure, Ondo State, Nigeria<br>WhatsApp +234 803 352 8772<br>@Natures_beauty_construction</div>
+    </div>
+
+    <div style="padding:30px 56px 0">
+      <div class="eyebrow">AT A GLANCE</div>
+      <div class="page-title">Tile Comparison Table</div>
+    </div>
+
+    <div style="padding:20px 56px 0">
+      <table class="cmp">
+        <thead>
+          <tr>
+            <th style="width:23%">TILE TYPE</th>
+            <th style="width:12%">ORIGIN</th>
+            <th style="width:15%">SIZE</th>
+            <th style="width:19%">APPLICATION</th>
+            <th style="width:15%">QUALITY GRADE</th>
+            <th style="width:16%;text-align:right">EST. COST / m&#178;</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td colspan="6" style="padding-top:12px;border-bottom:none"><span class="grp">A &middot; SPAIN</span></td></tr>
+          <tr><td>Valencia Porcelain</td><td>Spain</td><td>600 &times; 600</td><td>Interior wall</td><td>Premium</td><td class="num">&#8358; 8,500</td></tr>
+          <tr><td>Sevilla Ceramic</td><td>Spain</td><td>300 &times; 600</td><td>Interior wall</td><td>Standard</td><td class="num">&#8358; 5,200</td></tr>
+          <tr><td>Marbella Blanco</td><td>Spain</td><td>600 &times; 1200</td><td>Feature wall</td><td>Luxury</td><td class="num">&#8358; 14,800</td></tr>
+          <tr><td>Andalus Roble</td><td>Spain</td><td>200 &times; 1200</td><td>Wall cladding</td><td>Premium</td><td class="num">&#8358; 9,600</td></tr>
+
+          <tr><td colspan="6" style="padding-top:12px;border-bottom:none"><span class="grp">B &middot; ITALY</span></td></tr>
+          <tr><td>Milano Superiore</td><td>Italy</td><td>800 &times; 800</td><td>Prestige wall</td><td>Luxury</td><td class="num">&#8358; 18,500</td></tr>
+          <tr><td>Toscana Grande</td><td>Italy</td><td>1200 &times; 1200</td><td>Statement wall</td><td>Luxury</td><td class="num">&#8358; 26,000</td></tr>
+          <tr><td>Carrara Pietra</td><td>Italy</td><td>600 &times; 1200</td><td>Feature wall</td><td>Luxury</td><td class="num">&#8358; 22,400</td></tr>
+
+          <tr><td colspan="6" style="padding-top:12px;border-bottom:none"><span class="grp">C &middot; INDIA</span></td></tr>
+          <tr><td>Morbi Select</td><td>India</td><td>600 &times; 600</td><td>Interior wall</td><td>Premium</td><td class="num">&#8358; 4,800</td></tr>
+          <tr><td>Rajasthan Granite</td><td>India</td><td>600 &times; 1200</td><td>High-traffic wall</td><td>Premium</td><td class="num">&#8358; 6,400</td></tr>
+          <tr><td>Gujarat Commercial</td><td>India</td><td>800 &times; 800</td><td>Commercial wall</td><td>Standard</td><td class="num">&#8358; 5,600</td></tr>
+
+          <tr><td colspan="6" style="padding-top:12px;border-bottom:none"><span class="grp">D &middot; NIGERIA</span></td></tr>
+          <tr><td>Ondo Classic</td><td>Nigeria</td><td>400 &times; 400</td><td>Interior wall</td><td>Standard</td><td class="num">&#8358; 3,200</td></tr>
+          <tr><td>Lagos Porcelain</td><td>Nigeria</td><td>600 &times; 600</td><td>Interior wall</td><td>Standard</td><td class="num">&#8358; 4,100</td></tr>
+          <tr><td>Naija Value Finish</td><td>Nigeria</td><td>300 &times; 600</td><td>Back-of-house wall</td><td>Standard</td><td class="num">&#8358; 2,600</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div style="padding:22px 56px 0;display:flex;gap:20px">
+      <div style="flex:1;display:flex;align-items:center;gap:10px">
+        <span class="grade grade--std" style="font-size:8px">STANDARD</span>
+        <span style="font-size:10.5px;color:#5C665C;line-height:1.4">Dependable everyday finish &middot; best value</span>
+      </div>
+      <div style="flex:1;display:flex;align-items:center;gap:10px">
+        <span class="grade grade--prem" style="font-size:8px">PREMIUM</span>
+        <span style="font-size:10.5px;color:#5C665C;line-height:1.4">Enhanced durability &amp; finish quality</span>
+      </div>
+      <div style="flex:1;display:flex;align-items:center;gap:10px">
+        <span class="grade grade--lux" style="font-size:8px">LUXURY</span>
+        <span style="font-size:10.5px;color:#5C665C;line-height:1.4">Top-tier imported ranges &amp; large-format</span>
+      </div>
+    </div>
+
+    <div style="margin:24px 56px 0;padding:14px 18px;background:#FBFAF6;border:1px solid #E3E1D6;border-radius:10px;font-size:11px;line-height:1.6;color:#5C665C">
+      Sizes are nominal (mm). Costs are supply-only estimates per square metre and exclude adhesive, grout, labour and VAT. Wall applications shown are indicative &mdash; most options are also suitable for floors; ask our team for a floor-rated recommendation.
+    </div>
+
+    <div class="doc-foot">
+      <span>Landscape design &middot; construction &middot; grounds maintenance &mdash; nationwide</span>
+      <span>Page 5 of 6 &middot; A division of Jenyo Akarakiri Global Enterprise</span>
+    </div>
+  </section>
+
+  <!-- ═══════════════════ PAGE 6 · CLIENT SELECTION + NOTES ═══════════════════ -->
+  <section class="doc-page" data-screen-label="Client Selection">
+    <div class="top-rule"></div>
+    <div class="doc-head">
+      <div class="logo-lock">
+        <div class="logo-mark"><div class="a"></div><div class="b"></div></div>
+        <div style="display:flex;flex-direction:column;gap:2px">
+          <span class="logo-name">Nature&rsquo;s Beauty</span>
+          <span class="logo-sub">CONSTRUCTION</span>
+        </div>
+      </div>
+      <div class="contact">Akure, Ondo State, Nigeria<br>WhatsApp +234 803 352 8772<br>@Natures_beauty_construction</div>
+    </div>
+
+    <div style="padding:30px 56px 0">
+      <div class="eyebrow">FOR CLIENT COMPLETION</div>
+      <div class="page-title">Client Selection</div>
+    </div>
+
+    <div style="padding:16px 56px 0;display:grid;grid-template-columns:1fr 1fr;gap:20px">
+      <div>
+        <div style="font-family:'Sora',sans-serif;font-weight:600;font-size:9px;letter-spacing:0.18em;color:#8A948A">CLIENT</div>
+        <div style="font-size:13px;line-height:1.6;margin-top:4px;color:#3A443A">[Client name]<br>[Address]</div>
+      </div>
+      <div>
+        <div style="font-family:'Sora',sans-serif;font-weight:600;font-size:9px;letter-spacing:0.18em;color:#8A948A">PROJECT</div>
+        <div style="font-size:13px;line-height:1.6;margin-top:4px;color:#3A443A">[Project title] &mdash; [Site location]<br>Ref: NBC-TC-[0000] &middot; Date: [___________]</div>
+      </div>
+    </div>
+
+    <div style="padding:24px 56px 0">
+      <div style="font-family:'Sora',sans-serif;font-weight:600;font-size:9px;letter-spacing:0.18em;color:#8A948A;margin-bottom:10px">SELECTED TILES</div>
+      <table class="sel">
+        <thead>
+          <tr>
+            <th style="width:5%">#</th>
+            <th style="width:34%">SELECTED TILE</th>
+            <th style="width:33%">LOCATION / APPLICATION</th>
+            <th style="width:28%">QUANTITY REQUIRED</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td style="color:#1B231C">1</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp; m&#178;</td></tr>
+          <tr><td style="color:#1B231C">2</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp; m&#178;</td></tr>
+          <tr><td style="color:#1B231C">3</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp; m&#178;</td></tr>
+          <tr><td style="color:#1B231C">4</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp; m&#178;</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div style="padding:22px 56px 0">
+      <div style="font-family:'Sora',sans-serif;font-weight:600;font-size:9px;letter-spacing:0.18em;color:#8A948A;margin-bottom:8px">CLIENT COMMENTS</div>
+      <div style="border:1px solid #E3E1D6;border-radius:10px;height:82px;background:#FBFAF6"></div>
+    </div>
+
+    <div style="padding:26px 56px 0">
+      <div class="sign">
+        <div>
+          <div class="sign-line"></div>
+          <div class="sign-role">Approved by (Client)</div>
+          <div class="sign-meta">Name &middot; Signature</div>
+        </div>
+        <div>
+          <div class="sign-line"></div>
+          <div class="sign-role">Date</div>
+          <div class="sign-meta">DD / MM / YYYY</div>
+        </div>
+        <div>
+          <div class="sign-line"></div>
+          <div class="sign-role">For Nature&rsquo;s Beauty Construction</div>
+          <div class="sign-meta">Name &middot; Signature &middot; Date</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="note-box" style="margin-top:28px">
+      <div class="note-head">PROFESSIONAL NOTES</div>
+      <ul style="margin:0;padding-left:18px">
+        <li style="margin-bottom:5px">Prices are estimated and subject to supplier availability and market changes.</li>
+        <li style="margin-bottom:5px">Final pricing will be confirmed after supplier quotation.</li>
+        <li>Physical samples should be reviewed and approved before final order and installation.</li>
+      </ul>
+    </div>
+
+    <div class="doc-foot">
+      <span>Landscape design &middot; construction &middot; grounds maintenance &mdash; nationwide</span>
+      <span>Page 6 of 6 &middot; A division of Jenyo Akarakiri Global Enterprise</span>
+    </div>
+  </section>
+
+</div>
+</body>
+</html>
