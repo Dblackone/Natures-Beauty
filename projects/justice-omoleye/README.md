@@ -22,10 +22,10 @@ Project records for client Justice Omoleye.
 | 3 | Water cement | 100 | 12,500 | 1,250,000 |
 | 4 | Gum cement | 50 | 8,000 | 400,000 |
 | 5 | Sand | 4 | 85,000 | 340,000 |
-| 6 | Genesis | 130 | 3,000 | 390,000 |
+| 6 | Genesis trim-profile | 160 | 3,000 | 480,000 |
 | 7 | Tiller / labour | 320 | 2,500 | 800,000 |
 | 8 | Supervision & personal transportation | 1 | 600,000 | 600,000 |
 
-- Materials, transport & labour subtotal: **₦14,005,000**
+- Materials, transport & labour subtotal: **₦14,095,000**
 - Supervision & personal transportation: **₦600,000**
-- **Grand total: ₦14,605,000** (Fourteen million, six hundred and five thousand naira only)
+- **Grand total: ₦14,695,000** (Fourteen million, six hundred and ninety-five thousand naira only)
