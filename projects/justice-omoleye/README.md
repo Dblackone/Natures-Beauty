@@ -19,13 +19,13 @@ Project records for client Justice Omoleye.
 |---|------|----:|---------:|-----------:|
 | 1 | Tiles | 350 | 29,500 | 10,325,000 |
 | 2 | Transportation | 1 | 500,000 | 500,000 |
-| 3 | Water cement | 60 | 12,500 | 750,000 |
-| 4 | Gum cement | 20 | 8,000 | 160,000 |
+| 3 | Water cement | 100 | 12,500 | 1,250,000 |
+| 4 | Gum cement | 50 | 8,000 | 400,000 |
 | 5 | Sand | 4 | 85,000 | 340,000 |
 | 6 | Genesis | 130 | 3,000 | 390,000 |
 | 7 | Tiller / labour | 320 | 2,500 | 800,000 |
 | 8 | Supervision & personal transportation | 1 | 600,000 | 600,000 |
 
-- Materials, transport & labour subtotal: **₦13,265,000**
+- Materials, transport & labour subtotal: **₦14,005,000**
 - Supervision & personal transportation: **₦600,000**
-- **Grand total: ₦13,865,000** (Thirteen million, eight hundred and sixty-five thousand naira only)
+- **Grand total: ₦14,605,000** (Fourteen million, six hundred and five thousand naira only)
