@@ -2,130 +2,87 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>External Letter — Nature's Beauty Construction</title>
-<link rel="stylesheet" href="letterhead.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&amp;family=Work+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet">
+  <style>
+    body { margin: 0; background: #EDEBE2; }
+  </style>
+<style>
+.doc-toolbar{position:fixed;top:0;left:0;right:0;background:#1B231C;padding:10px 20px;display:flex;align-items:center;justify-content:space-between;z-index:9999;font-family:'Work Sans',sans-serif}
+.doc-toolbar-title{color:rgba(255,255,255,.85);font-size:13px;font-weight:600}
+.doc-toolbar-actions{display:flex;gap:10px}
+.doc-btn{padding:7px 18px;border-radius:4px;font-family:'Work Sans',sans-serif;font-size:12px;font-weight:700;cursor:pointer;border:none;transition:all .2s;text-decoration:none;display:inline-block}
+.doc-btn-print{background:#C8901A;color:#1B231C}
+.doc-btn-print:hover{background:#e0a52a}
+.doc-btn-back{background:rgba(255,255,255,.1);color:rgba(255,255,255,.8);border:1px solid rgba(255,255,255,.2)}
+.doc-btn-back:hover{background:rgba(255,255,255,.15)}
+@media print{.doc-toolbar{display:none}}
+</style>
 </head>
 <body>
-
 <div class="doc-toolbar no-print">
-    <span class="doc-toolbar-title">Template: External Letter</span>
-    <div class="doc-toolbar-actions">
-        <a href="index.html" class="doc-btn doc-btn-back">&#8592; All Templates</a>
-        <button class="doc-btn doc-btn-print" onclick="window.print()">Print / Save PDF</button>
-    </div>
+<span class="doc-toolbar-title">Template: External Letter</span>
+<div class="doc-toolbar-actions">
+<a href="index.html" class="doc-btn doc-btn-back">&#8592; All Templates</a>
+<button class="doc-btn doc-btn-print" onclick="window.print()">Print / Save PDF</button>
 </div>
+</div>
+<div style="font-family: 'Work Sans', sans-serif; color: #1B231C; display: flex; justify-content: center; padding: 48px;">
+  <div data-screen-label="External Letter" style="width: 794px; min-height: 1123px; background: #FFFFFF; box-shadow: 0 8px 32px rgba(27,35,28,0.14); display: flex; flex-direction: column; box-sizing: border-box;">
+    <div style="height: 8px; background: linear-gradient(90deg, #2E5E3A 70%, #C8901A 70%);"></div>
 
-<div class="doc-page">
-
-    <!-- LETTERHEAD -->
-    <div class="letterhead">
-        <div class="lh-brand">
-            <div>
-                <div class="lh-name">Nature's Beauty</div>
-                <div class="lh-tagline">B e a u t y</div>
-                <div class="lh-division">A Division of Jenyo Akarakiri Global Enterprise</div>
-            </div>
-            <div class="lh-logo-right">
-                <div class="lh-reg">
-                    Business Name Reg. No. <strong>8219636</strong><br>
-                    Ref: JAGE / &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; / 2026
-                </div>
-            </div>
+    <div style="padding: 36px 56px 0; display: flex; justify-content: space-between; align-items: flex-start;">
+      <div style="display: flex; align-items: center; gap: 12px;">
+        <div style="position: relative; width: 36px; height: 36px;">
+          <div style="position: absolute; inset: 0; background: #C8901A; border-radius: 0 50% 0 50%; transform: rotate(45deg);"></div>
+          <div style="position: absolute; inset: 4px; background: #2E5E3A; border: 2px solid #FFFFFF; border-radius: 0 50% 0 50%; transform: rotate(45deg);"></div>
         </div>
-        <div class="lh-bar">
-            <span class="lh-bar-item"><span class="lh-bar-icon">&#128222;</span> 08033528772</span>
-            <span class="lh-bar-item"><span class="lh-bar-icon">&#128205;</span> RB2 Ondo State Industrial Park, Onyearugbulem Market, Akure, Ondo State</span>
+        <div style="display: flex; flex-direction: column; gap: 2px;">
+          <span style="font-family: 'Sora', sans-serif; font-weight: 700; font-size: 17px; line-height: 1; color: #1F4229;">Nature&rsquo;s Beauty</span>
+          <span style="font-family: 'Sora', sans-serif; font-weight: 600; font-size: 8px; letter-spacing: 0.32em; color: #C8901A;">CONSTRUCTION</span>
         </div>
+      </div>
+      <div style="text-align: right; font-size: 10.5px; line-height: 1.7; color: #5C665C;">Akure, Ondo State, Nigeria<br>WhatsApp +234 803 352 8772<br>@Natures_beauty_construction</div>
     </div>
 
-    <!-- DOCUMENT META -->
-    <div class="doc-meta">
-        <div>
-            <span class="doc-meta-label">Date</span>
-            <span class="doc-meta-val">___________________________</span>
-        </div>
-        <div class="doc-meta-right">
-            <span class="doc-meta-label">Our Ref.</span>
-            <span class="doc-meta-val">JAGE / _________ / ______</span>
-        </div>
+    <div style="padding: 40px 56px 0; display: flex; justify-content: space-between; font-size: 13px; line-height: 1.7; color: #3A443A;">
+      <div>
+        [Recipient name]<br>
+        [Title / organisation]<br>
+        [Address line 1]<br>
+        [Address line 2]
+      </div>
+      <div style="text-align: right;">
+        Our ref: NBC-LTR-[0000]<br>
+        [2 July 2026]
+      </div>
     </div>
 
-    <!-- RECIPIENT -->
-    <div class="recipient">
-        <strong>___________________________</strong>
-        <span>___________________________</span>
-        <span>___________________________</span>
-        <span>___________________________</span>
+    <div style="flex: 1; padding: 36px 56px 0; font-size: 13.5px; line-height: 1.8; color: #3A443A;">
+      <p style="margin: 0 0 20px;">Dear [Recipient name],</p>
+      <p style="margin: 0 0 20px; font-weight: 600; color: #1F4229;">RE: [SUBJECT OF THE LETTER]</p>
+      <p style="margin: 0 0 20px;">[Opening paragraph — state the purpose of the letter directly.]</p>
+      <p style="margin: 0 0 20px;">[Body — supporting details, terms, dates, or references. Keep to one topic per paragraph.]</p>
+      <p style="margin: 0 0 20px;">[Closing — the action you are requesting or confirming, and how to reach you. We are available on WhatsApp at +234 803 352 8772.]</p>
+      <p style="margin: 0;">Yours faithfully,</p>
     </div>
 
-    <!-- SUBJECT -->
-    <div class="subject-block">
-        <span class="subject-label">Subject</span>
-        <span class="subject-text">___________________________________________________________</span>
+    <div style="padding: 24px 56px 0;">
+      <div style="width: 300px;">
+        <div style="border-bottom: 1px solid #1B231C; height: 42px;"></div>
+        <div style="margin-top: 8px; font-family: 'Sora', sans-serif; font-weight: 600; font-size: 11px; color: #1F4229;">[Sender name]</div>
+        <div style="font-size: 10.5px; color: #8A948A;">[Role], Nature&rsquo;s Beauty Construction</div>
+      </div>
     </div>
 
-    <!-- BODY -->
-    <div class="doc-body">
-        <p class="salutation">Dear ___________________________,</p>
-
-        <p>___________________________________________________________________________
-        ___________________________________________________________________________
-        ___________________________________________________________________________
-        ___________________________________________________________________________</p>
-
-        <p>___________________________________________________________________________
-        ___________________________________________________________________________
-        ___________________________________________________________________________
-        ___________________________________________________________________________</p>
-
-        <p>___________________________________________________________________________
-        ___________________________________________________________________________
-        ___________________________________________________________________________
-        ___________________________________________________________________________</p>
-
-        <p>___________________________________________________________________________
-        ___________________________________________________________________________
-        ___________________________________________________________________________
-        ___________________________________________________________________________</p>
-
-        <p>We look forward to your response. Please do not hesitate to contact us should you require any further information.</p>
+    <div style="margin-top: 28px; padding: 18px 56px 26px; border-top: 1px solid #E3E1D6; display: flex; justify-content: space-between; font-size: 10px; color: #8A948A;">
+      <span>Landscape design · construction · grounds maintenance — nationwide</span>
+      <span>A division of Jenyo Akarakiri Global Enterprise</span>
     </div>
-
-    <!-- SIGNATURE -->
-    <div class="signature-block">
-        <p class="sig-close">Warm regards,</p>
-        <div class="sig-line"></div>
-        <div class="sig-name">Jenyo Akarakiri</div>
-        <div class="sig-title">Director &amp; Founder</div>
-        <div class="sig-company">Nature's Beauty &middot; Jenyo Akarakiri Global Enterprise</div>
-    </div>
-
-    <!-- FOOTER -->
-    <div class="lh-footer">
-        <div class="lh-footer-bar">
-            <div class="lh-footer-col">
-                <span class="lh-footer-col-title">Registered Address</span>
-                <span>RB2 Ondo State Industrial Park,</span>
-                <span>Onyearugbulem Market, Akure,</span>
-                <span>Ondo State, Nigeria</span>
-            </div>
-            <div class="lh-footer-col">
-                <span class="lh-footer-col-title">Contact</span>
-                <span>Tel: 08033528772</span>
-            </div>
-            <div class="lh-footer-col">
-                <span class="lh-footer-col-title">Registration</span>
-                <span>Business Name Reg. No.</span>
-                <span><strong>8219636</strong></span>
-            </div>
-            <div class="lh-footer-col">
-                <span class="lh-footer-col-title">Brand</span>
-                <span class="lh-footer-brand-name">Nature's Beauty</span>
-                <span>A Division of Jenyo Akarakiri<br>Global Enterprise</span>
-            </div>
-        </div>
-    </div>
-
+  </div>
 </div>
 </body>
 </html>

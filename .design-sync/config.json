@@ -4,7 +4,8 @@
   "shape": "package",
   "buildCmd": "npm run build",
   "cssEntry": "dist/ds-entry.css",
-  "runtimeFontPrefixes": ["Lemonada", "Nunito"],
+  "globalName": "NaturesBeautyUi",
+  "runtimeFontPrefixes": ["Sora", "Work Sans"],
   "overrides": {
     "Badge": { "cardMode": "column" }
   },

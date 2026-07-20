@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Financial Project Progress Report — Justice Omoleye — Nature's Beauty Construction</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&amp;family=Work+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#FFFFFF; --page-bg:#EDEBE2; --ink:#1B231C; --ink-soft:#3A443A;
+    --muted:#5C665C; --faint:#8A948A; --green:#2E5E3A; --green-dark:#1F4229;
+    --gold:#C8901A; --gold-dark:#8A6412; --surface:#F0EFE7; --line:#E3E1D6;
+    --line-soft:#EDEBE2; --pill-green-bg:#E7EFE4; --pill-gold-bg:#FBF3E0;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--page-bg);font-family:'Work Sans',sans-serif;color:var(--ink);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+
+  /* Toolbar */
+  .doc-toolbar{position:fixed;top:0;left:0;right:0;background:#1B231C;padding:10px 20px;display:flex;align-items:center;justify-content:space-between;z-index:9999;font-family:'Work Sans',sans-serif}
+  .doc-toolbar-title{color:rgba(255,255,255,.85);font-size:13px;font-weight:600}
+  .doc-btn{padding:7px 18px;border-radius:4px;font-family:'Work Sans',sans-serif;font-size:12px;font-weight:700;cursor:pointer;border:none;background:#C8901A;color:#1B231C}
+  .doc-btn:hover{background:#e0a52a}
+
+  .viewport{display:flex;flex-direction:column;align-items:center;padding:64px 20px 40px;gap:28px}
+
+  .page{width:794px;min-height:1123px;background:var(--paper);box-shadow:0 8px 32px rgba(27,35,28,.14);display:flex;flex-direction:column}
+  .page__bar{height:8px;background:linear-gradient(90deg,var(--green) 70%,var(--gold) 70%);flex:none}
+  .page__body{padding:34px 56px 26px;flex:1;display:flex;flex-direction:column}
+
+  /* Brand lockup */
+  .brand{display:flex;align-items:center;gap:12px}
+  .mark{position:relative;width:36px;height:36px;flex:none}
+  .mark__a{position:absolute;inset:0;background:var(--gold);border-radius:0 50% 0 50%;transform:rotate(45deg)}
+  .mark__b{position:absolute;inset:4px;background:var(--green);border:2px solid #fff;border-radius:0 50% 0 50%;transform:rotate(45deg)}
+  .brand__txt{display:flex;flex-direction:column;gap:2px}
+  .brand__name{font-family:'Sora',sans-serif;font-weight:700;font-size:17px;line-height:1;color:var(--green-dark)}
+  .brand__sub{font-family:'Sora',sans-serif;font-weight:600;font-size:8px;letter-spacing:.32em;color:var(--gold)}
+
+  .rhead{display:flex;justify-content:space-between;align-items:flex-start;padding-bottom:16px;border-bottom:1px solid var(--line);margin-bottom:22px}
+  .rhead__meta{text-align:right;font-size:10px;line-height:1.7;color:var(--muted)}
+  .contact{text-align:right;font-size:10.5px;line-height:1.7;color:var(--muted)}
+
+  .eyebrow{font-family:'Sora',sans-serif;font-weight:600;font-size:10px;letter-spacing:.28em;color:var(--gold);text-transform:uppercase}
+  .sec-title{font-family:'Sora',sans-serif;font-weight:700;font-size:21px;color:var(--green-dark);margin:5px 0 16px}
+  .sub-eyebrow{font-family:'Sora',sans-serif;font-weight:600;font-size:9px;letter-spacing:.18em;color:var(--faint);text-transform:uppercase;margin-bottom:6px}
+  h3.block{font-family:'Sora',sans-serif;font-weight:700;font-size:14px;color:var(--green-dark);margin:20px 0 8px}
+  p{font-size:12.5px;line-height:1.75;color:var(--ink-soft);margin:0 0 12px}
+  ul.clean{margin:0 0 12px;padding-left:18px}
+  ul.clean li{font-size:12.5px;line-height:1.7;color:var(--ink-soft);margin-bottom:9px}
+
+  .callout{background:var(--surface);border-left:3px solid var(--green);padding:16px 20px;margin:0 0 18px;font-size:12.5px;line-height:1.7;color:var(--ink-soft)}
+  .callout .sub-eyebrow{color:var(--green-dark)}
+
+  table.tbl{width:100%;border-collapse:collapse;margin:6px 0 14px}
+  .tbl thead th{background:var(--surface);text-align:left;padding:9px 12px;font-family:'Sora',sans-serif;font-weight:600;font-size:9.5px;letter-spacing:.12em;color:var(--muted);text-transform:uppercase;border-bottom:1px solid var(--line)}
+  .tbl td{padding:8px 12px;font-size:12px;border-bottom:1px solid var(--line-soft);color:var(--ink-soft);vertical-align:top}
+  .tbl td.num,.tbl th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+  .tbl td.ctr,.tbl th.ctr{text-align:center}
+  .tbl td.sn{color:var(--faint);width:34px}
+  .tbl tr.subtotal td{border-top:2px solid var(--green);border-bottom:none;background:var(--surface);font-family:'Sora',sans-serif;font-weight:700;font-size:12px;color:var(--green-dark);padding-top:10px;padding-bottom:10px}
+  .tbl tr.grand td{background:var(--green-dark);color:#fff;font-family:'Sora',sans-serif;font-weight:700;font-size:13px;border:none;padding-top:12px;padding-bottom:12px}
+  .tbl tr.grand td .accent{color:#F0D48A}
+
+  .pill{display:inline-block;padding:3px 10px;border-radius:99px;font-size:10.5px;font-weight:600}
+  .pill--green{background:var(--pill-green-bg);color:var(--green-dark)}
+  .pill--gold{background:var(--pill-gold-bg);color:var(--gold-dark)}
+
+  .foot{margin-top:auto;padding-top:14px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;font-size:9.5px;color:var(--faint)}
+
+  /* Cover */
+  .cover .page__body{padding:0}
+  .cover__top{padding:40px 56px 0;display:flex;justify-content:space-between;align-items:flex-start}
+  .cover__hero{padding:60px 56px 0}
+  .cover__hero .eyebrow{font-size:11px}
+  .cover__title{font-family:'Sora',sans-serif;font-weight:800;font-size:38px;line-height:1.14;color:var(--green-dark);margin:14px 0 10px;max-width:600px}
+  .cover__lede{font-size:14px;line-height:1.7;color:var(--muted);max-width:560px}
+  .cover__grid{margin:44px 56px 0;display:grid;grid-template-columns:1fr 1fr 1fr;gap:22px 28px}
+  .cover__grid .sub-eyebrow{margin-bottom:4px}
+  .cover__grid .val{font-size:13px;color:var(--ink);line-height:1.5}
+  .cover__total{margin:44px 56px 0;background:var(--green-dark);border-radius:2px;padding:26px 30px;color:#fff;display:flex;justify-content:space-between;align-items:flex-end}
+  .cover__total .lbl{font-family:'Sora',sans-serif;font-weight:600;font-size:10px;letter-spacing:.22em;color:#B9CBB6;text-transform:uppercase}
+  .cover__total .big{font-family:'Sora',sans-serif;font-weight:800;font-size:40px;line-height:1;margin-top:8px;color:#fff}
+  .cover__total .big .n{color:#F0D48A}
+  .cover__split{text-align:right;font-size:11px;line-height:1.85;color:#CBD8C7}
+  .cover__split b{color:#fff;font-variant-numeric:tabular-nums}
+  .cover__note{margin:auto 56px 0;padding:22px 0 0}
+  .cover__foot{margin:28px 56px 30px;padding-top:16px;border-top:1px solid var(--line);display:flex;justify-content:space-between;font-size:10px;color:var(--faint)}
+
+  .lede-strip{background:var(--surface);border-left:3px solid var(--gold);padding:14px 18px;font-size:11.5px;line-height:1.65;color:var(--muted);margin-bottom:20px}
+
+  .two-col{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+  .ref-tag{font-family:'Sora',sans-serif;font-weight:600;font-size:10px;letter-spacing:.06em;color:var(--gold-dark)}
+
+  @page{size:A4;margin:0}
+  @media print{
+    body{background:#fff}
+    .doc-toolbar,.no-print{display:none}
+    .viewport{padding:0;gap:0}
+    /* Each logical page starts on a fresh A4 sheet; 296mm (just under A4's 297mm)
+       avoids sub-pixel overflow that would emit spurious blank sheets. */
+    .page{box-shadow:none;width:210mm;min-height:296mm;break-before:page;page-break-before:always}
+    .page:first-child{break-before:avoid;page-break-before:avoid}
+    /* Keep table rows and callouts from splitting across sheets */
+    .tbl tr,.callout{break-inside:avoid;page-break-inside:avoid}
+    /* Page 2 carries three sections; start the Financial Summary on its own sheet
+       so Executive Summary + Scope share the first and nothing splits mid-content */
+    #finsum{break-before:page;page-break-before:always;margin-top:0}
+  }
+</style>
+</head>
+<body>
+<div class="doc-toolbar no-print">
+  <span class="doc-toolbar-title">Financial Project Progress Report — Justice Omoleye</span>
+  <button class="doc-btn" onclick="window.print()">Print / Save PDF</button>
+</div>
+
+<div class="viewport">
+
+  <!-- ============================ PAGE 1 — COVER ============================ -->
+  <section class="page cover">
+    <div class="page__bar"></div>
+    <div class="page__body">
+      <div class="cover__top">
+        <div class="brand">
+          <div class="mark"><div class="mark__a"></div><div class="mark__b"></div></div>
+          <div class="brand__txt">
+            <span class="brand__name">Nature&rsquo;s Beauty</span>
+            <span class="brand__sub">CONSTRUCTION</span>
+          </div>
+        </div>
+        <div class="contact">Akure, Ondo State, Nigeria<br>WhatsApp +234 803 352 8772<br>@Natures_beauty_construction</div>
+      </div>
+
+      <div class="cover__hero">
+        <div class="eyebrow">Financial Project Progress Report</div>
+        <h1 class="cover__title">Erection of a Roofed Grave Canopy &amp; Associated Client Works</h1>
+        <p class="cover__lede">A full and itemized account of all expenditure incurred by Nature&rsquo;s Beauty Construction on behalf of the client to date, with a complete supporting audit trail.</p>
+      </div>
+
+      <div class="cover__grid">
+        <div><div class="sub-eyebrow">Prepared for</div><div class="val">Justice Omoleye<br><span style="color:var(--muted);font-size:11.5px">Client</span></div></div>
+        <div><div class="sub-eyebrow">Prepared by</div><div class="val">Nature&rsquo;s Beauty Construction<br><span style="color:var(--muted);font-size:11.5px">A division of Jenyo Akarakiri Global Enterprise</span></div></div>
+        <div><div class="sub-eyebrow">Report no.</div><div class="val">NBC-FPR/2026/OMO-001</div></div>
+        <div><div class="sub-eyebrow">Site</div><div class="val">Ikole-Ekiti, Ekiti State</div></div>
+        <div><div class="sub-eyebrow">Reporting period</div><div class="val">January &ndash; July 2026</div></div>
+        <div><div class="sub-eyebrow">Date of issue</div><div class="val">9 July 2026</div></div>
+      </div>
+
+      <div class="cover__total">
+        <div>
+          <div class="lbl">Total expenditure to date</div>
+          <div class="big">&#8358;<span class="n">7,224,000</span></div>
+        </div>
+        <div class="cover__split">
+          A &middot; Grave Canopy Project &nbsp; <b>&#8358;6,186,000</b><br>
+          B &middot; Ikole House Works &nbsp; <b>&#8358;313,000</b><br>
+          C &middot; Other Client Expenses &nbsp; <b>&#8358;725,000</b>
+        </div>
+      </div>
+
+      <div class="cover__note">
+        <p style="font-size:11.5px;color:var(--muted);margin:0">This report is prepared for the named client. Every summary figure herein is traceable to the original site expense log through the Detailed Financial Breakdown. The three expense groups are financially independent and are reported separately throughout.</p>
+      </div>
+
+      <div class="cover__foot">
+        <span>Building construction &middot; civil works &middot; project management &mdash; nationwide</span>
+        <span>A division of Jenyo Akarakiri Global Enterprise</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ PAGE 2 — EXEC SUMMARY / SCOPE / FINANCIAL SUMMARY ============================ -->
+  <section class="page">
+    <div class="page__bar"></div>
+    <div class="page__body">
+      <div class="rhead">
+        <div class="brand"><div class="mark"><div class="mark__a"></div><div class="mark__b"></div></div><div class="brand__txt"><span class="brand__name">Nature&rsquo;s Beauty</span><span class="brand__sub">CONSTRUCTION</span></div></div>
+        <div class="rhead__meta">Financial Project Progress Report &middot; Justice Omoleye<br>NBC-FPR/2026/OMO-001 &middot; 9 July 2026</div>
+      </div>
+
+      <h2 class="sec-title">Executive Summary</h2>
+      <p>This report presents a complete financial account of the works executed and the expenditure incurred by Nature&rsquo;s Beauty Construction on behalf of Justice Omoleye up to the date of issue. The records comprise three entirely independent expense groups, which have been kept separate throughout this report and in the Detailed Financial Breakdown:</p>
+      <ul class="clean">
+        <li><b>Section A &mdash; Grave Canopy Construction Project</b> at Ikole, executed in five distinct construction phases (foundation to roof level, roofing, block work, POP &amp; ceiling, and tiling), with a cumulative expenditure of <b>&#8358;6,186,000</b>.</li>
+        <li><b>Section B &mdash; Ikole House Works</b>, being separate works carried out at the client&rsquo;s residence, totalling <b>&#8358;313,000</b>.</li>
+        <li><b>Section C &mdash; Other Client Expenses</b>, being operational disbursements made on the client&rsquo;s behalf and unrelated to the two construction streams, totalling <b>&#8358;725,000</b>.</li>
+      </ul>
+      <p>The total expenditure incurred to date across all three groups is <b>&#8358;7,224,000</b>. Each phase and section total presented in this summary reconciles exactly with a detailed, itemized schedule in the Detailed Financial Breakdown, which has been transcribed faithfully from the original handwritten site expense log to serve as the financial audit trail.</p>
+
+      <div class="callout">
+        <div class="sub-eyebrow">At a glance</div>
+        All five phases of the Grave Canopy Project have been executed and fully funded, placing the canopy at an advanced stage of completion. The Ikole House works and the sundry client disbursements have likewise been executed as recorded. No figure in this report has been estimated or invented; every value derives from the site log.
+      </div>
+
+      <h2 class="sec-title" style="margin-top:20px">Scope of Works</h2>
+
+      <h3 class="block">A &middot; Grave Canopy Construction Project &mdash; Ikole</h3>
+      <p>The construction of a reinforced, roofed grave canopy, executed across five phases: (1) all structural works from site preparation and foundation up to parapet level &mdash; excavation, sand and granite, column and ring-beam reinforcement, cement, formwork and bricklaying labour to roof level; (2) roofing &mdash; roof timber, roofing sheets and accessories, and fixing labour; (3) block work &mdash; walling, parapet, plaster, sand and cement; (4) POP &amp; ceiling &mdash; POP materials, screeding and finishing labour; and (5) tiling &mdash; wall and floor tiling with associated materials and labour.</p>
+
+      <h3 class="block">B &middot; Ikole House Works</h3>
+      <p>Separate works executed at the client&rsquo;s residence at Ikole, comprising fumigation of the property and plumbing works (supply of plumbing materials and plumber&rsquo;s labour).</p>
+
+      <h3 class="block">C &middot; Other Client Expenses</h3>
+      <p>Operational disbursements made on the client&rsquo;s behalf, unrelated to the two construction streams, presented in two periods: earlier expenses (January&ndash;April) covering security-men salaries and a pressure-pump repair; and current miscellaneous expenses (May&ndash;present) covering a wreath and transportation, security salaries, and site logistics.</p>
+
+      <h2 class="sec-title" id="finsum" style="margin-top:20px">Financial Summary</h2>
+      <p>The consolidated position across the three expense groups is set out below. Each line reconciles exactly with its supporting schedule in the Detailed Financial Breakdown.</p>
+
+      <h3 class="block">Section A &mdash; Grave Canopy Project (by phase)</h3>
+      <table class="tbl">
+        <thead>
+          <tr><th style="width:44px">Phase</th><th>Description</th><th class="ctr" style="width:110px">Schedule</th><th class="num">Amount (&#8358;)</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="sn">1</td><td>Foundation to Roofing Level</td><td class="ctr ref-tag">A&middot;1</td><td class="num">2,474,000</td></tr>
+          <tr><td class="sn">2</td><td>Roofing</td><td class="ctr ref-tag">A&middot;2</td><td class="num">1,359,000</td></tr>
+          <tr><td class="sn">3</td><td>Block Work</td><td class="ctr ref-tag">A&middot;3</td><td class="num">369,000</td></tr>
+          <tr><td class="sn">4</td><td>POP &amp; Ceiling</td><td class="ctr ref-tag">A&middot;4</td><td class="num">505,000</td></tr>
+          <tr><td class="sn">5</td><td>Tiling</td><td class="ctr ref-tag">A&middot;5</td><td class="num">1,479,000</td></tr>
+          <tr class="subtotal"><td colspan="3">Grand Total &mdash; Grave Canopy Project</td><td class="num">6,186,000</td></tr>
+        </tbody>
+      </table>
+
+      <h3 class="block">Consolidated financial position</h3>
+      <table class="tbl">
+        <thead>
+          <tr><th>Expense group</th><th class="ctr" style="width:130px">Schedules</th><th class="num">Amount (&#8358;)</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Section A &mdash; Grave Canopy Construction Project</td><td class="ctr ref-tag">A&middot;1 &ndash; A&middot;5</td><td class="num">6,186,000</td></tr>
+          <tr><td>Section B &mdash; Ikole House Works</td><td class="ctr ref-tag">B</td><td class="num">313,000</td></tr>
+          <tr><td>Section C &mdash; Other Client Expenses</td><td class="ctr ref-tag">C&middot;1 &ndash; C&middot;2</td><td class="num">725,000</td></tr>
+          <tr class="grand"><td colspan="2">Total Expenditure to Date</td><td class="num"><span class="accent">7,224,000</span></td></tr>
+        </tbody>
+      </table>
+
+      <div class="foot"><span>Executive Summary &middot; Scope of Works &middot; Financial Summary</span><span>Page 2 &middot; A division of Jenyo Akarakiri Global Enterprise</span></div>
+    </div>
+  </section>
+
+  <!-- ============================ DETAILED FINANCIAL BREAKDOWN — SECTION A / PHASE 1 ============================ -->
+  <section class="page">
+    <div class="page__bar"></div>
+    <div class="page__body">
+      <div class="rhead">
+        <div class="brand"><div class="mark"><div class="mark__a"></div><div class="mark__b"></div></div><div class="brand__txt"><span class="brand__name">Nature&rsquo;s Beauty</span><span class="brand__sub">CONSTRUCTION</span></div></div>
+        <div class="rhead__meta">Detailed Financial Breakdown &middot; Justice Omoleye<br>NBC-FPR/2026/OMO-001 &middot; 9 July 2026</div>
+      </div>
+
+      <div class="eyebrow">Detailed Financial Breakdown</div>
+      <h2 class="sec-title">Section A &middot; Phase 1 &mdash; Foundation to Roofing Level</h2>
+
+      <table class="tbl">
+        <thead>
+          <tr><th class="sn">#</th><th style="width:74px">Date</th><th>Description</th><th style="width:120px">Qty / rate</th><th class="num">Amount (&#8358;)</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="sn">1</td><td>6/5</td><td>Fuel to Ikole</td><td></td><td class="num">60,000</td></tr>
+          <tr><td class="sn">2</td><td></td><td>1 load of tipper sand</td><td></td><td class="num">65,000</td></tr>
+          <tr><td class="sn">3</td><td></td><td>Digging of foundation</td><td></td><td class="num">25,000</td></tr>
+          <tr><td class="sn">4</td><td>8/5</td><td>Fuel to Ado to book for granite</td><td></td><td class="num">40,000</td></tr>
+          <tr><td class="sn">5</td><td></td><td>Granite</td><td></td><td class="num">300,000</td></tr>
+          <tr><td class="sn">6</td><td>12/5</td><td>Fuel to Ikole</td><td></td><td class="num">60,000</td></tr>
+          <tr><td class="sn">7</td><td></td><td>Reinforcement for columns &amp; beam &mdash; 16&nbsp;mm</td><td>19 @ 18,000</td><td class="num">342,000</td></tr>
+          <tr><td class="sn">8</td><td></td><td>Reinforcement &mdash; 12&nbsp;mm</td><td>20 @ 11,000</td><td class="num">220,000</td></tr>
+          <tr><td class="sn">9</td><td></td><td>Reinforcement &mdash; 8&nbsp;mm</td><td>18 @ 7,000</td><td class="num">126,000</td></tr>
+          <tr><td class="sn">10</td><td></td><td>Wire</td><td></td><td class="num">25,000</td></tr>
+          <tr><td class="sn">11</td><td></td><td>Welder / iron bender</td><td></td><td class="num">75,000</td></tr>
+          <tr><td class="sn">12</td><td>12/5</td><td>Cement</td><td>25 bags @ 11,500</td><td class="num">287,000</td></tr>
+          <tr><td class="sn">13</td><td>14/5</td><td>Fuel to Ikole</td><td></td><td class="num">60,000</td></tr>
+          <tr><td class="sn">14</td><td></td><td>Formwork / carpenter timber &mdash; 1&times;12</td><td>50 @ 4,000</td><td class="num">200,000</td></tr>
+          <tr><td class="sn">15</td><td></td><td>Formwork timber &mdash; 1&times;6</td><td>20 @ 2,000</td><td class="num">40,000</td></tr>
+          <tr><td class="sn">16</td><td></td><td>Formwork timber &mdash; 1&times;4</td><td>26 @ 1,500</td><td class="num">39,000</td></tr>
+          <tr><td class="sn">17</td><td></td><td>Formwork timber &mdash; 2&times;3</td><td>15 @ 1,700</td><td class="num">25,000</td></tr>
+          <tr><td class="sn">18</td><td></td><td>Bamboo</td><td>30</td><td class="num">30,000</td></tr>
+          <tr><td class="sn">19</td><td></td><td>Binding wire</td><td></td><td class="num">10,000</td></tr>
+          <tr><td class="sn">20</td><td></td><td>Nails</td><td></td><td class="num">40,000</td></tr>
+          <tr><td class="sn">21</td><td></td><td>Transportation</td><td></td><td class="num">35,000</td></tr>
+          <tr><td class="sn">22</td><td></td><td>Labour input &mdash; carpenter</td><td></td><td class="num">190,000</td></tr>
+          <tr><td class="sn">23</td><td>16/5</td><td>Fuel to Ikole</td><td></td><td class="num">60,000</td></tr>
+          <tr><td class="sn">24</td><td></td><td>Bricklayer to cast from finish to roof level</td><td></td><td class="num">120,000</td></tr>
+          <tr class="subtotal"><td colspan="4">Subtotal &mdash; Phase 1 (Foundation to Roofing Level)</td><td class="num">2,474,000</td></tr>
+        </tbody>
+      </table>
+
+      <div class="foot"><span>Detailed Financial Breakdown &middot; Section A &middot; Phase 1</span><span>Page 3 &middot; A division of Jenyo Akarakiri Global Enterprise</span></div>
+    </div>
+  </section>
+
+  <!-- ============================ DETAILED FINANCIAL BREAKDOWN — SECTION A / PHASE 2 ============================ -->
+  <section class="page">
+    <div class="page__bar"></div>
+    <div class="page__body">
+      <div class="rhead">
+        <div class="brand"><div class="mark"><div class="mark__a"></div><div class="mark__b"></div></div><div class="brand__txt"><span class="brand__name">Nature&rsquo;s Beauty</span><span class="brand__sub">CONSTRUCTION</span></div></div>
+        <div class="rhead__meta">Detailed Financial Breakdown &middot; Justice Omoleye<br>NBC-FPR/2026/OMO-001 &middot; 9 July 2026</div>
+      </div>
+
+      <div class="eyebrow">Detailed Financial Breakdown</div>
+      <h2 class="sec-title">Section A &middot; Phase 2 &mdash; Roofing</h2>
+      <table class="tbl">
+        <thead>
+          <tr><th class="sn">#</th><th style="width:74px">Date</th><th>Description</th><th style="width:120px">Qty / rate</th><th class="num">Amount (&#8358;)</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="sn">1</td><td>18/05</td><td>Fuel to Ikole</td><td></td><td class="num">60,000</td></tr>
+          <tr><td class="sn">2</td><td></td><td>Wood for roofing / nogging &mdash; 2&times;4</td><td>75 @ 2,500</td><td class="num">185,000</td></tr>
+          <tr><td class="sn">3</td><td></td><td>Wood &mdash; 3&times;4</td><td>6 @ 4,000</td><td class="num">24,000</td></tr>
+          <tr><td class="sn">4</td><td></td><td>Wood &mdash; 2&times;3</td><td>85 @ 2,000</td><td class="num">170,000</td></tr>
+          <tr><td class="sn">5</td><td></td><td>Wood &mdash; 2&times;3</td><td>30 @ 1,600</td><td class="num">48,000</td></tr>
+          <tr><td class="sn">6</td><td></td><td>Transport of wood</td><td></td><td class="num">40,000</td></tr>
+          <tr><td class="sn">7</td><td></td><td>Nails</td><td></td><td class="num">62,000</td></tr>
+          <tr><td class="sn">8</td><td>20/5</td><td>Fuel to Ikole</td><td></td><td class="num">60,000</td></tr>
+          <tr><td class="sn">9</td><td></td><td>Carpenter labour &mdash; formwork</td><td></td><td class="num">100,000</td></tr>
+          <tr><td class="sn">10</td><td>21/5</td><td>Fuel to Ikole</td><td></td><td class="num">60,000</td></tr>
+          <tr><td class="sn">11</td><td></td><td>Roof sheet (&ldquo;gerard&rdquo;) and all its accessories</td><td></td><td class="num">460,000</td></tr>
+          <tr><td class="sn">12</td><td></td><td>Fixing of roof sheet</td><td></td><td class="num">50,000</td></tr>
+          <tr><td class="sn">13</td><td></td><td>Transport of roof sheet</td><td></td><td class="num">40,000</td></tr>
+          <tr class="subtotal"><td colspan="4">Subtotal &mdash; Phase 2 (Roofing)</td><td class="num">1,359,000</td></tr>
+        </tbody>
+      </table>
+
+      <div class="foot"><span>Detailed Financial Breakdown &middot; Section A &middot; Phase 2</span><span>Page 4 &middot; A division of Jenyo Akarakiri Global Enterprise</span></div>
+    </div>
+  </section>
+
+  <!-- ============================ DETAILED FINANCIAL BREAKDOWN — SECTION A / PHASES 3 & 4 ============================ -->
+  <section class="page">
+    <div class="page__bar"></div>
+    <div class="page__body">
+      <div class="rhead">
+        <div class="brand"><div class="mark"><div class="mark__a"></div><div class="mark__b"></div></div><div class="brand__txt"><span class="brand__name">Nature&rsquo;s Beauty</span><span class="brand__sub">CONSTRUCTION</span></div></div>
+        <div class="rhead__meta">Detailed Financial Breakdown &middot; Justice Omoleye<br>NBC-FPR/2026/OMO-001 &middot; 9 July 2026</div>
+      </div>
+
+      <div class="eyebrow">Detailed Financial Breakdown</div>
+      <h2 class="sec-title">Section A &middot; Phase 3 &mdash; Block Work</h2>      <table class="tbl">
+        <thead>
+          <tr><th class="sn">#</th><th style="width:74px">Date</th><th>Description</th><th style="width:110px">Qty / rate</th><th class="num">Amount (&#8358;)</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="sn">1</td><td>22/05</td><td>Blocks</td><td>100 @ 800</td><td class="num">80,000</td></tr>
+          <tr><td class="sn">2</td><td></td><td>Bricklayer &mdash; to set (lay blocks)</td><td></td><td class="num">25,000</td></tr>
+          <tr><td class="sn">3</td><td></td><td>Bricklayer &mdash; to plaster</td><td></td><td class="num">50,000</td></tr>
+          <tr><td class="sn">4</td><td></td><td>Parapet and beam</td><td></td><td class="num">25,000</td></tr>
+          <tr><td class="sn">5</td><td></td><td>Sand</td><td></td><td class="num">60,000</td></tr>
+          <tr><td class="sn">6</td><td></td><td>Cement</td><td></td><td class="num">69,000</td></tr>
+          <tr><td class="sn">7</td><td></td><td>Fuel to Ikole</td><td></td><td class="num">60,000</td></tr>
+          <tr class="subtotal"><td colspan="4">Subtotal &mdash; Phase 3 (Block Work)</td><td class="num">369,000</td></tr>
+        </tbody>
+      </table>
+
+      <div class="eyebrow" style="margin-top:24px">Detailed Financial Breakdown</div>
+      <h2 class="sec-title">Section A &middot; Phase 4 &mdash; POP &amp; Ceiling</h2>      <table class="tbl">
+        <thead>
+          <tr><th class="sn">#</th><th style="width:74px">Date</th><th>Description</th><th style="width:110px">Qty / rate</th><th class="num">Amount (&#8358;)</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="sn">1</td><td>25/5</td><td>POP materials</td><td></td><td class="num">305,000</td></tr>
+          <tr><td class="sn">2</td><td></td><td>Transport to Ikole</td><td></td><td class="num">25,000</td></tr>
+          <tr><td class="sn">3</td><td></td><td>Screeding of parapet</td><td></td><td class="num">35,000</td></tr>
+          <tr><td class="sn">4</td><td></td><td>Labour &mdash; hand-finishing</td><td></td><td class="num">80,000</td></tr>
+          <tr><td class="sn">5</td><td>28/5</td><td>Fuel to Ikole</td><td></td><td class="num">60,000</td></tr>
+          <tr class="subtotal"><td colspan="4">Subtotal &mdash; Phase 4 (POP &amp; Ceiling)</td><td class="num">505,000</td></tr>
+        </tbody>
+      </table>
+
+      <div class="foot"><span>Detailed Financial Breakdown &middot; Section A &middot; Phases 3&ndash;4</span><span>Page 5 &middot; A division of Jenyo Akarakiri Global Enterprise</span></div>
+    </div>
+  </section>
+
+  <!-- ============================ DETAILED FINANCIAL BREAKDOWN — SECTION A / PHASE 5 ============================ -->
+  <section class="page">
+    <div class="page__bar"></div>
+    <div class="page__body">
+      <div class="rhead">
+        <div class="brand"><div class="mark"><div class="mark__a"></div><div class="mark__b"></div></div><div class="brand__txt"><span class="brand__name">Nature&rsquo;s Beauty</span><span class="brand__sub">CONSTRUCTION</span></div></div>
+        <div class="rhead__meta">Detailed Financial Breakdown &middot; Justice Omoleye<br>NBC-FPR/2026/OMO-001 &middot; 9 July 2026</div>
+      </div>
+
+      <div class="eyebrow">Detailed Financial Breakdown</div>
+      <h2 class="sec-title">Section A &middot; Phase 5 &mdash; Tiling</h2>
+      <table class="tbl">
+        <thead>
+          <tr><th class="sn">#</th><th>Description</th><th style="width:130px">Qty / rate</th><th class="num">Amount (&#8358;)</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="sn">1</td><td>Fuel to Ado, then Ikole</td><td></td><td class="num">60,000</td></tr>
+          <tr><td class="sn">2</td><td>Wall tiles</td><td>50 packs @ 9,000</td><td class="num">450,000</td></tr>
+          <tr><td class="sn">3</td><td>Floor tiles</td><td>11 packs @ 16,000</td><td class="num">176,000</td></tr>
+          <tr><td class="sn">4</td><td>&ldquo;Genesis&rdquo; tiles</td><td>32 @ 3,000</td><td class="num">96,000</td></tr>
+          <tr><td class="sn">5</td><td>Gum cement</td><td></td><td class="num">60,000</td></tr>
+          <tr><td class="sn">6</td><td>White cement</td><td></td><td class="num">45,000</td></tr>
+          <tr><td class="sn">7</td><td>Transport of material</td><td></td><td class="num">50,000</td></tr>
+          <tr><td class="sn">8</td><td>Cement</td><td>25 bags</td><td class="num">287,000</td></tr>
+          <tr><td class="sn">9</td><td>Labour / tiler</td><td></td><td class="num">150,000</td></tr>
+          <tr><td class="sn">10</td><td>Extra 5 packs of wall tiles</td><td></td><td class="num">45,000</td></tr>
+          <tr><td class="sn">11</td><td>Fuel to Ikole</td><td></td><td class="num">60,000</td></tr>
+          <tr class="subtotal"><td colspan="3">Subtotal &mdash; Phase 5 (Tiling)</td><td class="num">1,479,000</td></tr>
+        </tbody>
+      </table>
+
+      <table class="tbl" style="margin-top:6px">
+        <tbody>
+          <tr class="grand"><td>Consolidated Total &mdash; Section A: Grave Canopy Project (Phases 1&ndash;5)</td><td class="num"><span class="accent">&#8358;6,186,000</span></td></tr>
+        </tbody>
+      </table>
+
+      <div class="foot"><span>Detailed Financial Breakdown &middot; Section A &middot; Phase 5</span><span>Page 6 &middot; A division of Jenyo Akarakiri Global Enterprise</span></div>
+    </div>
+  </section>
+
+  <!-- ============================ DETAILED FINANCIAL BREAKDOWN — SECTIONS B & C ============================ -->
+  <section class="page">
+    <div class="page__bar"></div>
+    <div class="page__body">
+      <div class="rhead">
+        <div class="brand"><div class="mark"><div class="mark__a"></div><div class="mark__b"></div></div><div class="brand__txt"><span class="brand__name">Nature&rsquo;s Beauty</span><span class="brand__sub">CONSTRUCTION</span></div></div>
+        <div class="rhead__meta">Detailed Financial Breakdown &middot; Justice Omoleye<br>NBC-FPR/2026/OMO-001 &middot; 9 July 2026</div>
+      </div>
+
+      <div class="eyebrow">Detailed Financial Breakdown</div>
+      <h2 class="sec-title">Section B &mdash; Ikole House Works</h2>      <table class="tbl">
+        <thead><tr><th class="sn">#</th><th>Description</th><th class="num">Amount (&#8358;)</th></tr></thead>
+        <tbody>
+          <tr><td class="sn">1</td><td>Fumigation at Ikole</td><td class="num">120,000</td></tr>
+          <tr><td class="sn">2</td><td>Fuel to bring them (fumigation team)</td><td class="num">60,000</td></tr>
+          <tr><td class="sn">3</td><td>Plumbing material &mdash; floater (float valve)</td><td class="num">85,000</td></tr>
+          <tr><td class="sn">4</td><td>Plumbing material &mdash; tap and others</td><td class="num">28,000</td></tr>
+          <tr><td class="sn">5</td><td>Plumber (labour)</td><td class="num">20,000</td></tr>
+          <tr class="subtotal"><td colspan="2">Subtotal &mdash; Section B (Ikole House Works)</td><td class="num">313,000</td></tr>
+        </tbody>
+      </table>
+
+      <div class="eyebrow" style="margin-top:22px">Detailed Financial Breakdown</div>
+      <h2 class="sec-title">Section C.1 &mdash; Earlier Expenses (January &ndash; April)</h2>      <table class="tbl">
+        <thead><tr><th class="sn">#</th><th>Description</th><th class="num">Amount (&#8358;)</th></tr></thead>
+        <tbody>
+          <tr><td class="sn">1</td><td>Salary payment for security men, January to April (Ado and Ikole)</td><td class="num">340,000</td></tr>
+          <tr><td class="sn">2</td><td>Fixing of pressure pump (material and labour)</td><td class="num">85,000</td></tr>
+          <tr class="subtotal"><td colspan="2">Subtotal &mdash; Section C.1 (Earlier Expenses)</td><td class="num">425,000</td></tr>
+        </tbody>
+      </table>
+
+      <div class="eyebrow" style="margin-top:22px">Detailed Financial Breakdown</div>
+      <h2 class="sec-title">Section C.2 &mdash; Current Miscellaneous Expenses (May &ndash; Present)</h2>      <table class="tbl">
+        <thead><tr><th class="sn">#</th><th style="width:74px">Date</th><th>Description</th><th class="num">Amount (&#8358;)</th></tr></thead>
+        <tbody>
+          <tr><td class="sn">1</td><td>13 June</td><td>Wreath</td><td class="num">50,000</td></tr>
+          <tr><td class="sn">2</td><td>13 June</td><td>Transportation</td><td class="num">20,000</td></tr>
+          <tr><td class="sn">3</td><td></td><td>Salary of security (Ikole &amp; Ado) for May&ndash;June</td><td class="num">170,000</td></tr>
+          <tr><td class="sn">4</td><td>18/6</td><td>Fuel to convey solar-borehole technician to Ikole</td><td class="num">60,000</td></tr>
+          <tr class="subtotal"><td colspan="3">Subtotal &mdash; Section C.2 (Current Miscellaneous Expenses)</td><td class="num">300,000</td></tr>
+        </tbody>
+      </table>
+
+      <table class="tbl" style="margin-top:6px">
+        <tbody><tr class="grand"><td>Consolidated Total &mdash; Section C: Other Client Expenses (C.1 + C.2)</td><td class="num"><span class="accent">&#8358;725,000</span></td></tr></tbody>
+      </table>
+
+      <div class="foot"><span>Detailed Financial Breakdown &middot; Sections B &amp; C</span><span>Page 7 &middot; A division of Jenyo Akarakiri Global Enterprise</span></div>
+    </div>
+  </section>
+
+  <!-- ============================ SUMMARY TABLE ============================ -->
+  <section class="page">
+    <div class="page__bar"></div>
+    <div class="page__body">
+      <div class="rhead">
+        <div class="brand"><div class="mark"><div class="mark__a"></div><div class="mark__b"></div></div><div class="brand__txt"><span class="brand__name">Nature&rsquo;s Beauty</span><span class="brand__sub">CONSTRUCTION</span></div></div>
+        <div class="rhead__meta">Financial Project Progress Report &middot; Justice Omoleye<br>NBC-FPR/2026/OMO-001 &middot; 9 July 2026</div>
+      </div>
+
+      <div class="eyebrow">Summary Table</div>
+      <h2 class="sec-title">Consolidated Summary of Expenditure</h2>
+      <p>The table below consolidates every schedule presented in the Detailed Financial Breakdown into a single view. Each line corresponds to a schedule above, grouped by expense stream, and the totals reconcile exactly to the grand total.</p>
+
+      <table class="tbl">
+        <thead>
+          <tr><th style="width:60px">Ref.</th><th>Schedule / description</th><th class="num">Amount (&#8358;)</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="sn" style="font-family:'Sora',sans-serif;font-weight:700;color:var(--green-dark)" colspan="3">Section A &mdash; Grave Canopy Construction Project</td></tr>
+          <tr><td class="ctr ref-tag">A&middot;1</td><td>Phase 1 &mdash; Foundation to Roofing Level</td><td class="num">2,474,000</td></tr>
+          <tr><td class="ctr ref-tag">A&middot;2</td><td>Phase 2 &mdash; Roofing</td><td class="num">1,359,000</td></tr>
+          <tr><td class="ctr ref-tag">A&middot;3</td><td>Phase 3 &mdash; Block Work</td><td class="num">369,000</td></tr>
+          <tr><td class="ctr ref-tag">A&middot;4</td><td>Phase 4 &mdash; POP &amp; Ceiling</td><td class="num">505,000</td></tr>
+          <tr><td class="ctr ref-tag">A&middot;5</td><td>Phase 5 &mdash; Tiling</td><td class="num">1,479,000</td></tr>
+          <tr class="subtotal"><td colspan="2">Subtotal &mdash; Section A (Grave Canopy Project)</td><td class="num">6,186,000</td></tr>
+
+          <tr><td class="sn" style="font-family:'Sora',sans-serif;font-weight:700;color:var(--green-dark)" colspan="3">Section B &mdash; Ikole House Works</td></tr>
+          <tr><td class="ctr ref-tag">B</td><td>Fumigation &amp; plumbing works at the Ikole residence</td><td class="num">313,000</td></tr>
+          <tr class="subtotal"><td colspan="2">Subtotal &mdash; Section B (Ikole House Works)</td><td class="num">313,000</td></tr>
+
+          <tr><td class="sn" style="font-family:'Sora',sans-serif;font-weight:700;color:var(--green-dark)" colspan="3">Section C &mdash; Other Client Expenses</td></tr>
+          <tr><td class="ctr ref-tag">C&middot;1</td><td>Earlier expenses (Jan&ndash;Apr) &mdash; security salaries &amp; pump repair</td><td class="num">425,000</td></tr>
+          <tr><td class="ctr ref-tag">C&middot;2</td><td>Current misc. (May&ndash;present) &mdash; wreath, transport, salaries &amp; logistics</td><td class="num">300,000</td></tr>
+          <tr class="subtotal"><td colspan="2">Subtotal &mdash; Section C (Other Client Expenses)</td><td class="num">725,000</td></tr>
+
+          <tr class="grand"><td colspan="2">Grand Total &mdash; Total Expenditure to Date</td><td class="num"><span class="accent">&#8358;7,224,000</span></td></tr>
+        </tbody>
+      </table>
+
+      <div class="foot"><span>Summary Table &middot; Consolidated Summary of Expenditure</span><span>Page 8 &middot; A division of Jenyo Akarakiri Global Enterprise</span></div>
+    </div>
+  </section>
+
+  <!-- ============================ PREPARED BY / SIGN-OFF ============================ -->
+  <section class="page">
+    <div class="page__bar"></div>
+    <div class="page__body">
+      <div class="rhead">
+        <div class="brand"><div class="mark"><div class="mark__a"></div><div class="mark__b"></div></div><div class="brand__txt"><span class="brand__name">Nature&rsquo;s Beauty</span><span class="brand__sub">CONSTRUCTION</span></div></div>
+        <div class="rhead__meta">Financial Project Progress Report &middot; Justice Omoleye<br>NBC-FPR/2026/OMO-001 &middot; 9 July 2026</div>
+      </div>
+
+      <h2 class="sec-title">Prepared By</h2>
+      <div style="display:flex;gap:56px;margin-top:8px">
+        <div style="flex:1">
+          <div style="border-bottom:1px solid var(--ink);height:46px"></div>
+          <div style="margin-top:8px;font-family:'Sora',sans-serif;font-weight:600;font-size:12px;color:var(--green-dark)">Documentation &amp; Project Reporting Office</div>
+          <div style="font-size:11px;color:var(--muted)">Nature&rsquo;s Beauty Construction</div>
+          <div style="font-size:10.5px;color:var(--faint);margin-top:2px">Name &middot; Signature &middot; Date</div>
+        </div>
+        <div style="flex:1">
+          <div style="border-bottom:1px solid var(--ink);height:46px"></div>
+          <div style="margin-top:8px;font-family:'Sora',sans-serif;font-weight:600;font-size:12px;color:var(--green-dark)">Acknowledged &mdash; Client</div>
+          <div style="font-size:11px;color:var(--muted)">Justice Omoleye</div>
+          <div style="font-size:10.5px;color:var(--faint);margin-top:2px">Signature &middot; Date</div>
+        </div>
+      </div>
+
+      <div class="callout" style="margin-top:26px;border-left-color:var(--gold)">
+        <div class="sub-eyebrow" style="color:var(--gold-dark)">Prepared and issued by</div>
+        <b>Nature&rsquo;s Beauty Construction</b><br>
+        A division of Jenyo Akarakiri Global Enterprise<br>
+        Akure, Ondo State, Nigeria &middot; WhatsApp +234 803 352 8772 &middot; @Natures_beauty_construction
+      </div>
+
+      <div class="foot"><span>Prepared By &amp; Sign-off</span><span>Page 9 &middot; A division of Jenyo Akarakiri Global Enterprise</span></div>
+    </div>
+  </section>
+
+</div>
+</body>
+</html>

@@ -4,7 +4,7 @@
 
 - **Entry point mismatch**: `ui/package.json` declares `"main": "dist/index.cjs.js"` and `"module": "dist/index.esm.js"`, but `tsup` actually emits `dist/index.js` (CJS) and `dist/index.mjs` (ESM). Always pass `--entry ./ui/dist/index.mjs` to the converter explicitly — do NOT rely on `package.json` `module`/`main` for the entry path.
 - **node_modules location**: The package lives at `ui/`, so pass `--node-modules ui/node_modules` to the converter. Run `npm ci` from the `ui/` directory before building if `node_modules` is missing.
-- **Google Fonts runtime**: Lemonada and Nunito are loaded from Google Fonts CDN at runtime — they are not self-hosted. They are suppressed via `cfg.runtimeFontPrefixes`. Do not attempt to source them from the repo.
+- **Google Fonts runtime**: Sora and Work Sans are loaded from Google Fonts CDN at runtime — they are not self-hosted. They are suppressed via `cfg.runtimeFontPrefixes`. Do not attempt to source them from the repo. (Rebranded from Lemonada/Nunito — see CLAUDE.md.)
 - **Tokens are in repo root**: `tokens.css` lives at the repo root (not under `ui/src/`), but `tsup` copies it to `ui/dist/tokens.css` during build. Always ensure a fresh build has been run when re-syncing so `dist/tokens.css` is up to date.
 - **CSS structure**: Component styles in `dist/nb-ui.css` use `var(--*)` custom properties defined in `dist/tokens.css`. Both must be present for styled renders. No CSS-in-JS, no Tailwind.
 - **No provider needed**: Components use pure CSS classes with no React context/theme provider. No `cfg.provider` is required.
@@ -36,6 +36,6 @@ node .ds-sync/resync.mjs --config .design-sync/config.json \
 
 ## Re-sync risks
 
-- `runtimeFontPrefixes` suppresses `[FONT_MISSING]` for Lemonada/Nunito. If the project ever switches to self-hosted fonts, remove those entries and add paths to `cfg.extraFonts` instead.
+- `runtimeFontPrefixes` suppresses `[FONT_MISSING]` for Sora/Work Sans. If the project ever switches to self-hosted fonts, remove those entries and add paths to `cfg.extraFonts` instead.
 - `dist/tokens.css` is a copy of the root-level `tokens.css`. If design tokens change in the root file, the package must be rebuilt before re-sync sees the update.
 - Authored preview compositions in `.design-sync/previews/` assume the current prop APIs. After a major version bump, recheck each `.tsx` against the updated `ui/dist/index.d.ts`.

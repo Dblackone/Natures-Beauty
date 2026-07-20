@@ -6,16 +6,16 @@
  * Or open in Microsoft Word and File → Save As → .docx
  */
 
-@import url('https://fonts.googleapis.com/css2?family=Lemonada:wght@400;600;700&family=Nunito:wght@300;400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Work+Sans:wght@300;400;500;600&display=swap');
 
 /* =========================================================
    Page Setup
    ========================================================= */
 :root {
-    --gold:        #c9912a;
+    --gold:        #c8901a;
     --gold-light:  #e8b96a;
     --gold-pale:   #fdf6e3;
-    --green-dark:  #1e3d2c;
+    --green-dark:  #1f4229;
     --brown-dark:  #2c1f0e;
     --brown:       #5c3d1e;
     --text:        #1a1208;
@@ -28,7 +28,7 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
-    font-family: 'Nunito', sans-serif;
+    font-family: 'Work Sans', sans-serif;
     font-size: 10.5pt;
     color: var(--text);
     background: #fff;
@@ -62,7 +62,7 @@ body {
 }
 
 .lh-name {
-    font-family: 'Lemonada', cursive;
+    font-family: 'Sora', sans-serif;
     font-size: 26pt;
     font-weight: 700;
     color: var(--brown-dark);
@@ -221,7 +221,7 @@ body {
 }
 
 .sig-name {
-    font-family: 'Lemonada', cursive;
+    font-family: 'Sora', sans-serif;
     font-size: 12pt;
     font-weight: 700;
     font-style: italic;
@@ -282,7 +282,7 @@ body {
 }
 
 .lh-footer-brand-name {
-    font-family: 'Lemonada', cursive;
+    font-family: 'Sora', sans-serif;
     font-size: 8pt;
     font-weight: 700;
     font-style: italic;
@@ -460,7 +460,7 @@ body {
 
 /* Section divider in documents */
 .doc-section-title {
-    font-family: 'Lemonada', cursive;
+    font-family: 'Sora', sans-serif;
     font-size: 10pt;
     font-weight: 700;
     color: var(--gold);
@@ -491,21 +491,21 @@ body {
     align-items: center;
     justify-content: space-between;
     z-index: 9999;
-    font-family: 'Nunito', sans-serif;
+    font-family: 'Work Sans', sans-serif;
 }
 .doc-toolbar-title { color: rgba(255,255,255,0.85); font-size: 13px; font-weight: 600; }
 .doc-toolbar-actions { display: flex; gap: 10px; }
 .doc-btn {
     padding: 7px 18px;
     border-radius: 4px;
-    font-family: 'Nunito', sans-serif;
+    font-family: 'Work Sans', sans-serif;
     font-size: 12px;
     font-weight: 700;
     cursor: pointer;
     border: none;
     transition: all 0.2s;
 }
-.doc-btn-print { background: #c9912a; color: #1a1208; }
+.doc-btn-print { background: #c8901a; color: #1b231c; }
 .doc-btn-print:hover { background: #e8b96a; }
 .doc-btn-back  { background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.8); border: 1px solid rgba(255,255,255,0.2); }
 .doc-btn-back:hover  { background: rgba(255,255,255,0.15); }
