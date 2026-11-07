@@ -1,0 +1,112 @@
+{
+  "global": "NaturesBeautyUi",
+  "pkg": "@natures-beauty/ui",
+  "pkgDir": "C:\\Users\\User\\OneDrive\\Documents\\GitHub\\Natures-Beauty\\ui",
+  "extraEntries": [],
+  "exported": [
+    "Alert",
+    "Avatar",
+    "Badge",
+    "Button",
+    "Card",
+    "Checkbox",
+    "Divider",
+    "Input",
+    "Select",
+    "Text",
+    "Textarea"
+  ],
+  "storybookStatic": null,
+  "keyRecipe": 7,
+  "cfgSliceGlobal": "a139d95ad8ab0a8ba08b44a258c54602e36090304087f48fe923c61aa5a8ae08",
+  "components": [
+    {
+      "name": "Alert",
+      "group": "general",
+      "srcSha": null,
+      "sourceKey": "afad23edce1045c4",
+      "cfgSlice": "5ff899b099eb6923833804cda955efdd69101524bec86f67dac5537cd81802e8",
+      "stories": []
+    },
+    {
+      "name": "Avatar",
+      "group": "general",
+      "srcSha": null,
+      "sourceKey": "8893c59f939efa91",
+      "cfgSlice": "5ff899b099eb6923833804cda955efdd69101524bec86f67dac5537cd81802e8",
+      "stories": []
+    },
+    {
+      "name": "Badge",
+      "group": "general",
+      "srcSha": null,
+      "sourceKey": "b86dadbbc16c90d8",
+      "cfgSlice": "5ff899b099eb6923833804cda955efdd69101524bec86f67dac5537cd81802e8",
+      "stories": []
+    },
+    {
+      "name": "Button",
+      "group": "general",
+      "srcSha": null,
+      "sourceKey": "4323de398f3b2dfb",
+      "cfgSlice": "5ff899b099eb6923833804cda955efdd69101524bec86f67dac5537cd81802e8",
+      "stories": []
+    },
+    {
+      "name": "Card",
+      "group": "general",
+      "srcSha": null,
+      "sourceKey": "aa1af66239ba516b",
+      "cfgSlice": "5ff899b099eb6923833804cda955efdd69101524bec86f67dac5537cd81802e8",
+      "stories": []
+    },
+    {
+      "name": "Checkbox",
+      "group": "general",
+      "srcSha": null,
+      "sourceKey": "85b5e8b73021c287",
+      "cfgSlice": "5ff899b099eb6923833804cda955efdd69101524bec86f67dac5537cd81802e8",
+      "stories": []
+    },
+    {
+      "name": "Divider",
+      "group": "general",
+      "srcSha": null,
+      "sourceKey": "aa1b0cb9cc263e1c",
+      "cfgSlice": "5ff899b099eb6923833804cda955efdd69101524bec86f67dac5537cd81802e8",
+      "stories": []
+    },
+    {
+      "name": "Input",
+      "group": "general",
+      "srcSha": null,
+      "sourceKey": "82e47ce80a955084",
+      "cfgSlice": "5ff899b099eb6923833804cda955efdd69101524bec86f67dac5537cd81802e8",
+      "stories": []
+    },
+    {
+      "name": "Select",
+      "group": "general",
+      "srcSha": null,
+      "sourceKey": "88df5f24ce4aa89c",
+      "cfgSlice": "5ff899b099eb6923833804cda955efdd69101524bec86f67dac5537cd81802e8",
+      "stories": []
+    },
+    {
+      "name": "Text",
+      "group": "general",
+      "srcSha": null,
+      "sourceKey": "b3402a4fae0851e4",
+      "cfgSlice": "5ff899b099eb6923833804cda955efdd69101524bec86f67dac5537cd81802e8",
+      "stories": []
+    },
+    {
+      "name": "Textarea",
+      "group": "general",
+      "srcSha": null,
+      "sourceKey": "2a21760e9eb7a844",
+      "cfgSlice": "5ff899b099eb6923833804cda955efdd69101524bec86f67dac5537cd81802e8",
+      "stories": []
+    }
+  ]
+}

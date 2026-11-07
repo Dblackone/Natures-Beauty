@@ -1,0 +1,12 @@
+{
+  "namespace": "NaturesBeautyUi",
+  "source": "@natures-beauty/ui@1.0.0",
+  "shape": "package",
+  "provider": null,
+  "componentCount": 11,
+  "skippedStoryIds": [],
+  "runtimeFontPrefixes": [
+    "Lemonada",
+    "Nunito"
+  ]
+}

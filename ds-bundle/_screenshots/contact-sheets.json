@@ -1,0 +1,18 @@
+[
+  {
+    "sheet": 1,
+    "components": [
+      "Alert",
+      "Avatar",
+      "Badge",
+      "Button",
+      "Card",
+      "Checkbox",
+      "Divider",
+      "Input",
+      "Select",
+      "Text",
+      "Textarea"
+    ]
+  }
+]
